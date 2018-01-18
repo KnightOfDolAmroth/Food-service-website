@@ -20,12 +20,12 @@ if ($conn->connect_error) {
 <body>
 <div id="log_form" class="modal">
   
-  <form class="modal-content animate" action="/login.html" method="post">
+  <form class="modal-content animate" action="./login.php" method="get">
     <div class="container">
-      <label><b>Username</b></label>
+      <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
 
-      <label><b>Password</b></label>
+      <label for="pwd"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="pwd" id="pwd" required>
         
       <button type="submit" id="accedi1">Accedi</button>
@@ -44,19 +44,19 @@ if ($conn->connect_error) {
 
 <div id="reg_form" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="./login.php" method="get">
     <div class="container">
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="new_uname" required>
 
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="new_psw" required>
 	  
 	  <label><b>Repeat Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="new_rep_psw" required>
      
       <button type="submit" id="accedi2">Submit</button>
-	  <button type="button" onclick="window.location.href='./login.html'" id="cancel">Cancel</button>
+	  <button type="button" onclick="window.location.href='./login.php'" id="cancel">Cancel</button>
       <label>
         <input type="checkbox" checked="checked"> Remember me
 		<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
@@ -69,6 +69,7 @@ if ($conn->connect_error) {
 
 <?php
 		if (isset($_REQUEST["uname"]) && isset($_REQUEST["pwd"])) {
+			echo "PRIMO LIVELLO";
 			$user = $_REQUEST["uname"];
 			$pwd = $_REQUEST["pwd"];
 			$sql = "SELECT *
@@ -76,11 +77,16 @@ if ($conn->connect_error) {
 				WHERE nome = $user
 				AND cognome = $pwd";
 			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+			$values = array();
+			$values[] = $row["nome"];
+			$values[] = $row["cognome"];
+			var_dump($values);
 			$conn->close();
-			if ($result === NULL) {
-				window.location.href='./login.html';
+			if (true) {
+				echo "welcome";
 			} else {
-				window.location.href='./user_home.html';
+				echo "retry";
 			}
 		}
 	?>
