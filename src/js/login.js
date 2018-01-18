@@ -12,4 +12,6 @@ function registration() {
 	console.log("Hello World");
 	document.getElementById("log_form").style.display="none";
 	document.getElementById("reg_form").style.display="block";
+	document.getElementById("submit2").style.width="40%";
+	document.getElementById("cancel").style.width="40%";
 }
