@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 <body>
 <div id="log_form" class="modal">
   
-  <form class="modal-content animate" action="./login.php" method="get">
+  <form class="modal-content animate" action="./login.php" method="post">
     <div class="container">
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
@@ -44,7 +44,7 @@ if ($conn->connect_error) {
 
 <div id="reg_form" class="modal">
   
-  <form class="modal-content animate" action="./login.php" method="get">
+  <form class="modal-content animate" action="./login.php" method="post">
     <div class="container">
       <label><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="new_uname" required>
@@ -69,24 +69,19 @@ if ($conn->connect_error) {
 
 <?php
 		if (isset($_REQUEST["uname"]) && isset($_REQUEST["pwd"])) {
-			echo "PRIMO LIVELLO";
 			$user = $_REQUEST["uname"];
 			$pwd = $_REQUEST["pwd"];
-			$sql = "SELECT *
+			$sql = "SELECT nome, cognome
 				FROM studenti
-				WHERE nome = $user
-				AND cognome = $pwd";
-			$result = $conn->query($sql);
-			$row = $result->fetch_assoc();
-			$values = array();
-			$values[] = $row["nome"];
-			$values[] = $row["cognome"];
-			var_dump($values);
+				WHERE nome = '$user'
+				AND cognome = '$pwd'";
+			$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 			$conn->close();
-			if (true) {
-				echo "welcome";
+			$row = $result->fetch_assoc();
+			if ($row["nome"] === $user && $row["cognome"] === $pwd) {
+				header('Location: ./user_home.html');
 			} else {
-				echo "retry";
+				header('Location: ./login.php');
 			}
 		}
 	?>
