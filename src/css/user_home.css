@@ -1,0 +1,81 @@
+header {
+    background-color: #00004d;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+header > button {
+  color: black;
+}
+
+article > * {
+  box-sizing: border-box;
+  background-color: #cccccc;
+}
+
+article {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column;
+   flex-direction: column;
+}
+
+.ordinazioni, .servizi {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column;
+   flex-direction: column;
+}
+
+.listino, .preferiti, .statistiche, .storico {
+  padding: 15px;
+}
+
+@media screen and (min-width: 600px){
+  article {
+   -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+  .ordinazioni {
+    -webkit-flex: 1;
+    order: 1;
+  }
+  .servizi {
+    -webkit-flex: 1;
+    order: 2;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .ordinazioni {
+    -webkit-flex-direction: row;
+     flex-direction: row;
+  }
+
+  .listino {
+    -webkit-flex: 1;
+    order: 1;
+  }
+
+  .preferiti {
+    -webkit-flex: 1;
+    order: 2;
+  }
+
+  .servizi {
+    -webkit-flex-direction: row;
+     flex-direction: row;
+  }
+
+  .statistiche {
+    -webkit-flex: 1;
+    order: 1;
+  }
+
+  .storico {
+    -webkit-flex: 1;
+    order: 2;
+  }
+}
