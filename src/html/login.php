@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 <body>
 <div id="log_form" class="modal">
   
-  <form class="modal-content animate" action="./login.php" method="post">
+  <form class="modal-content animate" action="./user_home.html" method="post">
     <div class="container">
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
