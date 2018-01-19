@@ -10,6 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+<!-- Lo username può essere reperito in $_REQUEST con parametro "uname" -->
+
 <body>
   <nav class="navbar fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -44,7 +46,7 @@
   </nav>
 
   <header>
-    <h1>BENVENUTO, username</h1>
+    <h1>BENVENUTO, <?php $username=$_REQUEST['uname']; $username=strtoupper($username); echo $username; ?></h1>
     <h3>Hai accumulato: x punti</h3>
     <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
   </header>
