@@ -9,6 +9,8 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
 	die("Connection failed: " .$conn->connect_error);
 }
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +95,8 @@ if ($conn->connect_error) {
 			echo "$pwd";
 			$row = $result->fetch_assoc();
 			if ($row["username"] === $user && $row["password"] === $pwd) {
-				header('Location: ./user_home.html');
+				$_SESSION["username"] = $user;
+				header('Location: ./user_home.php');
 			} else {
 				header('Location: ./login.php');
 			}

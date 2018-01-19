@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +50,7 @@
   </nav>
 
   <header>
-    <h1>BENVENUTO, <?php $username=$_REQUEST['uname']; $username=strtoupper($username); echo $username; ?></h1>
+    <h1>BENVENUTO, <?php $username=$_SESSION['username']; $username=strtoupper($username); echo $username; ?></h1>
     <h3>Hai accumulato: x punti</h3>
     <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
   </header>
