@@ -8,8 +8,12 @@ window.onclick = function(event) {
     }
 }
 
+function forgot_pwd() {
+	document.getElementById("log_form").style.display="none";
+	document.getElementById("forgot_pwd_form").style.display="block";
+}
+
 function registration() {
-	console.log("Hello World");
 	document.getElementById("log_form").style.display="none";
 	document.getElementById("reg_form").style.display="block";
 }
