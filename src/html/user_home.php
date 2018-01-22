@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <title>Home Utente</title>
   <meta charset="utf-8">
@@ -52,7 +52,7 @@
   <header>
     <h1>BENVENUTO, <?php $username=$_SESSION['username']; $username=strtoupper($username); echo $username; ?></h1>
     <h3>Hai accumulato: x punti</h3>
-    <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
+    <button type="button" onclick="window.location.href='./fidelity_discount.html'"> Dai un'occhiata agli sconti fedeltà </button>
   </header>
 
   <article>

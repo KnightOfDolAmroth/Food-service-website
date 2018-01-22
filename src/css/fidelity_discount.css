@@ -1,0 +1,65 @@
+header {
+    background-color: #00004d;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.discount_list {
+  text-align: center;
+}
+
+.discount_list section {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  background-color: #4040bf;
+  color: #ffffff;
+  text-align: center;
+}
+
+article > * {
+  box-sizing: border-box;
+  background-color: #cccccc;
+}
+
+article {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column;
+   flex-direction: column;
+}
+
+.ordinazioni {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column;
+   flex-direction: column;
+}
+
+.listino, .preferiti {
+  padding: 15px;
+}
+
+/*@media only screen and (min-width: 600px) {
+  .ordinazioni {
+    -webkit-flex-direction: row;
+     flex-direction: row;
+  }
+
+  .listino {
+    -webkit-flex: 1;
+    order: 1;
+  }
+
+  .preferiti {
+    -webkit-flex: 1;
+    order: 2;
+  }
+
+  #problem {
+    margin-right: 15px;
+  }
+}*/
