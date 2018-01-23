@@ -12,6 +12,22 @@ if ($conn->connect_error) {
 
 session_start();
 set_time_limit(60);
+
+if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
+	$usr = $_COOKIE['username'];
+	$sql0 = "SELECT password
+			FROM utente
+			WHERE username = '$usr'";
+	$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
+	$row = $result->fetch_assoc();
+	
+	if ($row["password"] === $_COOKIE["password"]) {
+		$conn->close();
+		$_SESSION["username"] = $_COOKIE["username"];
+		$_SESSION["password"] = $_COOKIE["password"];
+		header('Location: ./user_home.php');
+	}	
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +50,9 @@ set_time_limit(60);
       <input type="password" placeholder="Enter Password" name="pwd" id="pwd" required>
         
       <button type="submit" id="accedi1">Accedi</button>
-	  <button id="registrati" onclick="registration()" >Registrati</button>
+	  <button type="reset" id="registrati" onclick="registration()" >Registrati</button>
       <label>
-        <input type="checkbox" checked="checked"> Remember me
+        <input type="checkbox" checked="checked" name="rememberme" id="rememberme" value="1" > Remember me
       </label>
     </div>
 
@@ -108,6 +124,10 @@ set_time_limit(60);
 			echo $row["password"];
 			if ($row["username"] === $user && $row["password"] === $pwd) {
 				$_SESSION["username"] = $user;
+				$_SESSION["password"] = $row["password"];
+				if (isset($_REQUEST['rememberme'])) {
+					$_SESSION["rememberme"] = $_REQUEST['rememberme'];
+				}
 				header('Location: ./user_home.php');
 			} else {
 				header('Location: ./login.php');

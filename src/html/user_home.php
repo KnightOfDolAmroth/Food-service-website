@@ -1,9 +1,18 @@
 <?php
 	session_start();
+	ob_start();
+	if (isset($_SESSION['rememberme'])) {
+		setcookie('username', $_SESSION['username'], time()+60*60*24*365);
+		setcookie('password', $_SESSION['password'], time()+60*60*24*365);
+	} else {
+		setcookie('username', $_SESSION['username'], time());
+		setcookie('password', $_SESSION['password'], time());
+	}
+	ob_end_flush();
 ?>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <title>Home Utente</title>
   <meta charset="utf-8">
@@ -25,7 +34,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">La Malaghiotta</a>
+        <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
@@ -43,7 +52,7 @@
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -52,7 +61,7 @@
   <header>
     <h1>BENVENUTO, <?php $username=$_SESSION['username']; $username=strtoupper($username); echo $username; ?></h1>
     <h3>Hai accumulato: x punti</h3>
-    <button type="button" onclick="window.location.href='./fidelity_discount.html'"> Dai un'occhiata agli sconti fedeltà </button>
+    <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
   </header>
 
   <article>
