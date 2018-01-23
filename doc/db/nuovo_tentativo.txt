@@ -1,0 +1,159 @@
+-- ***************************
+-- * Standard SQL generation *
+-- ***************************
+
+
+-- Database Section
+-- ________________
+
+create database LOGICO;
+
+
+-- TableSpace Section
+-- __________________
+
+-- Table Section
+-- _____________
+
+create table aggiunta_ordine (
+	id_ingrediente char(5) not null,
+	id_dettaglio char(5) not null,
+	primary key (id_dettaglio, id_ingrediente));
+
+create table DETTAGLIO_ORDINE (
+	id_dettaglio char(5) not null,
+	qta numeric(3) not null,
+	codice_ordine char(10) not null,
+	id_prodotto char(5) not null,
+	id_impasto char(5),
+	primary key (id_dettaglio));
+
+create table IMPASTO (
+	id_impasto char(5) not null,
+	nome_impasto char(20) not null,
+	prezzo float(5) not null,
+	primary key (id_impasto));
+
+create table INGREDIENTE (
+	id_ingrediente char(5) not null,
+	nome_ingrediente char(30) not null,
+	note_ingrediente char(60) not null,
+	prezzo_aggiunta float(2) not null,
+	vegetariano char not null,
+	vegano char not null,
+	halal char not null,
+	gluten_free char not null,
+	primary key (id_ingrediente));
+
+create table ingredienti_pietanza (
+	id_ingrediente char(5) not null,
+	id_prodotto char(5) not null,
+	primary key (id_ingrediente, id_prodotto));
+
+create table ORDINE (
+	codice_ordine char(10) not null,
+	data date not null,
+	indirizzo_recapito char(30) not null,
+	nome_campanello char(20) not null,
+	stato char(20) not null,
+	username char(20) not null,
+	primary key (codice_ordine));
+
+create table preferisce (
+	id_prodotto char(5) not null,
+	username char(20) not null,
+	primary key (id_prodotto, username));
+
+create table PRODOTTO (
+	id_prodotto char(5) not null,
+	nome_prodotto char(30) not null,
+	prezzo_base float(5) not null,
+	tipo char(20) not null,
+	primary key (id_prodotto));
+
+create table recensisce (
+	id_prodotto char(5) not null,
+	username char(20) not null,
+	voto numeric(1) not null,
+	commento char(140) not null,
+	primary key (id_prodotto, username));
+
+create table TIPOLOGIA (
+	tipo char(20) not null,
+	descrizione char(50) not null,
+	primary key (tipo));
+
+create table UTENTE (
+	username char(20) not null,
+	password char(30) not null,
+	email char(40) not null,
+	telefono char(10) not null,
+	punti numeric(4) not null,
+	salt char(32) not null,
+	primary key (username),
+	unique (email));
+
+
+-- Constraints Section
+-- ___________________
+
+alter table aggiunta_ordine add constraint FKagg_DET
+	foreign key (id_dettaglio)
+	references DETTAGLIO_ORDINE;
+
+alter table aggiunta_ordine add constraint FKagg_ING
+	foreign key (id_ingrediente)
+	references INGREDIENTE;
+
+alter table DETTAGLIO_ORDINE add constraint FKdescrive
+	foreign key (codice_ordine)
+	references ORDINE;
+
+alter table ORDINE add constraint 
+	check(exist(select * from DETTAGLIO_ORDINE
+	            where DETTAGLIO_ORDINE.codice_ordine = codice_ordine));
+
+alter table DETTAGLIO_ORDINE add constraint FKcompare
+	foreign key (id_prodotto)
+	references PRODOTTO;
+
+alter table DETTAGLIO_ORDINE add constraint FKincluso
+	foreign key (id_impasto)
+	references IMPASTO;
+
+alter table ingredienti_pietanza add constraint FKcontiene
+	foreign key (id_prodotto)
+	references PRODOTTO;
+
+alter table ingredienti_pietanza add constraint FKinclude
+	foreign key (id_ingrediente)
+	references INGREDIENTE;
+
+alter table ORDINE add constraint FKfa
+	foreign key (username)
+	references UTENTE;
+
+alter table preferisce add constraint FKpre_UTE
+	foreign key (username)
+	references UTENTE;
+
+alter table preferisce add constraint FKpre_PIE
+	foreign key (id_prodotto)
+	references PRODOTTO;
+
+alter table PRODOTTO add constraint FKappartiene
+	foreign key (tipo)
+	references TIPOLOGIA;
+
+alter table recensisce add constraint FKrec_UTE
+	foreign key (username)
+	references UTENTE;
+
+alter table recensisce add constraint FKrec_PRO
+	foreign key (id_prodotto)
+	references PRODOTTO;
+
+
+-- Index Section
+-- _____________
+
