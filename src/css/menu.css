@@ -1,0 +1,117 @@
+
+/* Animation.css*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+.tab-img{
+  max-height:50px;
+  max-width:50px;
+}
+
+.card-title{
+  margin-top: 10;
+  font-size: 170%;
+}
+
+
+.bkg img{
+  width: 100%;
+}
+.navbar{
+  margin-bottom: 0%;
+}
+
+.tab-elements{
+  text-align: center;
+}
+#tablist{
+  background-color: #101010;
+}
+@media screen and (min-width:650px) {
+  #tablist{
+    display: flex;
+    justify-content: center;
+  }
+}
+.tab-elements h1{
+  color: #3B4E6F;
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  line-height: 52px;
+  margin: 0 0 20px;
+    background-color: white;
+    padding: 3%;
+}
+
+body{
+  background-color: #101010;
+}
+
+.card-img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.card-container{
+  margin-top:10%;
+}
+
+.card{
+  border-radius: 3%;
+  border: solid;
+  border-width: thin;
+  align-items: center;
+  background-color: white;
+}
+
+.card-body{
+  text-align: center;
+}
+
+
+.glyphicon{
+  color: white;
+}
+
+.btn-container{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 25%;
+  justify-content: space-around;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  background-color:#182944;
+  border-style: hidden;
+}
+
+.btn-circle:hover{
+  background-color:#e8edf4;
+  border-style: solid;
+  border-width: thin;
+  border-color: #101010;
+}
+
+.card-body{
+  height: 130px;
+}
+
+.card{
+  padding: 2%;
+}
+.checkout-details{
+  display: flex;
+justify-content: space-between;
+  align-items: center;
+  padding-bottom: 3%;
+}
+
+.price{
+  color: red;
+  font-size: 150%;
+}
