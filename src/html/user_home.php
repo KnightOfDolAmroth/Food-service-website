@@ -51,8 +51,7 @@
 
   <header>
     <h1>BENVENUTO, <?php $username=$_SESSION['username']; $username=strtoupper($username); echo $username; ?></h1>
-    <h3>Hai accumulato: x punti</h3>
-    <button type="button" onclick="window.location.href='./fidelity_discount.html'"> Dai un'occhiata agli sconti fedeltà </button>
+    <h3>Hai accumulato: <?php $points=$_SESSION['punti']; echo $points; ?> punti</h3>
   </header>
 
   <article>
