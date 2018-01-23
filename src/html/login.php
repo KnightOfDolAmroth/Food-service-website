@@ -11,6 +11,7 @@ if ($conn->connect_error) {
 }
 
 session_start();
+set_time_limit(60);
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +19,10 @@ session_start();
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+ <script src="../js/login.js" type="text/javascript"></script>
 </head>
 <body>
+
 <div id="log_form" class="modal">
   
   <form class="modal-content animate" action="./login.php" method="post">
@@ -39,7 +42,7 @@ session_start();
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="window.location.href='./homepage.html'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="psw">Forgot <a onclick="forgot_pwd()" style="cursor: pointer; cursor: hand;">password?</a></span>
     </div>
   </form>
 </div>
@@ -48,12 +51,6 @@ session_start();
   
   <form class="modal-content animate" method="post">
     <div class="container">
-	  <label for="new_name"><b>Nome</b></label>
-      <input type="text" placeholder="Enter name" name="new_name" id="new_name" required>
-	  
-	  <label for="new_surname"><b>Cognome</b></label>
-      <input type="text" placeholder="Enter surname" name="new_surname" id="new_surname" required>
-	  
 	  <label for="new_mail"><b>Mail</b></label>
       <input type="email" placeholder="Enter mail" name="new_mail" id="new_mail" required>
 	  
@@ -79,21 +76,36 @@ session_start();
   </form>
 </div>
 
-<script src="../js/login.js" type="text/javascript"></script>
+<div id="forgot_pwd_form" class="modal">
+  
+  <form class="modal-content animate" action="./login.php" method="post">
+    <div class="container">
+      <label for="mail_fp"><b>Mail</b></label>
+      <input type="email" placeholder="Enter mail" name="mail_fp" id="mail_fp" required>
+        
+      <button type="submit" id="accedi1">Invia</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="window.location.href='./login.php'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
 
 <?php
 		if (isset($_REQUEST["uname"]) && isset($_REQUEST["pwd"])) {
 			$user = $_REQUEST["uname"];
-			$pwd = $_REQUEST["pwd"];
-			$sql = "SELECT username, password
+			$sql = "SELECT username, password, salt
 				FROM utente
-				WHERE username = '$user'
-				AND password = '$pwd'";
+				WHERE username = '$user'";
 			$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 			$conn->close();
-			echo "$user";
-			echo "$pwd";
 			$row = $result->fetch_assoc();
+			$pwd = $_REQUEST["pwd"].$row["salt"];
+			$pwd = substr(sha1($pwd),0,32);
+			echo $pwd;
+			echo "    ";
+			echo $row["password"];
 			if ($row["username"] === $user && $row["password"] === $pwd) {
 				$_SESSION["username"] = $user;
 				header('Location: ./user_home.php');
@@ -104,27 +116,28 @@ session_start();
 	?>
 	
 <?php
-		if (isset($_REQUEST["new_name"]) && isset($_REQUEST["new_surname"]) && isset($_REQUEST["new_mail"]) && isset($_REQUEST["new_telephone"])
-			&& isset($_REQUEST["new_uname"]) && isset($_REQUEST["new_psw"]) && isset($_REQUEST["new_rep_psw"])) {
+		if (isset($_REQUEST["new_mail"]) && isset($_REQUEST["new_telephone"]) && isset($_REQUEST["new_uname"])
+			&& isset($_REQUEST["new_psw"]) && isset($_REQUEST["new_rep_psw"])) {
 			
 			if ($_REQUEST["new_psw"] === $_REQUEST["new_rep_psw"]) {
 				$username = $_REQUEST["new_uname"];
-				$password = $_REQUEST["new_psw"];
+				$email = $_REQUEST["new_mail"];
 			
 				$sql1 = "SELECT *
 					FROM utente
 					WHERE username = '$username'
-					OR password = '$password'";
+					OR email = '$email'";
 				$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 				
 				if($result->num_rows === 0) {
-					$email = $_REQUEST["new_mail"];
 					$telephone = $_REQUEST["new_telephone"];
-					$nome = $_REQUEST["new_name"];
-					$cognome = $_REQUEST["new_surname"];
+					$punti = 0;
+					$salt = substr(md5(microtime()),rand(0,26),32);
+					$password = $_REQUEST["new_psw"].$salt;
+					$password = sha1($password);
 					
-					$sql2 = "INSERT INTO utente(username, password, email, nome, cognome, telefono)
-						VALUES ('$username', '$password', '$email', '$nome', '$cognome', '$telephone')";
+					$sql2 = "INSERT INTO utente(username, password, email, telefono, punti, salt)
+						VALUES ('$username', '$password', '$email', '$telephone', '$punti', '$salt')";
 					$conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 					
 					header('Location: ./login.php');
@@ -135,7 +148,36 @@ session_start();
 				echo "PASSWORD E CONFERMA PASSWORD NON COMBACIANO";
 			}
 		}
-	?>	
+	?>
+	
+<?php
+		if (isset($_REQUEST["mail_fp"])) {
+			$email = $_REQUEST["mail_fp"];
+			$sql3 = "SELECT email, password, salt
+				FROM utente
+				WHERE email = '$email'";
+			$result = $conn->query($sql3) or trigger_error($conn->error."[$sql]");
+			$row = $result->fetch_assoc();
+			if ($row["email"] === $email) {
+				$new_pwd = substr(md5(microtime()),rand(0,26),10);				
+				$subject = "Your Recovered Password";
+				$message = "Please use this new password to login: ".$new_pwd;
+				$headers = "From: prova@unibo.it";
+				if(mail($row["email"], $subject, $message, $headers)) {
+					$pass = $new_pwd.$row["salt"];
+					$pass = substr(sha1($pass),0,32);
+					$sql4 = "UPDATE utente
+						SET password = '$pass'
+						WHERE email = '$email'";
+					$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+					//header('Location: ./login.php');
+				} else {
+					echo "ERRORE INVIO MAIL";
+				}
+			}
+			$conn->close();
+		}
+	?>
 	
 </body>
 </html>

@@ -85,7 +85,7 @@ create table TIPOLOGIA (
 
 create table UTENTE (
 	username char(20) not null,
-	password char(30) not null,
+	password char(32) not null,
 	email char(40) not null,
 	telefono char(10) not null,
 	punti numeric(4) not null,
