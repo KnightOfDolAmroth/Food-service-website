@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 session_start();
-set_time_limit(60);
+set_time_limit(30);
 
 if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 	$usr = $_COOKIE['username'];
@@ -99,7 +99,7 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
       <label for="mail_fp"><b>Mail</b></label>
       <input type="email" placeholder="Enter mail" name="mail_fp" id="mail_fp" required>
         
-      <button type="submit" id="accedi1">Invia</button>
+      <button type="submit" id="accedi3">Invia</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -126,7 +126,9 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 				$_SESSION["username"] = $user;
 				$_SESSION["password"] = $row["password"];
 				if (isset($_REQUEST['rememberme'])) {
-					$_SESSION["rememberme"] = $_REQUEST['rememberme'];
+					$_SESSION["rememberme"] = true;
+				} else {
+					$_SESSION["rememberme"] = false;
 				}
 				header('Location: ./user_home.php');
 			} else {
@@ -159,7 +161,7 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 					$sql2 = "INSERT INTO utente(username, password, email, telefono, punti, salt)
 						VALUES ('$username', '$password', '$email', '$telephone', '$punti', '$salt')";
 					$conn->query($sql2) or trigger_error($conn->error."[$sql2]");
-					
+					$conn->close();
 					header('Location: ./login.php');
 				} else {
 					echo "ESISTE GIÀ UN UTENTE CON STESSO USERNAME O EMAIL";
@@ -172,28 +174,32 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 	
 <?php
 		if (isset($_REQUEST["mail_fp"])) {
+			echo "LETTURA DB";
 			$email = $_REQUEST["mail_fp"];
 			$sql3 = "SELECT email, password, salt
 				FROM utente
 				WHERE email = '$email'";
-			$result = $conn->query($sql3) or trigger_error($conn->error."[$sql]");
+			$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
 			$row = $result->fetch_assoc();
+			echo "DB LETTO";
 			if ($row["email"] === $email) {
 				$new_pwd = substr(md5(microtime()),rand(0,26),10);				
 				$subject = "Your Recovered Password";
 				$message = "Please use this new password to login: ".$new_pwd;
 				$headers = "From: prova@unibo.it";
-				if(mail($row["email"], $subject, $message, $headers)) {
+				if(mail($email, $subject, $message, $headers)) {
 					$pass = $new_pwd.$row["salt"];
 					$pass = substr(sha1($pass),0,32);
 					$sql4 = "UPDATE utente
 						SET password = '$pass'
 						WHERE email = '$email'";
 					$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
-					//header('Location: ./login.php');
+					echo "MAIL INVIATA";
+					header('Location: ./login.php');
 				} else {
 					echo "ERRORE INVIO MAIL";
 				}
+				echo "MAIL PREPARATA";
 			}
 			$conn->close();
 		}

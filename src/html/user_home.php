@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	ob_start();
-	if (isset($_SESSION['rememberme'])) {
+	if (isset($_SESSION['rememberme']) && $_SESSION['rememberme'] === true) {
 		setcookie('username', $_SESSION['username'], time()+60*60*24*365);
 		setcookie('password', $_SESSION['password'], time()+60*60*24*365);
 	} else {
