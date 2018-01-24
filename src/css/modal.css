@@ -12,39 +12,6 @@
 }
 
 
-.bkg img{
-  width: 100%;
-}
-.navbar{
-  margin-bottom: 0%;
-}
-
-.tab-elements{
-  text-align: center;
-}
-#tablist{
-  background-color: #101010;
-}
-@media screen and (min-width:650px) {
-  #tablist{
-    display: flex;
-    justify-content: center;
-  }
-}
-.tab-elements h1{
-  color: #3B4E6F;
-  font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  line-height: 52px;
-  margin: 0 0 20px;
-    background-color: white;
-    padding: 3%;
-}
-
-body{
-  background-color: #101010;
-}
-
 .card-img{
   height: 170px;
   width: 250px;
@@ -55,11 +22,16 @@ body{
 }
 
 .card{
-  border-radius: 3%;
+  display: flex;
+  justify-content: space-around;
   border: solid;
-  border-width: thin;
-  align-items: center;
-  background-color: white;
+
+}
+
+.supp-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .card-body{

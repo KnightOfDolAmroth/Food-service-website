@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../css/modal.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
+          </div>
+          <div class="modal-body">
+                  <div class="card-container">
+                    <div class="card">
+                        <img class="card-img img-rounded" src="../../img/placeholder.jpg" alt="immagine prodotto">
+                        <div class="card-body">
+                            <h2 class="card-title">Frutti di porco</h4>
+                            <p class="card-text">Prosciutto cotto, prosciutto crudo, salame, pancetta, speck, ciccioli, lardo, speck, cubetti di strutto, zampone, mortadella, olio di palma</p>
+                        </div> <!--end product-->
+                </div>
+
+                  <div class="supplements">
+                      <fieldset class="supp-list">
+                         <legend>Aggiunte</legend><br>
+                             <input type="checkbox" name="rucola" value="rucola"/> rucola
+                             <input type="checkbox" name="pomodorini" value="pomodorini"/> pomodorini
+                             <input type="checkbox" name="prosciutto crudo" value="prosciutto crudo"/> prosciutto crudo
+                             <input type="checkbox" name="funghi" value="funghi"/> funghi
+                             <input type="checkbox" name="fontina" value="fontina"/> pomodorini
+                             <input type="checkbox" name="peperoni" value="peperoni"/> peperoni
+                             <input type="checkbox" name="gorgonzola" value="gorgonzola"/> gorgonzola
+                             <input type="checkbox" name="salame piccante" value="salame piccante"/> salame piccante
+                             <input type="checkbox" name="taleggio" value="taleggio"/> taleggio
+                             <input type="checkbox" name="speck" value="speck"/> speck
+                             <input type="checkbox" name="patate" value="patate"/> patate
+                             <input type="checkbox" name="mozzarella" value="mozzarella"/> mozzarella
+                      </fieldset>
+                  </div>                
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
