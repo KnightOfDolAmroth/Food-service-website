@@ -31,6 +31,7 @@
     justify-content: center;
   }
 }
+
 .tab-elements h1{
   color: #3B4E6F;
   font-family: 'Lato', sans-serif;
@@ -46,9 +47,9 @@ body{
 }
 
 .card-img{
-  height: 170px;
-  width: 250px;
+  width: 100%;
 }
+
 
 .card-container{
   margin-top:10%;
@@ -114,4 +115,43 @@ justify-content: space-between;
 .price{
   color: red;
   font-size: 150%;
+}
+/*media x card images*/
+
+@media screen and (min-width:770px) {
+  .card-img{
+    height: 205px;
+  }
+}
+
+
+@media screen and (max-width:769px) {
+  .card-img{
+    height: 475px;
+  }
+}
+
+
+@media screen and (max-width:675px) {
+  .card-img{
+    height: 400px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .card-img{
+    height: 300px;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .card-img{
+    height: 250px;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .card-img{
+    height: 200px;
+  }
 }
