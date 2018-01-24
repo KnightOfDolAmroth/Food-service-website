@@ -9,10 +9,6 @@ if ($conn->connect_error) {
 	die("Connection failed: " .$conn->connect_error);
 }
 
-$sql0 = " SELECT *
-		FROM prodotto";
-$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
-
 session_start();
 ?>
 
@@ -123,9 +119,13 @@ session_start();
                   <div class="row">
 							
 				  <?php
+					
+					$sql0 = " SELECT *
+							FROM prodotto";
+					$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
+
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							//include('./card.html');
 							echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
 							echo "<div class='"."card-container"."'>";
 							echo "<div class='"."card"."'>";
@@ -152,6 +152,32 @@ session_start();
         <div class="tab-elements">
           <div class="title-element">
             <h1>Le nostre piadine</h1>
+			
+			<?php
+				$sql1 = " SELECT *
+						FROM prodotto
+						WHERE tipo='Piadina'";
+				$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
+			
           </div>
         </div>
       </div>
@@ -160,6 +186,30 @@ session_start();
         <div class="tab-elements">
           <div class="title-element">
             <h1>I nostri crescioni</h1>
+			<?php
+				$sql2 = " SELECT *
+						FROM prodotto
+						WHERE tipo='Crescione'";
+				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
           </div>
         </div>
       </div>
@@ -168,6 +218,30 @@ session_start();
         <div class="tab-elements">
           <div class="title-element">
             <h1>I nostri rotoli</h1>
+			<?php
+				$sql3 = " SELECT *
+						FROM prodotto
+						WHERE tipo='Rotolo'";
+				$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
           </div>
         </div>
       </div>
@@ -175,6 +249,30 @@ session_start();
         <div class="tab-elements">
           <div class="title-element">
             <h1>Altre specialità</h1>
+			<?php
+				$sql4 = " SELECT *
+						FROM prodotto
+						WHERE tipo='Altro'";
+				$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
           </div>
         </div>
       </div>
@@ -182,6 +280,30 @@ session_start();
         <div class="tab-elements">
           <div class="title-element">
             <h1>Le nostre bibite</h1>
+			<?php
+				$sql5 = " SELECT *
+						FROM prodotto
+						WHERE tipo='Bibite'";
+				$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
           </div>
         </div>
       </div>
