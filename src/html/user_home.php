@@ -61,8 +61,7 @@
 											WHERE username = '$username'";
 											$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 											$row = $result->fetch_assoc();
-											$punti = $row["punti"];
-											echo $points; ?><br/>
+											$punti = $row["punti"];?><br/>
 
 					      	<label for="old"><b>Password corrente: </b></label>
 					      	<input type="password" placeholder="Enter Password" name="pwd" id="old" required>
@@ -97,9 +96,8 @@
   </nav>
 
   <header>
-    <h1>BENVENUTO, <?php $username=strtoupper($username); echo $username; ?></h1>
-    <h3>Hai accumulato: <?php echo $points; ?> punti</h3>
-    <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
+    <h1>Benvenuto, <?php echo $username; ?></h1>
+    <h3>Hai accumulato: <?php echo $punti; ?> punti</h3>
   </header>
 
   <article>
