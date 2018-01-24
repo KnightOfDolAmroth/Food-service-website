@@ -37,11 +37,36 @@
 
                   <div class="supplements">
 
-                    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                      Aggiunte
-                    </button>
+                    <div class="form-inline">
+                      <div class="form-group">
+                       <label for="imp">Impasto:</label>
+                       <select class="selectpicker" id="imp">
+                         <option>classico</option>
+                         <option>farro</option>
+                         <option>integrale</option>
+                         <option>olio d'oliva</option>
+                       </select>
+                     </div>
 
-                    <div class="collapse" id="collapseExample">
+
+                        <div class="form-group">
+                         <label for="qta">Quantità</label>
+                         <select class="selectpicker" id="qta">
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                         </select>
+                       </div>
+
+                      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse-supp" aria-expanded="false" aria-controls="collapse-supp">
+                        Aggiunte (0,50€)
+                      </button>
+
+                    </div>
+
+                    <div class="collapse" id="collapse-supp">
                       <div class="well">
                           <div class="supp-container"></div>
                           <form class="supplements-list">
@@ -50,7 +75,16 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">canarino</span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">canarino</span>
+                                  </label>
+                                </div>
+                              </div>
+
+                        <!--Si può cancellare da qui...-->
+                              <div class="col-sm-4 col-md-3">
+                                <div class="form-check">
+                                  <label class="supp-label">
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">carciofo  </span>
                                   </label>
                                 </div>
                               </div>
@@ -58,7 +92,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">carciofo  </span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">mela  </span>
                                   </label>
                                 </div>
                               </div>
@@ -66,7 +100,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">mela  </span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">tentacolo</span>
                                   </label>
                                 </div>
                               </div>
@@ -74,7 +108,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">tentacolo</span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">salame</span>
                                   </label>
                                 </div>
                               </div>
@@ -82,7 +116,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">salame</span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">giacomo</span>
                                   </label>
                                 </div>
                               </div>
@@ -90,7 +124,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">giacomo</span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">gomorra  </span>
                                   </label>
                                 </div>
                               </div>
@@ -98,7 +132,7 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">gomorra  </span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">ciao  </span>
                                   </label>
                                 </div>
                               </div>
@@ -106,18 +140,10 @@
                               <div class="col-sm-4 col-md-3">
                                 <div class="form-check">
                                   <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">ciao  </span>
+                                    <input type="checkbox" name="check" unchecked> <span class="label-text">fuffa  </span>
                                   </label>
                                 </div>
-                              </div>
-
-                              <div class="col-sm-4 col-md-3">
-                                <div class="form-check">
-                                  <label class="supp-label">
-                                    <input type="checkbox" name="check" checked> <span class="label-text">fuffa  </span>
-                                  </label>
-                                </div>
-                              </div>
+                              </div> <!-- ...a qui-->
                         </form>
 
                         </div>
@@ -131,8 +157,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+              <button type="button" class="btn btn-primary">Aggiungi</button>
             </div>
           </div>
         </div>

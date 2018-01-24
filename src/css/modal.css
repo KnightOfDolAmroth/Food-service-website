@@ -6,12 +6,29 @@
   max-width:50px;
 }
 
+#collapse-supp{
+  padding-top: 2%;
+}
 .card-title{
   margin-top: 10;
   font-size: 170%;
 }
 
+.modal-body{
+  display: flex;
+  justify-content: space-around;
+}
 
+.modal-title{
+  font-size: 30px;
+  text-align: center;
+}
+
+.form-inline{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
 .card-img{
   height: 170px;
   width: 250px;
@@ -24,8 +41,7 @@
 .card{
   display: flex;
   justify-content: space-around;
-  border: solid;
-
+  padding-bottom: 10%;
 }
 
 .supp-list{
