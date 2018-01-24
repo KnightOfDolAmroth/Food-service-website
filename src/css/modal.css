@@ -12,6 +12,7 @@
 .card-title{
   margin-top: 10;
   font-size: 170%;
+  color: #182944;
 }
 
 .modal-body{
@@ -22,6 +23,7 @@
 .modal-title{
   font-size: 30px;
   text-align: center;
+  color: #182944;
 }
 
 .form-inline{
@@ -52,6 +54,8 @@
 
 .card-body{
   text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 
@@ -142,9 +146,15 @@ input[type="checkbox"] + .label-text:before{
 	justify-content: center;
 }
 
+.details{
+  text-align: center;
+    color: #182944;
+    padding-top: 2%;
+}
+
 input[type="checkbox"]:checked + .label-text:before{
 	content: "\f14a";
-	color: #2980b9;
+	color: #182944;;
 	animation: effect 250ms ease-in;
 }
 
@@ -156,6 +166,12 @@ input[type="checkbox"]:disabled + .label-text:before{
 	content: "\f0c8";
 	color: #ccc;
 }
+
+.btn{
+  background-color: #182944;
+  color: white;
+}
+
 
 @media screen and (max-width:520px) {
   .card{
