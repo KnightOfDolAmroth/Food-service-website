@@ -87,3 +87,67 @@ justify-content: space-between;
   color: red;
   font-size: 150%;
 }
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
+.supp-label{
+	position: relative;
+	cursor: pointer;
+	color: #666;
+	font-size: 100%;
+}
+
+input[type="checkbox"]{
+	position: relative;
+	right: 9000px;
+}
+
+/*Check box*/
+input[type="checkbox"] + .label-text:before{
+	content: "\f096";
+	font-family: "FontAwesome";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 100%;
+	line-height: 1;
+	-webkit-font-smoothing:antialiased;
+	width: 1em;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.supp-container{
+	display: flex
+	align-items: center;
+	justify-content: center;
+}
+
+input[type="checkbox"]:checked + .label-text:before{
+	content: "\f14a";
+	color: #2980b9;
+	animation: effect 250ms ease-in;
+}
+
+input[type="checkbox"]:disabled + .label-text{
+	color: #aaa;
+}
+
+input[type="checkbox"]:disabled + .label-text:before{
+	content: "\f0c8";
+	color: #ccc;
+}
+
+@media screen and (max-width:520px) {
+  .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-img{
+    align-self: center;
+  }
+}
