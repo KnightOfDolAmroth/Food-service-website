@@ -1,5 +1,4 @@
 <?php
-//Dichiarazione variabili per server
 $servername="localhost";
 $username ="root";
 $password ="";

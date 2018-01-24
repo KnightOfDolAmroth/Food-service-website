@@ -67,7 +67,7 @@
   <article>
     <div class="ordinazioni">
       <div class="listino">
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./listino.html'"> Visualizza il listino completo <br/> e compila il tuo ordine! </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./menu.php'"> Visualizza il listino completo <br/> e compila il tuo ordine! </button>
       </div>
       <div class="preferiti">
         <button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./preferiti.html'"> Visualizza i tuoi preferiti <br/> e ordina più velocemente! </button>
