@@ -10,6 +10,7 @@ if ($conn->connect_error) {
 }
 
 session_start();
+//include 'add_preferiti.php';
 ?>
 
 <!DOCTYPE html>
@@ -137,8 +138,8 @@ session_start();
 							echo "<div class='"."checkout-details"."'>";
 							echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
 							echo "<div class='"."btn-container"."'>";
-							?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
-							<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+							?><a href="add_preferiti.php"><button type="submit" name="id_prodotto" value="$row['id_prodotto']" onclick="<?php $_SESSION["id_prodotto"] = $row['id_prodotto'] ?>"class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button></a>
+							<button type="button"  class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
 							echo "</div></div></div></div></div>";
 						}
 					}
