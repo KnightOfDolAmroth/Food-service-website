@@ -9,6 +9,16 @@
 		setcookie('password', $_SESSION['password'], time());
 	}
 	ob_end_flush();
+
+	$servername="localhost";
+	$username ="root";
+	$password ="";
+	$database = "food_service";
+
+	$conn = new mysqli($servername, $username, $password, $database);
+	if ($conn->connect_error) {
+		die("Connection failed: " .$conn->connect_error);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +49,34 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
+						<div id="user_data" class="modal">
+					  	<form class="modal-content animate" method="POST" action="./password_change.php">
+					    	<div class="container">
+					      	<label><b>Nome utente:       </b></label>
+					      		<?php $username=$_SESSION['username']; echo $username; ?><br/>
+
+									<label><b>Punti premio:      </b></label>
+						      	<?php $sql = "SELECT punti
+											FROM utente
+											WHERE username = '$username'";
+											$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+											$row = $result->fetch_assoc();
+											$punti = $row["punti"];
+											echo $points; ?><br/>
+
+					      	<label for="old"><b>Password corrente: </b></label>
+					      	<input type="password" placeholder="Enter Password" name="pwd" id="old" required>
+
+									<label for="new"><b>Nuova password:    </b></label>
+					      	<input type="password" placeholder="Enter Password" name="new-pwd" id="new" required>
+
+									<label for="repeat"><b>Conferma password: </b></label>
+					      	<input type="password" placeholder="Enter Password" name="conf-pwd" id="repeat" required>
+
+					      	<button type="submit" id="invia">Aggiorna Password</button>
+					    	</div>
+					  	</form>
+						</div>
           <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
         </ul>
         <form class="navbar-form navbar-left" action="/action_page.php">
@@ -59,8 +97,8 @@
   </nav>
 
   <header>
-    <h1>BENVENUTO, <?php $username=$_SESSION['username']; $username=strtoupper($username); echo $username; ?></h1>
-    <h3>Hai accumulato: x punti</h3>
+    <h1>BENVENUTO, <?php $username=strtoupper($username); echo $username; ?></h1>
+    <h3>Hai accumulato: <?php echo $points; ?> punti</h3>
     <button type="button" onclick="window.location.href='./catalogue.html'"> Vai al catalogo offerte </button>
   </header>
 
@@ -83,6 +121,9 @@
       </div>
     </div>
   </article>
+	<?php
+		$conn->close();
+	?>
 
 </body>
 </html>
