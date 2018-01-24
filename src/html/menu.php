@@ -138,7 +138,9 @@ session_start();
 							echo "<div class='"."checkout-details"."'>";
 							echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
 							echo "<div class='"."btn-container"."'>";
-							?><a href="add_preferiti.php"><button type="submit" name="id_prodotto" value="$row['id_prodotto']" onclick="<?php $_SESSION["id_prodotto"] = $row['id_prodotto'] ?>"class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button></a>
+							?><form class="modal-content animate" action="./add_preferiti.php" method="post">
+							<a href="add_preferiti.php"><button type="submit" name="id_prodotto" value="<?php echo $row['id_prodotto'] ?>" onclick="<?php echo $_REQUEST['id_prodotto'] ?>"class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button></a>
+							</form>
 							<button type="button"  class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
 							echo "</div></div></div></div></div>";
 						}
