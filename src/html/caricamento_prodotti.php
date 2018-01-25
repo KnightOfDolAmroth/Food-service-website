@@ -1,4 +1,4 @@
-<!DOCTYPE html>	
+
 	<?php	
 	echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
 	echo "<div class='"."card-container"."'>";
@@ -11,8 +11,10 @@
 	echo "<div class='"."checkout-details"."'>";
 	echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
 	echo "<div class='"."btn-container"."'>";
-	?><form class="modal-content animate" action="./add_preferiti.php" method="post">
-	<button type="submit" name="id_prodotto" value="<?php echo $row['id_prodotto'] ?>" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+	?><form class="modal-content animate" action="" method="post">
+	<button type="submit" name="id_prodotto" value="<?php echo $row['id_prodotto'];?>" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button></form>
+	<form class="modal-content animate" action="" method="post">
+	<button type="reset"  name="id_prodotto" value="<?php echo $row['id_prodotto'] ?>" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#myModal"></button>
 	</form>
-	<button type="button"  class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+	<?php
 	echo "</div></div></div></div></div>";?>

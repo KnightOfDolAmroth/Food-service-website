@@ -1,34 +1,3 @@
-<?php
-  $servername="localhost";
-  $username ="root";
-  $password ="";
-  $database = "food_service";
-
-  $conn = new mysqli($servername, $username, $password, $database);
-  if ($conn->connect_error) {
-	   die("Connection failed: " .$conn->connect_error);
-  }
-
-  session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="../css/modal.css" rel="stylesheet" type="text/css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-  </button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -41,9 +10,10 @@
         <div class="modal-body">
           <div class="card-container">
             <div class="card">
-              <img class="card-img img-rounded" src="../../img/placeholder.jpg" alt="immagine prodotto">
+              <img class="card-img img-rounded" src="<?php echo $_REQUEST['id_prodotto'];?>" alt="immagine prodotto">
               <div class="card-body">
-                <h2 class="card-title">Frutti di porco</h4>
+				
+                <h2 class="card-title"><?php echo $row['nome_prodotto'];?></h4>
                   <p class="card-text">Prosciutto cotto, prosciutto crudo, salame, pancetta, speck, ciccioli, lardo, speck, cubetti di strutto, zampone, mortadella, olio di palma</p>
                 </div> <!--end product-->
               </div>
@@ -120,6 +90,3 @@
       </div>
     </div>
   </div> <!--fine modal-->
-  <?php $conn->close(); ?>
-</body>
-</html>
