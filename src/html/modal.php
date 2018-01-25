@@ -66,15 +66,9 @@
                     </select>
                   </div>
 
-
                   <div class="form-group">
-                    <label for="qta">Quantità</label>
-                    <select class="selectpicker" id="qta">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <label for="qta">Quantità </label>
+                    <input id="qta" type="number" min="1" max="10">
                     </select>
                   </div>
 
@@ -89,19 +83,19 @@
                     <div class="supp-container"></div>
                     <form class="supplements-list">
                       <div class="row">
-                            <?php
-                              $sql1 = "SELECT nome_ingrediente
-                                      FROM ingrediente";
-                              $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
-                              while ($row = $result->fetch_assoc()) {
-								?><div class="col-sm-4 col-md-3">
-								<div class="form-check">
+                      <?php
+                        $sql1 = "SELECT nome_ingrediente
+                                FROM ingrediente";
+                        $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
+                        while ($row = $result->fetch_assoc()) {
+								          ?><div class="col-sm-4 col-md-3">
+								              <div class="form-check">
                                 <label class="supp-label">
-                                <input type="checkbox" name="check" unchecked><?php
-								echo "<span class='"."label-text"."'>".$row['nome_ingrediente']."</span>";
-                                echo "</label></div></div>";
-                              }
-                            ?>
+                                  <input type="checkbox" name="check" unchecked><?php
+								                    echo "<span class='"."label-text"."'>".$row['nome_ingrediente']."</span>";
+                                    echo "</label></div></div>";
+                          }
+                        ?>
                       </form>
                     </div>
                   </div>
