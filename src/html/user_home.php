@@ -97,7 +97,7 @@
   </nav>
 
   <header>
-    <h1>Benvenuto, <?php echo $username; ?></h1>
+    <h1>Benvenuto/a, <?php echo $username; ?></h1>
     <h3>Hai accumulato: <?php echo $punti; ?> punti</h3>
   </header>
 

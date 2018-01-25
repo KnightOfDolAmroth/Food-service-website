@@ -78,8 +78,4 @@ article {
     -webkit-flex: 1;
     order: 2;
   }
-
-  #problem {
-    margin-right: 15px;
-  }
 }
