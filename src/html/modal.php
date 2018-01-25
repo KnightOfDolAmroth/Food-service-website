@@ -12,8 +12,7 @@
             <div class="card">
               <img class="card-img img-rounded" src="<?php echo $_REQUEST['id_prodotto'];?>" alt="immagine prodotto">
               <div class="card-body">
-				
-                <h2 class="card-title"><?php echo $row['nome_prodotto'];?></h4>
+				  <h2 class="card-title"><?php echo $row['nome_prodotto'];?></h4>
                   <p class="card-text">Prosciutto cotto, prosciutto crudo, salame, pancetta, speck, ciccioli, lardo, speck, cubetti di strutto, zampone, mortadella, olio di palma</p>
                 </div> <!--end product-->
               </div>

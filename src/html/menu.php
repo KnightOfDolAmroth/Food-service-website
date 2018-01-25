@@ -148,7 +148,11 @@ $_SESSION['username']=$_SESSION['username'];
         <div class="tab-elements">
           <div class="title-element">
             <h1>Le nostre piadine</h1>
+			</div>
 
+			<div class="container" id=prod-container>
+                  <div class="row">
+			
 			<?php
 				$sql1 = " SELECT *
 						FROM prodotto
@@ -164,11 +168,15 @@ $_SESSION['username']=$_SESSION['username'];
           </div>
         </div>
       </div>
+</div>
 
       <div role="tabpanel" class="tab-pane" id="crescioni">
         <div class="tab-elements">
           <div class="title-element">
             <h1>I nostri crescioni</h1>
+			</div>
+			<div class="container" id=prod-container>
+                  <div class="row">
 			<?php
 				$sql2 = " SELECT *
 						FROM prodotto
@@ -183,11 +191,15 @@ $_SESSION['username']=$_SESSION['username'];
           </div>
         </div>
       </div>
+	  </div>
 
       <div role="tabpanel" class="tab-pane" id="rotoli">
         <div class="tab-elements">
           <div class="title-element">
             <h1>I nostri rotoli</h1>
+			</div>
+			<div class="container" id=prod-container>
+                  <div class="row">
 			<?php
 				$sql3 = " SELECT *
 						FROM prodotto
@@ -201,11 +213,15 @@ $_SESSION['username']=$_SESSION['username'];
 				?>
           </div>
         </div>
+		</div>
       </div>
       <div role="tabpanel" class="tab-pane" id="altro">
         <div class="tab-elements">
           <div class="title-element">
             <h1>Altre specialità</h1>
+			</div>
+			<div class="container" id=prod-container>
+                  <div class="row">
 			<?php
 				$sql4 = " SELECT *
 						FROM prodotto
@@ -220,10 +236,15 @@ $_SESSION['username']=$_SESSION['username'];
           </div>
         </div>
       </div>
+	  </div>
+	  
       <div role="tabpanel" class="tab-pane" id="bibite">
         <div class="tab-elements">
           <div class="title-element">
             <h1>Le nostre bibite</h1>
+			</div>
+			<div class="container" id=prod-container>
+                  <div class="row">
 			<?php
 				$sql5 = " SELECT *
 						FROM prodotto
@@ -236,6 +257,7 @@ $_SESSION['username']=$_SESSION['username'];
 				}
 				?>
           </div>
+		  </div>
         </div>
       </div>
 
@@ -244,6 +266,9 @@ $_SESSION['username']=$_SESSION['username'];
 				<div class="tab-elements">
 					<div class="title-element">
 						<h1>I tuoi preferiti</h1>
+						</div>
+						<div class="container" id=prod-container>
+                  <div class="row">
 			<?php
 				$user= $_SESSION['username'];
 				$sql6 = "SELECT *
@@ -260,6 +285,7 @@ $_SESSION['username']=$_SESSION['username'];
 					}
 				}
 				?>
+				</div>
 					</div>
 				</div>
 			</div>
