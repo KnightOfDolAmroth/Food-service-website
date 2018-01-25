@@ -107,6 +107,12 @@ $_SESSION['username']=$_SESSION['username'];
           <img class="img-responsive img-circle tab-img" src="../../img/bibite.jpg" alt="bibite">
         </a>
       </li>
+
+			<li role="presentation">
+				<a href="#preferiti" aria-controls="preferiti" role="tab" data-toggle="tab">
+					<img class="img-responsive img-circle tab-img" src="../../img/preferiti.png" alt="preferiti">
+				</a>
+			</li>
     </ul>
 
     <!-- Tab panes -->
@@ -120,9 +126,9 @@ $_SESSION['username']=$_SESSION['username'];
 
             <div class="container" id=prod-container>
                   <div class="row">
-							
+
 				  <?php
-					
+
 					$sql0 = " SELECT *
 							FROM prodotto";
 					$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
@@ -142,7 +148,7 @@ $_SESSION['username']=$_SESSION['username'];
         <div class="tab-elements">
           <div class="title-element">
             <h1>Le nostre piadine</h1>
-			
+
 			<?php
 				$sql1 = " SELECT *
 						FROM prodotto
@@ -154,7 +160,7 @@ $_SESSION['username']=$_SESSION['username'];
 					}
 				}
 				?>
-			
+
           </div>
         </div>
       </div>
@@ -232,6 +238,42 @@ $_SESSION['username']=$_SESSION['username'];
           </div>
         </div>
       </div>
+
+
+			<div role="tabpanel" class="tab-pane" id="preferiti">
+				<div class="tab-elements">
+					<div class="title-element">
+						<h1>I tuoi preferiti</h1>
+			<?php
+				$user= $_SESSION['username'];
+				$sql6 = " SELECT *
+						FROM preferiti
+						WHERE username='$user'";
+				$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
+				if ($result->num_rows > 0) {
+					while($row = $result->fetch_assoc()) {
+						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
+						echo "<div class='"."card-container"."'>";
+						echo "<div class='"."card"."'>";
+						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
+						echo "<div class='"."card-body"."'>";
+						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
+						echo "<p class='"."card-text"."'></p>";
+						echo "</div>";
+						echo "<div class='"."checkout-details"."'>";
+						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
+						echo "<div class='"."btn-container"."'>";
+						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
+						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
+						echo "</div></div></div></div></div>";
+					}
+				}
+				?>
+					</div>
+				</div>
+			</div>
+
+
     </div>
 	
 	<?php
