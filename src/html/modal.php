@@ -1,3 +1,16 @@
+<?php
+  $servername="localhost";
+  $username ="root";
+  $password ="";
+  $database = "food_service";
+
+  $conn = new mysqli($servername, $username, $password, $database);
+  if ($conn->connect_error) {
+	   die("Connection failed: " .$conn->connect_error);
+  }
+
+  session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -42,10 +55,14 @@
                   <div class="form-group">
                     <label for="imp">Impasto:</label>
                     <select class="selectpicker" id="imp">
-                      <option>classico</option>
-                      <option>farro</option>
-                      <option>integrale</option>
-                      <option>olio d'oliva</option>
+                      <?php
+                        $sql0 = "SELECT nome_impasto
+                                FROM impasto";
+                        $result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
+                        while ($row = $result->fetch_assoc()) {
+                          echo "<option>" . $row['nome_impasto'] . "</option>";
+                        }
+                      ?>
                     </select>
                   </div>
 
@@ -75,76 +92,18 @@
 
                         <div class="col-sm-4 col-md-3">
                           <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">canarino</span>
-                            </label>
+                            <?php
+                              $sql1 = "SELECT nome_ingrediente
+                                      FROM ingrediente";
+                              $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
+                              while ($row = $result->fetch_assoc()) {
+                                echo "<label class='"."supp-label"."'>";
+                                echo "<input type="checkbox" name="check" unchecked> <span class="label-text">" . $row['nome_ingrediente'] . "</span>";
+                                echo "</label>";
+                              }
+                            ?>
                           </div>
                         </div>
-
-                        <!--Si può cancellare da qui...-->
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">carciofo  </span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">mela  </span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">tentacolo</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">salame</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">giacomo</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">gomorra  </span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">ciao  </span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
-                            <label class="supp-label">
-                              <input type="checkbox" name="check" unchecked> <span class="label-text">fuffa  </span>
-                            </label>
-                          </div>
-                        </div> <!-- ...a qui-->
                       </form>
 
                     </div>
@@ -167,5 +126,6 @@
       </div>
     </div>
   </div> <!--fine modal-->
+  <?php $conn->close(); ?>
 </body>
 </html>
