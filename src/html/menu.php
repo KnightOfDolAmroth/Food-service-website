@@ -21,7 +21,7 @@ $_SESSION['username']=$_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/menu.css" rel="stylesheet" type="text/css"/>
-	<link href="../css/modal.css" rel="stylesheet" type="text/css"/>
+	<!--<link href="../css/modal.css" rel="stylesheet" type="text/css"/>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -246,26 +246,17 @@ $_SESSION['username']=$_SESSION['username'];
 						<h1>I tuoi preferiti</h1>
 			<?php
 				$user= $_SESSION['username'];
-				$sql6 = " SELECT *
-						FROM preferiti
-						WHERE username='$user'";
+				$sql6 = "SELECT *
+						FROM prodotto
+						WHERE id_prodotto IN (
+							SELECT id_prodotto
+							FROM preferisce
+							WHERE username='$user'
+						)";
 				$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						echo "<div class='"."col-sm-6 col-md-4 col-lg-3"."'>";
-						echo "<div class='"."card-container"."'>";
-						echo "<div class='"."card"."'>";
-						echo "<img class='"."card-img img-rounded"." alt='"."immagine prodotto"." src='".$row['id_prodotto']."'>";
-						echo "<div class='"."card-body"."'>";
-						echo "<h2 class='"."card-title"."'>".$row['nome_prodotto']."</h2>";
-						echo "<p class='"."card-text"."'></p>";
-						echo "</div>";
-						echo "<div class='"."checkout-details"."'>";
-						echo "<div class='"."price"."'>€ ".$row['prezzo_base']."</div>";
-						echo "<div class='"."btn-container"."'>";
-						?><button type="button" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button>
-						<button type="button" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart"></button><?php
-						echo "</div></div></div></div></div>";
+						include 'caricamento_prodotti.php';
 					}
 				}
 				?>

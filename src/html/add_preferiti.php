@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 					WHERE id_prodotto = '$id_pr'
 					AND username = '$usr'";
 		$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
-		header('Location: ./menu.php');
+		//header('Location: ./menu.php');
 		} else {		
 			/*ASSOCIAZIONE PRODOTTO - INGREDIENTE*/
 			$usr = $_SESSION["username"];
@@ -34,7 +34,7 @@ if ($conn->connect_error) {
 					VALUES ('$id_pr','$usr')";
 			$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 			unset($_REQUEST['id_prodotto']);
-			header('Location: ./menu.php');
+			//header('Location: ./menu.php');
 		}
 	}
 ?>
