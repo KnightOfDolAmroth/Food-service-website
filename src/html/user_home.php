@@ -19,6 +19,7 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " .$conn->connect_error);
 	}
+	$_SESSION['username'] = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>

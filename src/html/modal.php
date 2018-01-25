@@ -89,30 +89,24 @@
                     <div class="supp-container"></div>
                     <form class="supplements-list">
                       <div class="row">
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="form-check">
                             <?php
                               $sql1 = "SELECT nome_ingrediente
                                       FROM ingrediente";
                               $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
                               while ($row = $result->fetch_assoc()) {
-                                echo "<label class='"."supp-label"."'>";
-                                echo "<input type="checkbox" name="check" unchecked> <span class="label-text">" . $row['nome_ingrediente'] . "</span>";
-                                echo "</label>";
+								?><div class="col-sm-4 col-md-3">
+								<div class="form-check">
+                                <label class="supp-label">
+                                <input type="checkbox" name="check" unchecked><?php
+								echo "<span class='"."label-text"."'>".$row['nome_ingrediente']."</span>";
+                                echo "</label></div></div>";
                               }
                             ?>
-                          </div>
-                        </div>
                       </form>
-
                     </div>
-
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
 
