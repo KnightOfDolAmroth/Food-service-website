@@ -50,7 +50,7 @@
                 <div class="form-inline" id="dropdowns">
                   <div class="form-group">
                     <label for="imp">Impasto:</label>
-                    <select class="selectpicker" name="impasto" id="imp">';
+                    <select class="selectpicker" name="impasto" id="impasto">';
                         $sql1 = "SELECT nome_impasto
                                 FROM impasto";
                         $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
@@ -86,7 +86,6 @@
 									<span class="label-text">'.$row["nome_ingrediente"].'</span></label></div></div>';
                           }
 						$output .= '
-                      </form>
                     </div>
                   </div>
                 </div>

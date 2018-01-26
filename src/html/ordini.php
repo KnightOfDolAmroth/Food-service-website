@@ -70,9 +70,9 @@
 				
 				/*INSERISCO IL DETTAGLIO ORDINE*/
 				echo "passo 8";
-				$qta = "1"/*$_REQUEST["qta"]*/;
+				$qta = $_REQUEST["qta"];
 				$id_prod = $_SESSION["id_prodotto"];
-				$id_imp = "1"/*$_REQUEST["imp"]*/;
+				$id_imp = $_REQUEST["imp"];
 				$sql2 = "INSERT INTO dettaglio_ordine(id_dettaglio,qta,codice_ordine,id_prodotto,id_impasto)
 						VALUES ('$id_dettaglio','$qta','$id_ordine','$id_prod','$id_imp')";
 				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
@@ -80,6 +80,6 @@
 				/*BISOGNA FARE LE AGGIUNTE*/
 				
 				/*RITORNO A CASA*/
-				//header('Location: ./menu.php');
+				header('Location: ./menu.php');
 	}
 ?>

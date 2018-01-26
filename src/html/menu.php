@@ -51,18 +51,21 @@ $_SESSION['username']=$_SESSION['username'];
 				}); */				
 			});  
 		 
-			/*$('#insert_form').on("submit", function(event){
+			$('#submit_form').click(function(event){
+				
+				var qta = $('#qta').val();
+				var imp = document.getElementById('impasto').value;
+				
 				$.ajax({
 					url:"ordini.php",  
 					method:"post",  
-					data:$('#insert_form').serialize(), 
-					success:function(data){  
-						 $('#insert_form')[0].reset();  
-						 $('#data_Modal').modal('hide');					
+					data:{qta:qta,imp:imp}, 
+					success:function(data){					
 						console.log("ESEGUITO");
+						$('#data_modal').modal("hide");
 					}  
 				});  
-			}); */ 
+			});
 		});
 		
 		
@@ -337,14 +340,13 @@ $_SESSION['username']=$_SESSION['username'];
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
         </div>
-		<form method="post" id="insert_form" action="ordini.php">
         <div class="modal-body" id="dettagli_prodotto"></div>
 		<div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-			<button type="submit" class="btn btn-primary" id="submit_form">Aggiungi
+			<button type="button" class="btn btn-primary" id="submit_form">Aggiungi
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
             </button>
-          </div></form>
+          </div>
         </div>
       </div>
     </div>
