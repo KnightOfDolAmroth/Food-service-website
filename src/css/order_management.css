@@ -10,6 +10,7 @@ body {
   font-family: Arial;
 }
 
+
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -45,6 +46,105 @@ body {
     padding: 6px 12px;
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
+}
+
+
+/*roba timeline*/
+
+
+.timeline {
+    background-color: #425c7f;
+    width: 600px;
+    height: 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.stat {
+    border-radius: 10px;
+    width:25%;
+    margin-top: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 18px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.stat-active {
+    background-color: #afb4ba;
+}
+
+.tl-row{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.field{
+  display: flex;
+  flex-direction: row;
+}
+
+.field-name{
+  margin-right: 2%;
+  display: flex;
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.order{
+  display: flex;
+  align-items: center;
+}
+
+.trash{
+text-align: center;
+}
+
+
+.col-titles{
+  text-align: center;
+  /*margin-bottom: 2%;*/
+  padding: 0.5%;
+  font-weight: bold;
+  border-bottom: solid;
+  border-width: thin;
+}
+.id-ord{
+  text-align: center;
+}
+
+.order{
+  border-bottom: solid;
+  border-width: thin;
+}
+
+.order{
+  padding-bottom: 1%;
+  padding-top: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.riep{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.riepilogo{
+  width: 80%;
+  padding: 10px;
+  border: solid;
+  border-color: #e5e5e5;
+  border-radius: 5%;
+  border-style: dotted;
+  border-width: thin;
 }
 
 /* Fade in tabs */
