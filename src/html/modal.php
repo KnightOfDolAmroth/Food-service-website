@@ -1,13 +1,13 @@
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="dettagli_prodotto">
           <div class="card-container">
             <div class="card">
               <img class="card-img img-rounded" src="<?php echo $_REQUEST['id_prodotto'];?>" alt="immagine prodotto">
@@ -17,12 +17,12 @@
                 </div> <!--end product-->
               </div>
 
-              <legend class="details">Dettagli aggiuntivi</legend>
+              <legend class="details"><?php echo $_REQUEST["prova"] ?> Dettagli aggiuntivi</legend>
               <div class="supplements">
 
                 <div class="form-inline" id="dropdowns">
                   <div class="form-group">
-                    <label for="imp">Impasto:</label>
+                    <label for="imp"><?php echo $_REQUEST['id_prodotto'];?>Impasto:</label>
                     <select class="selectpicker" id="imp">
                       <?php
                         $sql0 = "SELECT nome_impasto
@@ -81,5 +81,4 @@
           </div>
         </div>
       </div>
-    </div>
-  </div> <!--fine modal-->
+    </div> <!--fine modal-->

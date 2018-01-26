@@ -29,6 +29,25 @@ $_SESSION['username']=$_SESSION['username'];
 
 
   <body>
+  
+  <script>
+		$(document).ready(function(){  
+			$('.glyphicon-shopping-cart').click(function(){  
+				var id_prodotto = $(this).attr("id");  
+				$.ajax({
+					url:"modalbis.php",  
+					method:"post",  
+					data:{id_prodotto:id_prodotto},  
+					success:function(data){
+						console.log(id_prodotto);
+						$('#dettagli_prodotto').html(data);  
+						$('#data_modal').modal("show");  
+					}  
+				});  
+			});  
+		});
+	</script>
+  
     <!--navbar in cima-->
     <nav class="navbar fixed-top navbar-inverse">
       <div class="container-fluid">
@@ -289,14 +308,30 @@ $_SESSION['username']=$_SESSION['username'];
 					</div>
 				</div>
 			</div>
-
-
+		</div>
+	
+	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
+        </div>
+        <div class="modal-body" id="dettagli_prodotto"></div>
+		<div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary">Aggiungi
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 	
 	<?php
 		include 'add_preferiti.php';
-		include 'modal.php';
+		//include 'modalbis.php';
+		//include 'modal.php';
 	?>
-	
 </body>
 </html>
