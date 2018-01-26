@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	echo "passo 0";
-	if(isset($_SESSION["username"]) && isset($_SESSION["id_prodotto"]) /*&& isset($_REQUEST["imp"]) && isset($_REQUEST["qta"])*/) {
+	if(isset($_SESSION["username"]) && isset($_REQUEST["id_prodotto"]) /*&& isset($_REQUEST["imp"]) && isset($_REQUEST["qta"])*/) {
 		$servername="localhost";
 		$username ="root";
 		$password ="";
@@ -71,15 +71,29 @@
 				/*INSERISCO IL DETTAGLIO ORDINE*/
 				echo "passo 8";
 				$qta = $_REQUEST["qta"];
-				$id_prod = $_SESSION["id_prodotto"];
+				$id_prod = $_REQUEST["id_prodotto"];
 				$id_imp = $_REQUEST["imp"];
 				$sql2 = "INSERT INTO dettaglio_ordine(id_dettaglio,qta,codice_ordine,id_prodotto,id_impasto)
 						VALUES ('$id_dettaglio','$qta','$id_ordine','$id_prod','$id_imp')";
 				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 				
 				/*BISOGNA FARE LE AGGIUNTE*/
-				
+				if(isset($_REQUEST["agg"])) {
+					$agg = $_REQUEST["agg"];
+					foreach($agg as $value) {
+						$nome_ingrediente = $value;
+						$sql3 = "SELECT id_ingrediente
+								FROM ingrediente
+								WHERE nome_ingrediente = '$nome_ingrediente'";
+						$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
+						$ingrediente = $result->fetch_assoc();
+						$id_ingrediente = $ingrediente["id_ingrediente"];
+						$sql4 = " INSERT INTO aggiunta_ordine(id_ingrediente, id_dettaglio)
+								VALUES ( '$id_ingrediente','$id_dettaglio')";
+						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+					}
+				}
 				/*RITORNO A CASA*/
-				header('Location: ./menu.php');
+				//header('Location: ./menu.php');
 	}
 ?>
