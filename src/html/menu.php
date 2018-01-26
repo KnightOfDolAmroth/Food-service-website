@@ -21,7 +21,7 @@ $_SESSION['username']=$_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/menu.css" rel="stylesheet" type="text/css"/>
-	<!--<link href="../css/modal.css" rel="stylesheet" type="text/css"/>-->
+	<link href="../modal corretto/css/mix.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -43,9 +43,36 @@ $_SESSION['username']=$_SESSION['username'];
 						$('#dettagli_prodotto').html(data);  
 						$('#data_modal').modal("show");  
 					}  
-				});  
+				}); 
+				/*$.ajax({
+					url:"ordini.php",  
+					method:"post",  
+					data:{id_prodotto:id_prodotto}
+				}); */				
 			});  
+		 
+			$('#submit_form').click(function(event){
+				
+				var id = $('#id_prodotto').val();
+				var qta = $('#qta').val();
+				var imp = $('#impasto').val();
+				var agg = new Array();
+				$('.check:checked').each(function(){
+					agg.push($(this).val());
+				});
+				$.ajax({
+					url:"ordini.php",  
+					method:"post",  
+					data:{id_prodotto:id,qta:qta,imp:imp,agg:agg}, 
+					success:function(data){					
+						console.log(`${agg}`);
+						$('#data_modal').modal("hide");
+					}  
+				});  
+			});
 		});
+		
+		
 	</script>
   
     <!--navbar in cima-->
@@ -320,7 +347,7 @@ $_SESSION['username']=$_SESSION['username'];
         <div class="modal-body" id="dettagli_prodotto"></div>
 		<div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary">Aggiungi
+			<button type="button" class="btn btn-primary" id="submit_form">Aggiungi
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
             </button>
           </div>
