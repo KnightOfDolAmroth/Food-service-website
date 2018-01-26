@@ -53,7 +53,7 @@
       <button class="tablinks" onclick="openList(event, 'previous')">Ordini precedenti</button>
     </div>
 
-    <div id="current" class="tabcontent">
+    <div id="current" class="tabcontent container">
       <div class="row col-titles">
         <div class="col-sm-3 field-title">id ordine</div>
         <div class="col-sm-4 field-title">riepilogo</div>
