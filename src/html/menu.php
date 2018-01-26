@@ -21,7 +21,7 @@ $_SESSION['username']=$_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/menu.css" rel="stylesheet" type="text/css"/>
-	<!--<link href="../css/modal.css" rel="stylesheet" type="text/css"/>-->
+	<link href="../modal corretto/css/mix.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -43,9 +43,29 @@ $_SESSION['username']=$_SESSION['username'];
 						$('#dettagli_prodotto').html(data);  
 						$('#data_modal').modal("show");  
 					}  
-				});  
+				}); 
+				/*$.ajax({
+					url:"ordini.php",  
+					method:"post",  
+					data:{id_prodotto:id_prodotto}
+				}); */				
 			});  
+		 
+			/*$('#insert_form').on("submit", function(event){
+				$.ajax({
+					url:"ordini.php",  
+					method:"post",  
+					data:$('#insert_form').serialize(), 
+					success:function(data){  
+						 $('#insert_form')[0].reset();  
+						 $('#data_Modal').modal('hide');					
+						console.log("ESEGUITO");
+					}  
+				});  
+			}); */ 
 		});
+		
+		
 	</script>
   
     <!--navbar in cima-->
@@ -317,13 +337,14 @@ $_SESSION['username']=$_SESSION['username'];
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
         </div>
+		<form method="post" id="insert_form" action="ordini.php">
         <div class="modal-body" id="dettagli_prodotto"></div>
 		<div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary">Aggiungi
+			<button type="submit" class="btn btn-primary" id="submit_form">Aggiungi
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
             </button>
-          </div>
+          </div></form>
         </div>
       </div>
     </div>

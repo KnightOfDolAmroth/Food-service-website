@@ -4,6 +4,8 @@
 		$username ="root";
 		$password ="";
 		$database = "food_service";
+		
+		$_SESSION["id_prodotto"] = $_REQUEST["id_prodotto"];
 
 		$conn = new mysqli($servername, $username, $password, $database);
 		if ($conn->connect_error) {
@@ -48,7 +50,7 @@
                 <div class="form-inline" id="dropdowns">
                   <div class="form-group">
                     <label for="imp">Impasto:</label>
-                    <select class="selectpicker" id="imp">';
+                    <select class="selectpicker" name="impasto" id="imp">';
                         $sql1 = "SELECT nome_impasto
                                 FROM impasto";
                         $result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
@@ -60,7 +62,7 @@
 					</div>
                   <div class="form-group">
                     <label for="qta">Quantità </label>
-                    <input id="qta" type="number" min="1" max="10">
+                    <input id="qta" type="number" min="1" max="10" value="1">
                     </select>
                   </div>
                 </div>
@@ -80,7 +82,7 @@
 									<div class="col-sm-4 col-md-3">
 									<div class="form-check">
 									<label class="supp-label">
-									<input type="checkbox" name="check" unchecked>
+									<input type="checkbox" name="check" id='.$row["nome_ingrediente"].'.unchecked>
 									<span class="label-text">'.$row["nome_ingrediente"].'</span></label></div></div>';
                           }
 						$output .= '
