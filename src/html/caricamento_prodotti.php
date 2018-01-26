@@ -14,7 +14,10 @@
 	?><form class="modal-content animate" action="" method="post">
 	<button type="submit" name="id_prodotto" value="<?php echo $row['id_prodotto'];?>" class="btn btn-default btn-circle glyphicon glyphicon-heart-empty"></button></form>
 	<form class="modal-content animate" action="" method="post">
-	<button type="reset"  name="id_prodotto" value="<?php echo $row['id_prodotto'] ?>" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#myModal"></button>
+	<button
+		type="button" name="id_prodotto" id="<?php echo $row['id_prodotto'] ?>" class="btn btn-default btn-circle glyphicon glyphicon-shopping-cart">
+	</button>
 	</form>
 	<?php
 	echo "</div></div></div></div></div>";?>
+		
