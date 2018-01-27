@@ -52,16 +52,19 @@ $_SESSION['username']=$_SESSION['username'];
 			});  
 		 
 			$('#submit_form').click(function(event){
-				
+				var id = $('#id_prodotto').val();
 				var qta = $('#qta').val();
-				var imp = document.getElementById('impasto').value;
-				
+				var imp = $('.selectpicker').val();
+				var agg = new Array();
+				$('.check:checked').each(function(){
+					agg.push($(this).val());
+				});
 				$.ajax({
 					url:"ordini.php",  
-					method:"post",  
-					data:{qta:qta,imp:imp}, 
+					method:"post",
+					data:{id_prodotto:id,qta:qta,imp:imp,agg:agg}, 
 					success:function(data){					
-						console.log("ESEGUITO");
+						console.log(`${imp}`);
 						$('#data_modal').modal("hide");
 					}  
 				});  
