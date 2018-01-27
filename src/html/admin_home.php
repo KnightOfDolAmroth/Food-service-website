@@ -67,6 +67,26 @@
 					}  
 				});				
 			});
+			
+			$('.selectpicker').click(function(){
+				var stato = $(this).val();
+				document.getElementById("stato").value = stato;
+				console.log((document.getElementById("stato").value));
+			});
+			
+			$('.bottone_stato').click(function(){
+				var procedi = $(this).val();
+				var stato = $('#stato').val();
+				$.ajax({
+					url:"cambia_stato.php",  
+					method:"post",
+					data:{procedi:procedi,stato:stato},  
+					success:function(data){
+						console.log(procedi);
+						$('#dettagli_ordine').html(data);
+					}  
+				});
+			});
 		});
 	</script>
 	
