@@ -102,11 +102,11 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
       <label for="mail_fp"><b>Mail</b></label>
       <input type="email" placeholder="Enter mail" name="mail_fp" id="mail_fp" required>
 
-      <button type="submit" id="accedi3">Invia</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="accedi3">Invia</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="window.location.href='./login.php'" class="cancelbtn">Cancel</button>
+    <div class="container" style="background-color:#cccccc">
+      <button type="button" onclick="window.location.href='./login.php'" class="btn btn-danger">Cancel</button>
     </div>
   </form>
 </div>
