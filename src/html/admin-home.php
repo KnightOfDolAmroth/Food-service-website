@@ -52,6 +52,24 @@
       </div>
     </nav>
 	
+	<script>
+		$(document).ready(function(){  
+			$('.bottone_dettagli').click(function(){  
+				var codice_ordine = $(this).attr("value");  
+				$.ajax({
+					url:"modal-dettagli.php",  
+					method:"post",
+					data:{codice_ordine:codice_ordine},  
+					success:function(data){
+						console.log(codice_ordine);
+						$('#dettagli_prodotto').html(data);  
+						$('#data_modal').modal("show");  
+					}  
+				});				
+			});
+		});
+	</script>
+	
 	<header>
       <h1>Benvenuto/a, admin</h1>
 	  
@@ -103,5 +121,21 @@
 	  ?>
 	  </div>
 	</div>
+	
+	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Dettagli ordine</h4>
+				</div>
+				<div class="modal-body" id="dettagli_prodotto"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
   </body>
 </html>

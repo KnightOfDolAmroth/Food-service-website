@@ -43,12 +43,7 @@ $_SESSION['username']=$_SESSION['username'];
 						$('#dettagli_prodotto').html(data);  
 						$('#data_modal').modal("show");  
 					}  
-				}); 
-				/*$.ajax({
-					url:"ordini.php",  
-					method:"post",  
-					data:{id_prodotto:id_prodotto}
-				}); */				
+				});				
 			});  
 		 
 			$('#submit_form').click(function(event){

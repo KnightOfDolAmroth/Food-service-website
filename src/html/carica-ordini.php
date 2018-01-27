@@ -13,12 +13,12 @@
 	$output .= '
 			<div class="row order">
 				<div class="col-sm-1 user">
-					<img class="media-object" src="http://lorempixel.com/460/250/" style="width: 72px; height: 72px;">
+					<img class="media-object" src="../../img/logo.jpg" style="width: 72px; height: 72px;">
 					<span id="username">'.$row["username"].'</span>
 				</div>
 				<div class="col-sm-2 ord-info">
 					<span class="ord-det"><p>'.$row["codice_ordine"].'</p></span>
-					<button class="btn btn-info det" type="button" name="button">Dettagli</button>
+					<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">Dettagli</button>
 				</div>
 				<div class="col-sm-2 ord-info">
 					<span class="d-h">'.$row["data"].'</span>
@@ -29,8 +29,8 @@
 					<p>'.$row["nome_campanello"].'</p></span>
 				</div>
 				<div class="col-sm-2 ord-info">
-					<span class="'.$row["consegna"].'">
-					<p>data consegna</p></span>
+					<span class="consegna">
+					<p>'.$row["consegna"].'</p></span>
 				</div>
 				<div class="col-sm-1 ord-info">';
 					$sql2 = "SELECT SUM(qta) AS sum_qta
