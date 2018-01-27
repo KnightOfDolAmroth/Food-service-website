@@ -46,9 +46,13 @@
 						<div class="form-group">
 							<label hidden for="status">Stato:</label>
 							<select class="selectpicker" id="status">
-							<option selected="selected" value="inattivo">inattivo</option>
-							<option value="preparazione">in spedizione</option>
-							<option value="partito">pagato</option></select>
+								<option selected="selected" value="Inattivo">Inattivo</option>
+								<option value="Spedizione">Spedizione</option>
+								<option value="Pagato">Pagato</option>
+							</select>
+							<p></p>
+							<input type="hidden" id="stato" value="non settato"/>
+							<button class="btn btn-info bottone_stato" type="button" name="button" value="'.$row["codice_ordine"].'">Cambia stato</button>
 						</div>
 					</div>
 				</div>
