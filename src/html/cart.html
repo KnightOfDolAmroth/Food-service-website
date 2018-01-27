@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../css/cart.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/pay.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container wrapper">
+                <div class="row cart-head">
+                    <div class="container">
+                    <div class="row">
+                        <p></p>
+                    </div>
+                    <div class="row">
+                        <div style="display: table; margin: auto;">
+                            <span class="step step_complete"> <a href="#" class="check-bc">Carrello</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+                            <span class="step step_complete"> <a href="#" class="check-bc">Checkout</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                            <span class="step_thankyou check-bc step_complete">Grazie!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="row cart-body">
+                    <form class="form-horizontal" method="post" action="">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <!--riepilogo-->
+                        <div class="panel panel-info riep-panel">
+                            <div class="panel-heading">
+                                Riepilogo ordine <div class="pull-right"><small><a class="afix-1" href="#">ritorna al carrello</a></small></div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-sm-3 col-xs-3">
+                                        <img class="img-responsive img-thumbnail" src="../../img/piadipizza.jpg" />
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="col-xs-12">Nostrano</div>
+                                        <div class="col-xs-12"><small>Quantità:<span class="qta">2</span></small></div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3 text-right">
+                                        <h6><span>€</span>6.00</h6>
+                                    </div>
+                                </div>
+                                <div class="form-group"><hr /></div>
+                                <div class="form-group">
+                                    <div class="col-sm-3 col-xs-3">
+                                        <img class="img-responsive img-thumbnail" src="../../img/i-crudofontina.jpg" />
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="col-xs-12">Boscaiolo</div>
+                                        <div class="col-xs-12"><small>Quantità:<span class="qta">1</span></small></div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3 text-right">
+                                        <h6><span>€</span>4.00</h6>
+                                    </div>
+                                </div>
+                                <div class="form-group"><hr /></div>
+                                <div class="form-group">
+                                    <div class="col-sm-3 col-xs-3">
+                                        <img class="img-responsive img-thumbnail" src="../../img/patacrescione.jpg" />
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="col-xs-12">Caprese</div>
+                                        <div class="col-xs-12"><small>Quantità:<span class="qta">2</span></small></div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3 text-right">
+                                        <h6><span>€</span>8.50</h6>
+                                    </div>
+                                </div>
+                                <div class="form-group"><hr /></div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <strong>Totale</strong>
+                                        <div class="pull-right"><span>€</span><span>18.50</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                              <button class="btn btn-primary pol-butt" type="button" name="button">Paga online</button>
+                              <button class="btn btn-primary" type="button" name="button">Paga alla consegna</button>
+                            </div>
+                        </div>
+                        <!--fine riepilogo-->
+
+                      </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <!--pagamento-->
+                      <div class="panel panel-info pay-panel hidden">
+                          <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Pagamento sicuro</div>
+                          <div class="panel-body">
+
+                            <div class="paymentWrap">
+                              <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                                      <label class="btn paymentMethod active">
+                                        <div class="method visa"></div>
+                                          <input type="radio" name="options" checked>
+                                      </label>
+                                      <label class="btn paymentMethod">
+                                        <div class="method master-card"></div>
+                                          <input type="radio" name="options">
+                                      </label>
+
+                                      <label class="btn paymentMethod">
+                                        <div class="method vpay"></div>
+                                          <input type="radio" name="options">
+                                      </label>
+
+                                      <label class="btn paymentMethod">
+                                        <div class="method pp"></div>
+                                          <input type="radio" name="options">
+                                      </label>
+
+
+
+                                      <label class="btn paymentMethod">
+                                        <div class="method maestro"></div>
+                                          <input type="radio" name="options">
+                                      </label>
+
+                                  </div>
+                            </div>
+
+
+
+
+
+
+                              <div class="form-group">
+                                  <div class="col-md-12"><strong>Numero carta:</strong></div>
+                                  <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-md-12"><strong>CVV:</strong></div>
+                                  <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-md-12">
+                                      <strong>Data di scadenza</strong>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                      <select class="form-control" name="">
+                                          <option value="">Mese</option>
+                                          <option value="01">01</option>
+                                          <option value="02">02</option>
+                                          <option value="03">03</option>
+                                          <option value="04">04</option>
+                                          <option value="05">05</option>
+                                          <option value="06">06</option>
+                                          <option value="07">07</option>
+                                          <option value="08">08</option>
+                                          <option value="09">09</option>
+                                          <option value="10">10</option>
+                                          <option value="11">11</option>
+                                          <option value="12">12</option>
+                                  </select>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                      <select class="form-control" name="">
+                                          <option value="">Anno</option>
+                                          <option value="2018">2018</option>
+                                          <option value="2019">2019</option>
+                                          <option value="2020">2020</option>
+                                          <option value="2021">2021</option>
+                                          <option value="2022">2022</option>
+                                          <option value="2023">2023</option>
+                                          <option value="2024">2024</option>
+                                          <option value="2025">2025</option>
+                                  </select>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-md-12">
+                                      <ul class="cards">
+                                          <li class="visa hand">Visa</li>
+                                          <li class="mastercard hand">MasterCard</li>
+                                          <li class="amex hand">Amex</li>
+                                      </ul>
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6" id="pay-butt-cont">
+                                      <button type="submit" class="btn btn-primary btn-submit-fix">Paga</button>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <!--fine pagamento-->
+
+
+
+                                            </div>
+
+
+                    </form>
+                </div>
+                <div class="row cart-footer">
+
+                </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+        $(function() {
+        $('.pol-butt').on('click', function() {
+          $('.pay-panel').removeClass('hidden');
+
+
+        })
+      })
+        </script>
+  </body>
+</html>
