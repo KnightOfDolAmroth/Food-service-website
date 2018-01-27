@@ -29,7 +29,7 @@
 					<p>'.$row["nome_campanello"].'</p></span>
 				</div>
 				<div class="col-sm-2 ord-info">
-					<span class="consegna">
+					<span class="'.$row["consegna"].'">
 					<p>data consegna</p></span>
 				</div>
 				<div class="col-sm-1 ord-info">';
@@ -37,8 +37,8 @@
 						FROM dettaglio_ordine
 						WHERE codice_ordine = '$id_ordine'";
 
-					$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
-					$qta = $result->fetch_assoc();
+					$result1 = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
+					$qta = $result1->fetch_assoc();
 					$output .= '<p>'.$qta["sum_qta"].'</p>
 				</div>
 				<div class="col-sm-2 ord-info">
@@ -47,9 +47,8 @@
 							<label hidden for="status">Stato:</label>
 							<select class="selectpicker" id="status">
 							<option selected="selected" value="inattivo">inattivo</option>
-							<option value="preparazione">in preparazione</option>
-							<option value="pronto">pronto</option>
-							<option value="partito">partito</option></select>
+							<option value="preparazione">in spedizione</option>
+							<option value="partito">pagato</option></select>
 						</div>
 					</div>
 				</div>

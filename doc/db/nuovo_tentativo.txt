@@ -50,9 +50,10 @@ create table ingredienti_pietanza (
 	id_prodotto char(40) not null,
 	primary key (id_ingrediente, id_prodotto));
 
-create table ORDINE (
-	codice_ordine char(10) not null,
-	data date not null,
+create table ordine (
+	codice_ordine int not null,
+	data datetime not null,
+	consegna datetime not null,
 	indirizzo_recapito char(30) not null,
 	nome_campanello char(20) not null,
 	stato char(20) not null,
