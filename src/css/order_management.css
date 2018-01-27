@@ -76,6 +76,7 @@ body {
 
 .stat-active {
     background-color: #afb4ba;
+    color: #00004d;
 }
 
 .tl-row{
@@ -138,10 +139,10 @@ text-align: center;
   text-align: center;
 }
 .riepilogo{
-  width: 80%;
+  width: 90%;
   padding: 10px;
   border: solid;
-  border-color: #e5e5e5;
+  border-color: #5474a8;
   border-radius: 5%;
   border-style: dotted;
   border-width: thin;

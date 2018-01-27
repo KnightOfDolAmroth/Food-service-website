@@ -56,8 +56,8 @@
     <div id="current" class="tabcontent container">
       <div class="row col-titles">
         <div class="col-sm-3 field-title">id ordine</div>
-        <div class="col-sm-4 field-title">riepilogo</div>
-        <div class="col-sm-3 field-title">stato</div>
+        <div class="col-sm-4 field-title">stato</div>
+        <div class="col-sm-3 field-title">riepilogo</div>
         <div class="col-sm-2 field-title"></div>
 
       </div>
@@ -169,7 +169,7 @@
       <div class="col-sm-4 ord-info">
         <div class="tl-row">
           <div class="timeline">
-                <span class="stat">inattivo</span>
+                <span class="stat ">inattivo</span>
                   <span class="stat">pendente</span>
                   <span class="stat">partito</span>
                   <span class="stat stat-active">concluso</span>
@@ -185,7 +185,7 @@
               </span>
               <span class="field">
                 <p class="field-name">Campanello: </p>
-                <p class="field-value">lina carto</p>
+                <p class="field-value">lina carto onloadedmetadata</p>
               </span>
               <span class="field">
                 <p class="field-name">Data: </p>
