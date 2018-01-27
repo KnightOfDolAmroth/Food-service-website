@@ -30,7 +30,7 @@
 	$dati_ingredienti = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 	
 	$output = '';
-	$output .= '					
+	$output .= '
 						<div class="container">
 							<legend>Gestione ordini</legend>
 							<div class="row col-titles">
