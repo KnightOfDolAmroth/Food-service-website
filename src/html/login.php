@@ -131,7 +131,11 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 				} else {
 					$_SESSION["rememberme"] = false;
 				}
-				header('Location: ./user_home.php');
+				if ($user === "admin") {
+					header('Location: ./admin_home.php');
+				} else {
+					header('Location: ./user_home.php');
+				}
 			} else {
 				header('Location: ./login.php');
 			}
