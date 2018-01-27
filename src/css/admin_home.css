@@ -74,9 +74,10 @@ legend {
 
 .order{
   background-color: #e1e1e1;
-/*  background-color: #7fc2bc;
-  background-color: #e1e1e1; <3
-  background-color: #c0c27c;
-  background-color: #d7e3f7;
-  background-color: #d4d6d8;*/
+}
+
+@media only screen and (max-width: 768px) {
+  .col-titles {
+    display: none;
+  }
 }
