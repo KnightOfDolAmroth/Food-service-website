@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	echo "passo 0";
-	if(isset($_SESSION["username"]) && isset($_REQUEST["id_prodotto"]) /*&& isset($_REQUEST["imp"]) && isset($_REQUEST["qta"])*/) {
+	if(isset($_SESSION["username"]) && isset($_REQUEST["id_prodotto"]) /*&& isset($_REQUEST["imp"])*/ && isset($_REQUEST["qta"])) {
 		$servername="localhost";
 		$username ="root";
 		$password ="";
@@ -72,12 +72,22 @@
 				echo "passo 8";
 				$qta = $_REQUEST["qta"];
 				$id_prod = $_REQUEST["id_prodotto"];
-				$id_imp = $_REQUEST["imp"];
+				if (isset($_REQUEST["imp"])) {
+					$nome_imp = $_REQUEST["imp"];
+					$sql5 = " SELECT id_impasto	
+							FROM impasto
+							WHERE nome_impasto = '$nome_imp'";
+					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
+					$row = $result->fetch_assoc();
+					$id_imp = $row["id_impasto"];
+				} else {
+					$id_imp = "1";
+				}
 				$sql2 = "INSERT INTO dettaglio_ordine(id_dettaglio,qta,codice_ordine,id_prodotto,id_impasto)
 						VALUES ('$id_dettaglio','$qta','$id_ordine','$id_prod','$id_imp')";
 				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 				
-				/*BISOGNA FARE LE AGGIUNTE*/
+				/*INSERISCO EVENTUALI AGGIUNTE*/
 				if(isset($_REQUEST["agg"])) {
 					$agg = $_REQUEST["agg"];
 					foreach($agg as $value) {
