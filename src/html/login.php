@@ -57,7 +57,7 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
       </label>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
+    <div class="container" style="background-color: #cccccc;">
       <button type="button" onclick="window.location.href='./homepage.html'" class="btn btn-danger">Cancel</button>
       <span class="psw">Forgot <a onclick="forgot_pwd()" style="cursor: pointer; cursor: hand;">password?</a></span>
     </div>
@@ -74,20 +74,22 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 	  <label for="new_telephone"><b>Telefono</b></label>
       <input type="text" placeholder="Enter telephone" name="new_telephone" id="new_telephone" required>
 
-      <label for="new_uname"><b>Username</b></label>
+    <label for="new_uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="new_uname" id="new_uname" required>
 
-      <label for="new_psw"><b>Password</b></label>
+    <label for="new_psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="new_psw" id="new_psw" required>
 
 	  <label for="new_rep_psw"><b>Repeat Password</b></label>
       <input type="password" placeholder="Enter Password" name="new_rep_psw" id="new_rep_psw" required>
 
+		<div class="row butts">
       <button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="accedi2">Submit</button>
-	  <button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./login.php'" id="cancel">Cancel</button>
-      <label>
+	  	<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./login.php'" id="cancel">Cancel</button>
+		</div>
+      <label id="endline">
         <input type="checkbox" checked="checked"> Remember me
-		<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+				<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       </label>
     </div>
   </form>

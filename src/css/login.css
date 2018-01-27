@@ -36,14 +36,26 @@ button {
 }
 
 #accedi2 {
-	width: 49%;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	display: inline;
 }
 
 #cancel {
-	width: 49%;
 	float: right;
 	background-color: #f44336;
 	border: red;
+	margin-top: 0px;
+	margin-right: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	display: inline;
+}
+
+.butts{
+	display: flex;
+	justify-content: space-between;
 }
 
 button:hover {
@@ -105,6 +117,10 @@ span.psw {
 
 .psw {
 	font-family: "Verdana";
+	font-size: 12px;
+}
+
+#endline {
 	font-size: 12px;
 }
 
