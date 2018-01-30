@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 }
 
 session_start();
-$_SESSION['username']=$_SESSION['username'];
+//$_SESSION['username']=$_SESSION['username'];
 //include 'add_preferiti.php';
 ?>
 
@@ -64,6 +64,18 @@ $_SESSION['username']=$_SESSION['username'];
 					}  
 				});  
 			});
+			
+			$('.glyphicon-heart-empty').click(function(){  
+				var id_prodotto = $(this).attr("id");  
+				$.ajax({
+					url:"add_preferiti.php",  
+					method:"post",  
+					data:{id_prodotto:id_prodotto},  
+					success:function(data){
+						console.log(id_prodotto); 
+					}  
+				});				
+			});  
 		});
 		
 		
@@ -208,7 +220,7 @@ $_SESSION['username']=$_SESSION['username'];
           </div>
         </div>
       </div>
-</div>
+	</div>
 
       <div role="tabpanel" class="tab-pane" id="crescioni">
         <div class="tab-elements">
@@ -350,7 +362,7 @@ $_SESSION['username']=$_SESSION['username'];
     </div>
 	
 	<?php
-		include 'add_preferiti.php';
+		//include 'add_preferiti.php';
 		//include 'modalbis.php';
 		//include 'modal.php';
 	?>
