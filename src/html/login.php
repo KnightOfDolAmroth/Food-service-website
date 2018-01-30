@@ -122,9 +122,6 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 			$row = $result->fetch_assoc();
 			$pwd = $_REQUEST["pwd"].$row["salt"];
 			$pwd = substr(sha1($pwd),0,32);
-			echo $pwd;
-			echo "    ";
-			echo $row["password"];
 			if ($row["username"] === $user && $row["password"] === $pwd) {
 				$_SESSION["username"] = $user;
 				$_SESSION["password"] = $row["password"];
@@ -139,7 +136,9 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 					header('Location: ./user_home.php');
 				}
 			} else {
-				header('Location: ./login.php');
+				$message = "Non hai inserito correttamente i tuoi dati.";
+				echo "<script>alert('$message');</script>";
+				//header('Location: ./login.php');
 			}
 		}
 	?>
@@ -171,25 +170,25 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 					$conn->close();
 					header('Location: ./login.php');
 				} else {
-					echo "ESISTE GIÀ UN UTENTE CON STESSO USERNAME O EMAIL";
+					$message = "Esiste già un utente con stesso username o email.";
+					echo "<script>alert('$message');</script>";
 				}
 			} else {
-				echo "PASSWORD E CONFERMA PASSWORD NON COMBACIANO";
+				$message = "Non hai confermato correttamente la tua password.";
+				echo "<script>alert('$message');</script>";
 			}
 		}
 	?>
 
 <?php
 		if (isset($_REQUEST["mail_fp"])) {
-			echo "LETTURA DB";
 			$email = $_REQUEST["mail_fp"];
 			$sql3 = "SELECT email, password, salt
 				FROM utente
 				WHERE email = '$email'";
 			$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
-			$row = $result->fetch_assoc();
-			echo "DB LETTO";
-			if ($row["email"] === $email) {
+			if ($result->num_rows > 0) {
+				$row = $result->fetch_assoc();
 				$new_pwd = substr(md5(microtime()),rand(0,26),10);
 				$subject = "Your Recovered Password";
 				$message = "Please use this new password to login: ".$new_pwd;
@@ -201,12 +200,16 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 						SET password = '$pass'
 						WHERE email = '$email'";
 					$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
-					echo "MAIL INVIATA";
+					$message = "Mail inviate: controlla la tua posta.";
+					echo "<script>alert('$message');</script>";
 					header('Location: ./login.php');
 				} else {
-					echo "ERRORE INVIO MAIL";
+					$message = "C'è stato un errore nell'invio della email.";
+					echo "<script>alert('$message');</script>";
 				}
-				echo "MAIL PREPARATA";
+			} else {
+				$message = "L'indirizzo inserito non è associato a nessun account.";
+				echo "<script>alert('$message');</script>";
 			}
 			$conn->close();
 		}
