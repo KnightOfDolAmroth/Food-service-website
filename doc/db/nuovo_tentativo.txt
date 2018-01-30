@@ -50,6 +50,13 @@ create table ingredienti_pietanza (
 	id_prodotto char(40) not null,
 	primary key (id_ingrediente, id_prodotto));
 
+create table messaggio (
+	id_messaggio int not null,
+	username char(20) not null,
+	oggetto char(40) not null,
+	testo char(150) not null,
+	primary key (id_messaggio));
+	
 create table ordine (
 	codice_ordine int not null,
 	data datetime not null,
