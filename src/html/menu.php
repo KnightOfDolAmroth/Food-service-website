@@ -75,6 +75,7 @@ session_start();
 						console.log(id_prodotto); 
 					}  
 				});
+				setTimeout(function () { location.reload(true); }, 500);
 			});  
 		});
 		

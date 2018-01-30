@@ -86,6 +86,7 @@
 						$('#dettagli_ordine').html(data);
 					}  
 				});
+				setTimeout(function () { location.reload(true); }, 500);
 			});
 		});
 	</script>

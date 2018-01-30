@@ -64,7 +64,8 @@
 							</select>
 							<p></p>
 							<input type="hidden" id="stato" value="non settato"/>
-							<button class="btn btn-info bottone_stato" type="button" name="button" value="'.$row["codice_ordine"].'">Cambia stato</button>
+							<button class="btn btn-info bottone_stato" type="button"
+							name="button" value="'.$row["codice_ordine"].'">Cambia stato</button>
 						</div>
 					</div>
 				</div>
