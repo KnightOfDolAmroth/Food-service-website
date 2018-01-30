@@ -46,9 +46,21 @@
 						<div class="form-group">
 							<label hidden for="status">Stato:</label>
 							<select class="selectpicker" id="status">
-								<option selected="selected" value="Inattivo">Inattivo</option>
-								<option value="Spedizione">Spedizione</option>
-								<option value="Pagato">Pagato</option>
+								<option ';
+								if ($row["stato"] === "Inattivo") {
+									$output .= 'selected="selected" ';
+									}
+								$output .= 'value="Inattivo">Inattivo</option>
+								<option ';
+								if ($row["stato"] === "Spedizione") {
+									$output .= 'selected="selected" ';
+									}
+								$output .= 'value="Spedizione">Spedizione</option>
+								<option ';
+								if ($row["stato"] === "Pagato") {
+									$output .= 'selected="selected" ';
+									}
+								$output .= 'value="Pagato">Pagato</option>
 							</select>
 							<p></p>
 							<input type="hidden" id="stato" value="non settato"/>

@@ -65,7 +65,7 @@ session_start();
 				});  
 			});
 			
-			$('.glyphicon-heart-empty').click(function(){  
+			$('.glyphicon-heart-empty').click(function(){
 				var id_prodotto = $(this).attr("id");  
 				$.ajax({
 					url:"add_preferiti.php",  
@@ -74,7 +74,7 @@ session_start();
 					success:function(data){
 						console.log(id_prodotto); 
 					}  
-				});				
+				});
 			});  
 		});
 		
