@@ -20,8 +20,8 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="../css/menu.css" rel="stylesheet" type="text/css"/>
-	<link href="../modal corretto/css/mix.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/menu.css" rel="stylesheet" type="text/css"/>
+	<link href="../../css/mix.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -35,7 +35,7 @@ session_start();
 			$('.glyphicon-shopping-cart').click(function(){  
 				var id_prodotto = $(this).attr("id");  
 				$.ajax({
-					url:"modalbis.php",  
+					url:"modal/prodotti.php",  
 					method:"post",  
 					data:{id_prodotto:id_prodotto},  
 					success:function(data){
@@ -68,7 +68,7 @@ session_start();
 			$('.glyphicon-heart-empty').click(function(){
 				var id_prodotto = $(this).attr("id");  
 				$.ajax({
-					url:"add_preferiti.php",  
+					url:"preferiti.php",  
 					method:"post",  
 					data:{id_prodotto:id_prodotto},  
 					success:function(data){
@@ -91,7 +91,7 @@ session_start();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
+          <a class="navbar-brand" href="../homepage/home.html">La Malaghiotta</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
@@ -109,14 +109,14 @@ session_start();
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           </ul>
         </div>
       </div>
     </nav> <!--fine navbar in cima-->
 
 <div class="bkg">
-  <img class="img-responsive" src="../../img/piadona.jpeg" alt="background piada">
+  <img class="img-responsive" src="../../../img/piadona.jpeg" alt="background piada">
 </div>
   <!--tabs-->
 
@@ -125,45 +125,45 @@ session_start();
 
       <li role="presentation" class="active">
         <a  href="#tutto" aria-controls="tutto" role="tab" data-toggle="tab">
-            <img class="img-responsive img-circle tab-img" src="../../img/logo.jpg" alt="tutti i prodotti">
+            <img class="img-responsive img-circle tab-img" src="../../../img/logo.jpg" alt="tutti i prodotti">
         </a>
 
       </li>
 
       <li role="presentation">
         <a href="#piadine" aria-controls="piadine" role="tab" data-toggle="tab">
-          <img class="img-responsive img-circle tab-img" src="../../img/piadine.jpg" alt="piadine">
+          <img class="img-responsive img-circle tab-img" src="../../../img/piadine.jpg" alt="piadine">
         </a>
       </li>
 
       <li role="presentation">
         <a href="#crescioni" aria-controls="crescioni" role="tab" data-toggle="tab">
-          <img class="img-responsive img-circle tab-img" src="../../img/crescione.jpg" alt="crescioni">
+          <img class="img-responsive img-circle tab-img" src="../../../img/crescione.jpg" alt="crescioni">
         </a>
       </li>
 
       <li role="presentation">
         <a href="#rotoli" aria-controls="rotoli" role="tab" data-toggle="tab">
-          <img class="img-responsive img-circle tab-img" src="../../img/rotoli.jpg" alt="rotoli">
+          <img class="img-responsive img-circle tab-img" src="../../../img/rotoli.jpg" alt="rotoli">
         </a>
       </li>
 
       <li role="presentation">
         <a href="#altro" aria-controls="altro" role="tab" data-toggle="tab">
-          <img class="img-responsive img-circle tab-img" src="../../img/altro.jpg" alt="altro">
+          <img class="img-responsive img-circle tab-img" src="../../../img/altro.jpg" alt="altro">
         </a>
       </li>
 
 
       <li role="presentation">
         <a href="#bibite" aria-controls="bibite" role="tab" data-toggle="tab">
-          <img class="img-responsive img-circle tab-img" src="../../img/bibite.jpg" alt="bibite">
+          <img class="img-responsive img-circle tab-img" src="../../../img/bibite.jpg" alt="bibite">
         </a>
       </li>
 
 			<li role="presentation">
 				<a href="#preferiti" aria-controls="preferiti" role="tab" data-toggle="tab">
-					<img class="img-responsive img-circle tab-img" src="../../img/preferiti.png" alt="preferiti">
+					<img class="img-responsive img-circle tab-img" src="../../../img/preferiti.png" alt="preferiti">
 				</a>
 			</li>
     </ul>
@@ -188,7 +188,7 @@ session_start();
 
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'caricamento_prodotti.php';
+							include 'prodotti.php';
 						}
 					}
 				  ?>
@@ -213,7 +213,7 @@ session_start();
 				$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>
@@ -237,7 +237,7 @@ session_start();
 				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>
@@ -260,7 +260,7 @@ session_start();
 				$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>
@@ -282,7 +282,7 @@ session_start();
 				$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>
@@ -305,7 +305,7 @@ session_start();
 				$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>
@@ -334,7 +334,7 @@ session_start();
 				$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) {
-						include 'caricamento_prodotti.php';
+						include 'prodotti.php';
 					}
 				}
 				?>

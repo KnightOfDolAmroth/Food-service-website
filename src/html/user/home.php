@@ -2,11 +2,11 @@
 	session_start();
 	ob_start();
 	if (isset($_SESSION['rememberme']) && $_SESSION['rememberme'] === true) {
-		setcookie('username', $_SESSION['username'], time()+60*60*24*365);
-		setcookie('password', $_SESSION['password'], time()+60*60*24*365);
+		setcookie('username', $_SESSION['username'], time()+60*60*24*365, '/');
+		setcookie('password', $_SESSION['password'], time()+60*60*24*365, '/');
 	} else {
-		setcookie('username', $_SESSION['username'], time());
-		setcookie('password', $_SESSION['password'], time());
+		setcookie('username', $_SESSION['username'], time(), '../', '../');
+		setcookie('password', $_SESSION['password'], time(), '../', '../');
 	}
 	ob_end_flush();
 
@@ -28,8 +28,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="../css/user_home.css" rel="stylesheet" type="text/css"/>
-  <link href="../css/admin_home.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/user_home.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/admin_home.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -39,7 +39,7 @@
 			$('.messaggi').click(function(){  
 				var username = $(this).attr("id");  
 				$.ajax({
-					url:"modal_messaggi.php",  
+					url:"modal/messaggi.php",  
 					method:"post",  
 					data:{username:username},  
 					success:function(data){
@@ -62,7 +62,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
+				<a class="navbar-brand" href="../homepage/home.html">La Malaghiotta</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -119,7 +119,7 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./menu.php'">Listino prodotti:<br/>scegli le nostre proposte</button>
 		</div>
 		<div class="preferiti">
-			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./preferiti.html'">Carrello ordini:<br/>procedi all'acquisto</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./carrello.html'">Carrello ordini:<br/>procedi all'acquisto</button>
 		</div>
     </div>
   </article>

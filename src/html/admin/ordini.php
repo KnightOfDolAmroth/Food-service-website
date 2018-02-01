@@ -13,7 +13,7 @@
 	$output .= '
 			<div class="row order">
 				<div class="col-sm-1 user">
-					<img class="media-object" src="../../img/logo.jpg" style="width: 72px; height: 72px;">
+					<img class="media-object" src="../../../img/logo.jpg" style="width: 72px; height: 72px;">
 					<span id="username">'.$row["username"].'</span>
 				</div>
 				<div class="col-sm-2 ord-info">
