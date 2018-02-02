@@ -32,8 +32,6 @@ body{
   margin: 0%;
   font-size: 20px;
   font-family: sans-serif;
-  display: flex;
-  align-items: center;
 }
 
 #page{
@@ -154,4 +152,19 @@ img{
   margin-bottom: 5%;
   background-color: rgb(49, 112, 143);
   width: 50%;
+}
+
+
+@media screen and (max-width:500px) {
+  .btn-lg{
+    width: 100%;
+  }
+
+  img{
+    width: 30%;
+  }
+
+  .main-title{
+    text-align: center;
+  }
 }
