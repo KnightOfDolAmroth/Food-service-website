@@ -27,23 +27,23 @@ session_start();
 
 
   <body>
-  
+
   <script>
-		$(document).ready(function(){  
-			$('.glyphicon-shopping-cart').click(function(){  
-				var id_prodotto = $(this).attr("id");  
+		$(document).ready(function(){
+			$('.glyphicon-shopping-cart').click(function(){
+				var id_prodotto = $(this).attr("id");
 				$.ajax({
-					url:"modal/prodotti.php",  
-					method:"post",  
-					data:{id_prodotto:id_prodotto},  
+					url:"modal/prodotti.php",
+					method:"post",
+					data:{id_prodotto:id_prodotto},
 					success:function(data){
 						console.log(id_prodotto);
-						$('#dettagli_prodotto').html(data);  
-						$('#data_modal').modal("show");  
-					}  
-				});				
-			});  
-		 
+						$('#dettagli_prodotto').html(data);
+						$('#data_modal').modal("show");
+					}
+				});
+			});
+
 			$('#submit_form').click(function(event){
 				var id = $('#id_prodotto').val();
 				var qta = $('#qta').val();
@@ -53,25 +53,25 @@ session_start();
 					agg.push($(this).val());
 				});
 				$.ajax({
-					url:"ordini.php",  
+					url:"ordini.php",
 					method:"post",
-					data:{id_prodotto:id,qta:qta,imp:imp,agg:agg}, 
-					success:function(data){					
+					data:{id_prodotto:id,qta:qta,imp:imp,agg:agg},
+					success:function(data){
 						console.log(`${imp}`);
 						$('#data_modal').modal("hide");
-					}  
-				});  
+					}
+				});
 			});
-			
+
 			$('.glyphicon-heart-empty').click(function(){
-				var id_prodotto = $(this).attr("id");  
+				var id_prodotto = $(this).attr("id");
 				$.ajax({
-					url:"preferiti.php",  
-					method:"post",  
-					data:{id_prodotto:id_prodotto},  
+					url:"preferiti.php",
+					method:"post",
+					data:{id_prodotto:id_prodotto},
 					success:function(data){
-						console.log(id_prodotto); 
-					}  
+						console.log(id_prodotto);
+					}
 				});
 				setTimeout(function () { location.reload(true); }, 500);
 			});
@@ -90,7 +90,7 @@ session_start();
 		});
 		
 	</script>
-  
+
     <nav class="navbar fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -274,17 +274,17 @@ session_start();
 				</div>
 				<div class="container" id=prod-container>
 					<div class="row">
-					<?php
-					$sql4 = " SELECT *
-							FROM prodotto
-							WHERE tipo='Altro'";
-					$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()) {
-							include 'prodotti.php';
+						<?php
+						$sql4 = " SELECT *
+								FROM prodotto
+								WHERE tipo='Altro'";
+						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+						if ($result->num_rows > 0) {
+							while($row = $result->fetch_assoc()) {
+								include 'prodotti.php';
+							}
 						}
-					}
-					?>
+						?>
 					</div>
 				</div>
 			</div>
@@ -341,7 +341,7 @@ session_start();
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
