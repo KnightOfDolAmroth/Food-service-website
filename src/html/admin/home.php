@@ -1,4 +1,15 @@
 <?php 
+	session_start();
+	ob_start();
+	if (isset($_SESSION['rememberme']) && $_SESSION['rememberme'] === true) {
+		setcookie('username', $_SESSION['username'], time()+60*60*24*365, '/');
+		setcookie('password', $_SESSION['password'], time()+60*60*24*365, '/');
+	} else {
+		setcookie('username', $_SESSION['username'], time(), '../', '../');
+		setcookie('password', $_SESSION['password'], time(), '../', '../');
+	}
+	ob_end_flush();
+
 	$servername="localhost";
 	$username ="root";
 	$password ="";
@@ -15,7 +26,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="../css/admin_home.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/admin_home.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
@@ -28,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
+          <a class="navbar-brand" href="../homepage/home.html">La Malaghiotta</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
@@ -57,7 +68,7 @@
 			$('.bottone_dettagli').click(function(){  
 				var codice_ordine = $(this).attr("value");  
 				$.ajax({
-					url:"modal-dettagli.php",  
+					url:"modal/dettagli.php",  
 					method:"post",
 					data:{codice_ordine:codice_ordine},  
 					success:function(data){
@@ -78,7 +89,7 @@
 				var procedi = $(this).val();
 				var stato = $('#stato').val();
 				$.ajax({
-					url:"cambia_stato.php",  
+					url:"stato.php",  
 					method:"post",
 					data:{procedi:procedi,stato:stato},  
 					success:function(data){
@@ -109,7 +120,6 @@
 		?>
 	  
       <h3>Ci sono: <?php echo $ordini_inattivi ?> ordini non spediti</h3>
-      <button type="button" value="Go to menu management" onclick="window.location.href='./gestore.php';"> Vai alla gestione del listino </button>
     </header>
   
   <body>
@@ -135,7 +145,7 @@
 		$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
 		if ($result->num_rows>0) {
 			while ($row = $result->fetch_assoc()) {
-				include 'carica-ordini.php';
+				include 'ordini.php';
 			}
 		}
 	  

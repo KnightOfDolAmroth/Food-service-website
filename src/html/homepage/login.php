@@ -24,7 +24,11 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 		$conn->close();
 		$_SESSION["username"] = $_COOKIE["username"];
 		$_SESSION["password"] = $_COOKIE["password"];
-		header('Location: ./user_home.php');
+		if ($_SESSION["username"] === "admin"){
+			header('Location: ../admin/home.php');
+		} else {
+			header('Location: ../user/home.php');
+		}
 	}
 }
 ?>
@@ -33,9 +37,9 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+ <link href="../../css/login.css" rel="stylesheet" type="text/css"/>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="../js/login.js" type="text/javascript"></script>
+ <script src="../../js/login.js" type="text/javascript"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -58,7 +62,7 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
     </div>
 
     <div class="container" style="background-color: #cccccc;">
-      <button type="button" onclick="window.location.href='./homepage.html'" class="btn btn-danger">Cancel</button>
+      <button type="button" onclick="window.location.href='./home.html'" class="btn btn-danger">Cancel</button>
       <span class="psw">Forgot <a onclick="forgot_pwd()" style="cursor: pointer; cursor: hand;">password?</a></span>
     </div>
   </form>
@@ -131,9 +135,9 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 					$_SESSION["rememberme"] = false;
 				}
 				if ($user === "admin") {
-					header('Location: ./admin_home.php');
+					header('Location: ../admin/home.php');
 				} else {
-					header('Location: ./user_home.php');
+					header('Location: ../user/home.php');
 				}
 			} else {
 				$message = "Non hai inserito correttamente i tuoi dati.";
