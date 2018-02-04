@@ -1,5 +1,5 @@
 body{
-  background-image: url("../../img/sfondo.jpg");
+  background-color: rgb(239, 239, 239);
 }
 
 .navbar{
@@ -104,7 +104,7 @@ body{
 }
 
 .cart-footer{
-  background-color: #ddd;
+  background-color: rgb(239, 239, 239);
   width: 30%;
   border: solid;
   border-width: thin;
@@ -113,6 +113,7 @@ body{
   margin-top: 20px;
   margin-right: 4%;
   margin-bottom: 20px;
+
 }
 
 #cart-foot{
@@ -134,4 +135,9 @@ body{
 
 .btn-lg{
   width: 100%;
+}
+
+#cart-tot{
+display: flex;
+justify-content: flex-end;
 }

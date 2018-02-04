@@ -1,5 +1,4 @@
 body{
-  /*background-image: url("../../img/sfondo.jpg");*/
   background-color: rgb(239, 239, 239);
 }
 
@@ -11,6 +10,9 @@ body{
   width: 125px;
 }
 
+.euro{
+  margin-right: 10%;
+}
 .cart-item{
   display: flex;
   justify-content: center;
@@ -166,18 +168,13 @@ body{
   margin: 3%;
 }
 
-.prova{
-  background-image: url("../../img/blueArrow.png");
-  border: solid;
-  border-color: red;
-  padding:10%;
-}
 .arrow{
   height: 30px;
 }
 
 .steps{
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
