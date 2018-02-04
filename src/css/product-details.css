@@ -7382,3 +7382,23 @@ p.highlightedMp {
   font-weight: bold;
   position: relative;
   top: 7px; }
+
+
+.prod-img{
+  max-width: 80%;
+}
+
+.ingredienti{
+text-align: center;
+
+}
+
+.prodotto{
+  display: flex;
+  align-items: flex-start;
+  padding-top: 10%;
+}
+
+.prodotto h2{
+  margin-top: 0px;
+}
