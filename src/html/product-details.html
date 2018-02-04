@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="../css/checkout.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/empty-cart.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/cart.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/product-details.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!--navbar in cima-->
+  <nav class="navbar fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav> <!--fine navbar in cima-->
+
+
+  <div class="container wrapper">
+    <div class="col-lg-25 col-md-25 col-xs-25">
+      <div id="product-schedule">
+        <div id="product-schedule-desktop" class="">
+          <div class="schedule-content">
+
+            <div class="schedule-section" id="user-reviews" style="display: block;">
+              <div class="review-graph hidden-xs">
+                <div class="avg-rank">
+                  <p>Media clienti: 3,14  di 5</p>
+                  <div class="rank">
+                    <span class="star starred"></span>
+                    <span class="star starred"></span>
+                    <span class="star starred"></span>
+                    <span class="star not-starred"></span>
+                    <span class="star not-starred"></span>
+
+                  </div>
+                  <a href="9788804665793/recensioni" class="all-reviews">
+                    21 recensioni
+                  </a>
+                </div>
+                <div class="single-ranks">
+                  <ul class="rank-results">
+                    <li>
+                      <div class="star-number">5 stelle</div>
+                      <div class="progress-bar" data-percentage="19%">
+                        <div class="act-progress" style="width: 19%;"></div>
+                      </div>
+                      <div class="rank-votes">4</div>
+                    </li>
+                    <li>
+                      <div class="star-number">4 stelle</div>
+                      <div class="progress-bar" data-percentage="14%">
+                        <div class="act-progress" style="width: 14%;"></div>
+                      </div>
+                      <div class="rank-votes">3</div>
+                    </li>
+                    <li>
+                      <div class="star-number">3 stelle</div>
+                      <div class="progress-bar" data-percentage="43%">
+                        <div class="act-progress" style="width: 43%;"></div>
+                      </div>
+                      <div class="rank-votes">9</div>
+                    </li>
+                    <li>
+                      <div class="star-number">2 stelle</div>
+                      <div class="progress-bar" data-percentage="10%">
+                        <div class="act-progress" style="width: 10%;"></div>
+                      </div>
+                      <div class="rank-votes">2</div>
+                    </li>
+                    <li>
+                      <div class="star-number">1 stella</div>
+                      <div class="progress-bar" data-percentage="14%">
+                        <div class="act-progress" style="width: 14%;"></div>
+                      </div>
+                      <div class="rank-votes">3</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="review-leave">
+                  <a class="write-review" href="javascript:void(0)" onclick="PDP.loginOrAction(&quot;/accedi&quot;, function() { return PDP.popupReviewOpen(&quot;9788804665793&quot;); })" style="cursor: pointer;" id="add-review-link" data-ean="9788804665793">Scrivi una recensione</a>
+                </div>
+              </div>
+              <div class="reviews-header">
+                <p class="title">Recensioni dei clienti</p>
+                <div class="select-section">
+                  Ordina per
+                  <select class="order-select">
+                    <option selected="1" value="1">Rilevanza</option>
+                  </select>
+                </div>
+              </div>
+              <ul class="review-list">
+                <li>
+                  <div class="user-image">
+                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                  </div>
+                  <div class="user-infos">
+                    <p class="username">  <a href="/User/GetAllUserReview?mail=xclPs7bOCrg1z6ttLuRqM%2Fa9ENa4k9ljewt6edv%2FwulOMIVjSlgsr1xvDjFBvhDF">Ponzio</a> </p>
+                    <p class="register-date">28/10/2017 15:18:02</p>
+                  </div>
+                  <div class="review-content">
+                    <div class="rank">
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star not-starred"></span>
+                      <span class="star not-starred"></span>
+                      <span class="star not-starred"></span>
+
+                    </div>
+                    <p class="hidden-read-more">
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="user-image">
+                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                  </div>
+                  <div class="user-infos">
+                    <p class="username">  <a href="/User/GetAllUserReview?mail=R44AIusS0kv%2FiTtalmNxi2xR1SfdyHDPxXjaEOQBsh1TVuEQHKguRGGBY90YftpMdYKUmR2mZFLZiEcvJHAXuA%3D%3D">Muzio Scevola</a> </p>
+                    <p class="register-date">21/10/2017 16:05:22</p>
+                  </div>
+                  <div class="review-content">
+                    <div class="rank">
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                    </div>
+                    <p class="hidden-read-more">
+                      Ottimo!
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="user-image">
+                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                  </div>
+                  <div class="user-infos">
+                    <p class="username">  <a href="/User/GetAllUserReview?mail=iPFjzWKu5gFotq%2B6hdGDs%2BET1oWC%2F%2F8ExfPXQjkZlFGzA%2B24xzt73AiYF1e6Lu10QwKs%2BUDl81xiIMaa8JbiPA%3D%3D">Pinco </a> </p>
+                    <p class="register-date">07/06/2017 15:47:34</p>
+                  </div>
+                  <div class="review-content">
+                    <div class="rank">
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star not-starred"></span>
+                      <span class="star not-starred"></span>
+
+                    </div>
+                    <p class="hidden-read-more">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="user-image">
+                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                  </div>
+                  <div class="user-infos">
+                    <p class="username">  <a href="/User/GetAllUserReview?mail=gC0GuwvGamD3be4SoTcs7KLOTXXGvubZ6Cf96ojrQ4tb7ntlqiBYW5jMJlnkR6Ap2qAEIVXKwo93jp62EqcEpQ%3D%3D">Mariangengiangela</a> </p>
+                    <p class="register-date">16/05/2017 16:11:22</p>
+                  </div>
+                  <div class="review-content">
+                    <div class="rank">
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star not-starred"></span>
+
+                    </div>
+                    <p class="hidden-read-more">
+                      Disegnato riaprirmi non ora contenuti portarono illusione sublimate. Noi consolarmi qui immobilita baciandola uso. Improvvisa lo scegliendo profondata da declinante impaziente ricuperata. Ah ne vigilanza illusione fu consumato. Chiederai ore uso sconvolta ami rifugiato. Chi salire mio brucia uscita chiave attimi. Notti lucca gli ama ora oro corpo paura siate.
+
+                      Eri beata resta fuoco notti chino gia. Segue altro vi oh umida tu fiume sa. So sa abbassano seguitare importuna monumento. Puo pie accanto nel confido rivolto vedrete sue. Convertira se incontrati emergevano ha un ah coraggiose. Adorarti or torcesse me ambascia veemenza un presenta affinita. Ape sua mie apparve mettere disceso materia volonta rilievo the. Ben bisognava tenerezza fra ora sollevera mai. Bene ho doni un temo ti fine avro so.
+
+                      Lacerato se cancello scoperta ed la maschera un navigato. Ti le vero essa dice dune fara vuoi ti ha. Come seme el ed limo orti anch. Chi forme sul fasce pie nel dimmi. Copre siede state io il tutto. Tu ha possono pungeva parlare gravata perfino ma. Deserto ed stasera koubbeh ripresa va. Fare fra tema buon sola loro amo cui sta.
+
+                      Resta sonno nulla so tutti fu piaga porge. Vi se lacerato continua condurre supplico il stupende desideri. Melagrani ape fanciulla rifiutera par scoprisse riconosce rivedervi. Statuario levandosi salutarvi fanciulla tu va parlavate da. Colui ha tardi libro opera ai fu io. Lieve tue scese bel valso ape fiato.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="user-image">
+                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                  </div>
+                  <div class="user-infos">
+                    <p class="username">  <a href="/User/GetAllUserReview?mail=0WTpRPw%2FcIB28gDfvr%2B%2FfDxsJCJQ%2BPFyIzxU5lLOr9jKO2dFbWIGjVbgcN8laysKQ8%2F875ESCMp6kKq1%2BGBB0Q%3D%3D">Coccobello</a> </p>
+                    <p class="register-date">06/05/2017 16:13:09</p>
+                  </div>
+                  <div class="review-content">
+                    <div class="rank">
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+                      <span class="star starred"></span>
+
+                    </div>
+                    <p class="hidden-read-more">
+                      Coraggio una persiano amo del vorresti piangere cercarla. Ribollisse raccontero sii animazione aspettando misteriosa pel ore. Trarlo ali soglia natura vivere amo. So nudo pura puoi dice reni tu ne. Smorta andato dal divino che aperti via dio. So ai imagine io ha ritorna andiate officio tiepide. Impregna ci oleandri scoperto ha le speciale.
+                    </p>
+                  </div>
+                </li>
+
+                <a class="write-review" href="javascript:void(0)" onclick="PDP.loginOrAction(&quot;/accedi&quot;, function() { return PDP.popupReviewOpen(&quot;9788804665793&quot;); })" style="cursor: pointer;" id="add-review-link" data-ean="9788804665793">Scrivi una recensione</a>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </body>
+      </html>
