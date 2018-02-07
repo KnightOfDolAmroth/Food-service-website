@@ -4,29 +4,29 @@ body {
 
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
-      margin-bottom: 0;
-			border-radius: 0px;
-    }
+  margin-bottom: 0;
+	border-radius: 0px;
+}
 
-.carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:700px;
-	  max-height: 700px
-  }
+.with-bg-size {
+  width: 100%; /* Set width to 100% */
+  height: auto;
+	background-position: center;
+	background-size: cover;
+}
 
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media (max-width: 600px) {
-    .carousel-caption {
-      display: none;
-    }
-  }
+.centered-and-cropped {
+	width: 100%;
+	object-fit: cover;
+}
+
+
 
 iframe {
 	frameborder="0";
-  }
+}
 
 h2 {
 	background-color: gray;
 	color: white;
-  }
+}
