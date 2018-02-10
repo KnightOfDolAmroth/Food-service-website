@@ -50,14 +50,29 @@
 
   <div class="container wrapper">
     <div class="row prodotto">
-      <div class="col-sm-4">
-        <img class="prod-img img img-responsive img-thumbnail" src="../../img/placeholder.jpg" alt="immagine prodotto">
+      <div class="col-sm-6 col-lg-4 prod-img-holder">
+        <img class="prod-img img img-responsive img-thumbnail" src="../../img/i-crudofontina.jpg" alt="immagine prodotto">
       </div>
 
-      <div class="col-sm-4 ingredienti">
+      <div class="col-sm-6 col-lg-4 ingredienti">
         <h2>Boscaiolo</h2>
         <p>Prosciutto cotto, prosciutto crudo, salame, pancetta, speck, ciccioli, lardo, speck, cubetti di strutto, zampone, mortadella, olio di palma</p>
       </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="aside">
+          <label for="price-cont">Prezzo base:</label>
+        <div id="price-cont">
+          <span class="euro">€</span>
+          <span class="price">4,50</span>
+        </div>
+        <button class="btn btn-default" type="button" name="button">Aggiungi al carrello
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+        </div>
+
+      </div>
+
 
     </div>
     <div class="col-lg-25 col-md-25 col-xs-25">
@@ -66,9 +81,9 @@
           <div class="schedule-content">
 
             <div class="schedule-section" id="user-reviews" style="display: block;">
-              <div class="review-graph hidden-xs">
-                <div class="avg-rank">
-                  <p>Media clienti: 3,14  di 5</p>
+              <div class="review-graph row">
+                <div class="avg-rank col-md-6 col-sm-12">
+                  <p>Media stelle: 3,14 su 5</p>
                   <div class="rank">
                     <span class="star starred"></span>
                     <span class="star starred"></span>
@@ -78,48 +93,54 @@
 
                   </div>
                 </div>
-                <div class="single-ranks">
-                  <ul class="rank-results">
-                    <li>
-                      <div class="star-number">5 stelle</div>
-                      <div class="progress-bar" data-percentage="19%">
-                        <div class="act-progress" style="width: 19%;"></div>
-                      </div>
-                      <div class="rank-votes">4</div>
-                    </li>
-                    <li>
-                      <div class="star-number">4 stelle</div>
-                      <div class="progress-bar" data-percentage="14%">
-                        <div class="act-progress" style="width: 14%;"></div>
-                      </div>
-                      <div class="rank-votes">3</div>
-                    </li>
-                    <li>
-                      <div class="star-number">3 stelle</div>
-                      <div class="progress-bar" data-percentage="43%">
-                        <div class="act-progress" style="width: 43%;"></div>
-                      </div>
-                      <div class="rank-votes">9</div>
-                    </li>
-                    <li>
-                      <div class="star-number">2 stelle</div>
-                      <div class="progress-bar" data-percentage="10%">
-                        <div class="act-progress" style="width: 10%;"></div>
-                      </div>
-                      <div class="rank-votes">2</div>
-                    </li>
-                    <li>
-                      <div class="star-number">1 stella</div>
-                      <div class="progress-bar" data-percentage="14%">
-                        <div class="act-progress" style="width: 14%;"></div>
-                      </div>
-                      <div class="rank-votes">3</div>
-                    </li>
-                  </ul>
+                <div class="single-ranks col-md-6 col-sm-12">
+                  <div class="div-strategico">
+                    <ul class="rank-results">
+                      <li>
+                        <div class="star-number">5 stelle</div>
+                        <div class="progress-bar" data-percentage="19%">
+                          <div class="act-progress" style="width: 19%;"></div>
+                        </div>
+                        <div class="rank-votes">4</div>
+                      </li>
+                      <li>
+                        <div class="star-number">4 stelle</div>
+                        <div class="progress-bar" data-percentage="14%">
+                          <div class="act-progress" style="width: 14%;"></div>
+                        </div>
+                        <div class="rank-votes">3</div>
+                      </li>
+                      <li>
+                        <div class="star-number">3 stelle</div>
+                        <div class="progress-bar" data-percentage="43%">
+                          <div class="act-progress" style="width: 43%;"></div>
+                        </div>
+                        <div class="rank-votes">9</div>
+                      </li>
+                      <li>
+                        <div class="star-number">2 stelle</div>
+                        <div class="progress-bar" data-percentage="10%">
+                          <div class="act-progress" style="width: 10%;"></div>
+                        </div>
+                        <div class="rank-votes">2</div>
+                      </li>
+                      <li>
+                        <div class="star-number">1 stella</div>
+                        <div class="progress-bar" data-percentage="14%">
+                          <div class="act-progress" style="width: 14%;"></div>
+                        </div>
+                        <div class="rank-votes">3</div>
+                      </li>
+                    </ul>
+
+                  </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="review-leave">
                   <a class="write-review" href="javascript:void(0)" onclick="PDP.loginOrAction(&quot;/accedi&quot;, function() { return PDP.popupReviewOpen(&quot;9788804665793&quot;); })" style="cursor: pointer;" id="add-review-link" data-ean="9788804665793">Scrivi una recensione</a>
                 </div>
+
               </div>
               <div class="reviews-header">
                 <p class="title">Recensioni dei clienti</p>
@@ -133,10 +154,10 @@
               <ul class="review-list">
                 <li>
                   <div class="user-image">
-                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                    <img class="usr-img img-circle img-responsive" src="../../img/users/mommy.jpg" alt="User Icon">
                   </div>
                   <div class="user-infos">
-                    <p class="username">  <a href="/User/GetAllUserReview?mail=xclPs7bOCrg1z6ttLuRqM%2Fa9ENa4k9ljewt6edv%2FwulOMIVjSlgsr1xvDjFBvhDF">Ponzio</a> </p>
+                    <p class="username"> Ponzio</p>
                     <p class="register-date">28/10/2017 15:18:02</p>
                   </div>
                   <div class="review-content">
@@ -154,10 +175,10 @@
                 </li>
                 <li>
                   <div class="user-image">
-                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                    <img class="usr-img img-circle img-responsive" src="../../img/users/female.png" alt="User Icon">
                   </div>
                   <div class="user-infos">
-                    <p class="username">  <a href="/User/GetAllUserReview?mail=R44AIusS0kv%2FiTtalmNxi2xR1SfdyHDPxXjaEOQBsh1TVuEQHKguRGGBY90YftpMdYKUmR2mZFLZiEcvJHAXuA%3D%3D">Muzio Scevola</a> </p>
+                    <p class="username">Muzio Scevola </p>
                     <p class="register-date">21/10/2017 16:05:22</p>
                   </div>
                   <div class="review-content">
@@ -175,10 +196,10 @@
                 </li>
                 <li>
                   <div class="user-image">
-                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                    <img class="usr-img img-circle img-responsive" src="../../img/users/massimodecimo.jpg" alt="User Icon">
                   </div>
                   <div class="user-infos">
-                    <p class="username">  <a href="/User/GetAllUserReview?mail=iPFjzWKu5gFotq%2B6hdGDs%2BET1oWC%2F%2F8ExfPXQjkZlFGzA%2B24xzt73AiYF1e6Lu10QwKs%2BUDl81xiIMaa8JbiPA%3D%3D">Pinco </a> </p>
+                    <p class="username"> Pinco</p>
                     <p class="register-date">07/06/2017 15:47:34</p>
                   </div>
                   <div class="review-content">
@@ -197,10 +218,10 @@
                 </li>
                 <li>
                   <div class="user-image">
-                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                    <img class="usr-img img-circle img-responsive" src="../../img/users/scarlett.jpg" alt="User Icon">
                   </div>
                   <div class="user-infos">
-                    <p class="username">  <a href="/User/GetAllUserReview?mail=gC0GuwvGamD3be4SoTcs7KLOTXXGvubZ6Cf96ojrQ4tb7ntlqiBYW5jMJlnkR6Ap2qAEIVXKwo93jp62EqcEpQ%3D%3D">Mariangengiangela</a> </p>
+                    <p class="username">  Mariangengiangela</p>
                     <p class="register-date">16/05/2017 16:11:22</p>
                   </div>
                   <div class="review-content">
@@ -225,10 +246,10 @@
                 </li>
                 <li>
                   <div class="user-image">
-                    <img src="https://www.ibs.it/Content/images/review-icon.png" alt="User Icon">
+                    <img class="usr-img img-circle img-responsive" src="../../img/users/johncena.jpg" alt="User Icon">
                   </div>
                   <div class="user-infos">
-                    <p class="username">  <a href="/User/GetAllUserReview?mail=0WTpRPw%2FcIB28gDfvr%2B%2FfDxsJCJQ%2BPFyIzxU5lLOr9jKO2dFbWIGjVbgcN8laysKQ8%2F875ESCMp6kKq1%2BGBB0Q%3D%3D">Coccobello</a> </p>
+                    <p class="username"> Coccobello </p>
                     <p class="register-date">06/05/2017 16:13:09</p>
                   </div>
                   <div class="review-content">
