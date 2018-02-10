@@ -380,6 +380,10 @@ text-align: center;
   list-style-type: none;
 }
 
+.wrapper{
+  margin-top: 2%;
+}
+
 @media (max-width: 314px) {
   #product-schedule .schedule-section .review-graph .single-ranks .rank-results li .progress-bar{
     width: 140px;
