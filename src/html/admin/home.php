@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	ob_start();
 	if (isset($_SESSION['rememberme']) && $_SESSION['rememberme'] === true) {
@@ -14,7 +14,7 @@
 	$username ="root";
 	$password ="";
 	$database = "food_service";
-	
+
 	$conn = new mysqli($servername, $username, $password, $database);
 	if ($conn->connect_error) {
 		die("Connection failed: " .$conn->connect_error);
@@ -39,72 +39,61 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../homepage/home.html">La Malaghiotta</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-time"></span> Orari</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Avvisi</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Orari</a></li>
           </ul>
-          <form class="navbar-form navbar-left" action="/action_page.php">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           </ul>
         </div>
       </div>
     </nav>
-	
+
 	<script>
-		$(document).ready(function(){  
-			$('.bottone_dettagli').click(function(){  
-				var codice_ordine = $(this).attr("value");  
+		$(document).ready(function(){
+			$('.bottone_dettagli').click(function(){
+				var codice_ordine = $(this).attr("value");
 				$.ajax({
-					url:"modal/dettagli.php",  
+					url:"modal/dettagli.php",
 					method:"post",
-					data:{codice_ordine:codice_ordine},  
+					data:{codice_ordine:codice_ordine},
 					success:function(data){
 						console.log(codice_ordine);
-						$('#dettagli_ordine').html(data);  
-						$('#data_modal').modal("show");  
-					}  
-				});				
+						$('#dettagli_ordine').html(data);
+						$('#data_modal').modal("show");
+					}
+				});
 			});
-			
+
 			$('.selectpicker').click(function(){
 				var stato = $(this).val();
 				document.getElementById("stato").value = stato;
 				console.log((document.getElementById("stato").value));
 			});
-			
+
 			$('.bottone_stato').click(function(){
 				var procedi = $(this).val();
 				var stato = $('#stato').val();
 				$.ajax({
-					url:"stato.php",  
+					url:"stato.php",
 					method:"post",
-					data:{procedi:procedi,stato:stato},  
+					data:{procedi:procedi,stato:stato},
 					success:function(data){
 						console.log(procedi);
 						$('#dettagli_ordine').html(data);
-					}  
+					}
 				});
 				setTimeout(function () { location.reload(true); }, 500);
 			});
 		});
 	</script>
-	
+
 	<header>
       <h1>Benvenuto/a, admin</h1>
-	  
+
 	  <?php
 		$sql0 = " SELECT COUNT(codice_ordine) AS count
 				FROM ordine
@@ -118,10 +107,10 @@
 			$ordini_inattivi = '0';
 		}
 		?>
-	  
+
       <h3>Ci sono: <?php echo $ordini_inattivi ?> ordini non spediti</h3>
     </header>
-  
+
   <body>
     <div class="container">
       <legend>Gestione ordini</legend>
@@ -137,7 +126,7 @@
 	  <div class="ord-body">
 
 	  <?php
-		
+
 		$sql0 = " SELECT *
 				FROM ordine
 				WHERE stato <> 'Creazione'
@@ -148,11 +137,11 @@
 				include 'ordini.php';
 			}
 		}
-	  
+
 	  ?>
 	  </div>
 	</div>
-	
+
 	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -167,6 +156,6 @@
 			</div>
 		</div>
 	</div>
-	
+
   </body>
 </html>
