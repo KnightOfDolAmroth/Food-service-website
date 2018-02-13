@@ -47,20 +47,20 @@
 							<label hidden for="status">Stato:</label>
 							<select class="selectpicker" id="status">
 								<option ';
-								if ($row["stato"] === "Inattivo") {
+								if ($row["stato"] === "inattivo") {
 									$output .= 'selected="selected" ';
 									}
-								$output .= 'value="Inattivo">Inattivo</option>
+								$output .= 'value="inattivo">inattivo</option>
 								<option ';
-								if ($row["stato"] === "Spedizione") {
+								if ($row["stato"] === "in spedizione") {
 									$output .= 'selected="selected" ';
 									}
-								$output .= 'value="Spedizione">Spedizione</option>
+								$output .= 'value="in spedizione">in spedizione</option>
 								<option ';
-								if ($row["stato"] === "Pagato") {
+								if ($row["stato"] === "pagato") {
 									$output .= 'selected="selected" ';
 									}
-								$output .= 'value="Pagato">Pagato</option>
+								$output .= 'value="pagato">pagato</option>
 							</select>
 							<p></p>
 							<input type="hidden" id="stato" value="non settato"/>

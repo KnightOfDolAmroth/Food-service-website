@@ -36,8 +36,9 @@
 									<span class="ord-id text-center"><p>'.$row["testo"].'</p></span>
 								</div>
 								<div class="col-sm-2 elimina">
-									<button class="btn btn-info bottone_elimina" type="button" name="button" value="'.$row["id_messaggio"].'">Elimina</button>
-								</div>';
+									<button class="btn btn-info bottone_elimina" type="button" name="button" id="'.$row["id_messaggio"].'" value="'.$usr.'">Elimina</button>
+								</div>
+							</div>';
 					}
 				} else {
 					$output .= '
@@ -48,7 +49,35 @@
 							</div>';
 				}
 				$output .= '
-			</div>';
+			</div>
+			<script>
+				$(document).ready(function(){					
+					$(".bottone_elimina").click(function(){  
+						var id_messaggio = $(this).attr("id"); 
+						var username = $(this).attr("value");
+						$.ajax({
+							url:"modal/aggiorna.php",  
+							method:"post",  
+							data:{id_messaggio:id_messaggio},  
+							success:function(data){
+								console.log(id_messaggio);
+							}  
+						});
+						setTimeout(function(){
+							$.ajax({
+								url:"modal/messaggi.php",  
+								method:"post",  
+								data:{username:username},  
+								success:function(data){
+									console.log(username);
+									$("#dettagli_messaggi").html(data);  
+									$("#data_modal").modal("show");  
+								}  
+							});
+						}, 100);
+					}); 
+				});
+			</script>';
 		echo $output;
 	}
 ?>

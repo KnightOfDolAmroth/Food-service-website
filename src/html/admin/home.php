@@ -86,7 +86,7 @@
 						$('#dettagli_ordine').html(data);
 					}
 				});
-				setTimeout(function () { location.reload(true); }, 500);
+				setTimeout(function () { location.reload(true); }, 100);
 			});
 		});
 	</script>
@@ -129,7 +129,7 @@
 
 		$sql0 = " SELECT *
 				FROM ordine
-				WHERE stato <> 'Creazione'
+				WHERE stato <> 'in creazione'
 				ORDER BY data";
 		$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
 		if ($result->num_rows>0) {

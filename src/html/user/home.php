@@ -36,20 +36,36 @@
 
 <script>
 	$(document).ready(function(){  
-			$('.messaggi').click(function(){  
-				var username = $(this).attr("id");  
-				$.ajax({
-					url:"modal/messaggi.php",  
-					method:"post",  
-					data:{username:username},  
-					success:function(data){
-						console.log(username);
-						$('#dettagli_messaggi').html(data);  
-						$('#data_modal').modal("show");  
-					}  
-				});				
-			}); 
+		$('.messaggi').click(function(){  
+			var username = $(this).attr("id");  
+			$.ajax({
+				url:"modal/messaggi.php",  
+				method:"post",  
+				data:{username:username},  
+				success:function(data){
+					console.log(username);
+					$('#dettagli_messaggi').html(data);  
+					$('#data_modal').modal("show");  
+				}  
+			});				
 		});
+		
+		$('.bottone_elimina').click(function(){  
+			var id_messaggio = $(this).attr("id"); 
+			var username = $(this).attr("value");
+			$.ajax({
+				url:"modal/aggiorna.php",  
+				method:"post",  
+				data:{id_messaggio:id_messaggio, username:username},  
+				success:function(data){
+					console.log(id_messaggio);
+					$('#data_modal').modal("hide");
+					$('#dettagli_messaggi').html(data);  
+					$('#data_modal').modal("show");  
+				}  
+			});				
+		}); 
+	});
 		
 </script>	
 
