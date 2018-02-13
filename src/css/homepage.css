@@ -1,5 +1,9 @@
 body {
-	background-color: rgb(180,180,255);
+	background-image: url("../../img/Background.jpg");
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 /* Remove the navbar's default margin-bottom and rounded borders */
@@ -8,19 +12,9 @@ body {
 	border-radius: 0px;
 }
 
-.with-bg-size {
-  width: 100%; /* Set width to 100% */
-  height: auto;
-	background-position: center;
-	background-size: cover;
+nav + div {
+	margin-top: 325px;
 }
-
-.centered-and-cropped {
-	width: 100%;
-	object-fit: cover;
-}
-
-
 
 iframe {
 	frameborder="0";
