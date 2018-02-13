@@ -47,5 +47,15 @@
 		$sql = "INSERT INTO messaggio (id_messaggio, username, oggetto, testo)
 				VALUES ('$id_messaggio', '$user', '$oggetto', '$testo')";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+		
+		//INVIO EMAIL DI NOTIFICA
+		$headers = "From: prova@unibo.it";
+		$sql = "SELECT email
+				FROM utente
+				WHERE username = '$user'";
+		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+		$row = $result->fetch_assoc();
+		$email = $row["email"];
+		mail($email, $oggetto, $testo, $headers);
 	}
 ?>
