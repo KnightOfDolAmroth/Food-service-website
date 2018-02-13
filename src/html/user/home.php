@@ -135,7 +135,7 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./menu.php'">Listino prodotti:<br/>scegli le nostre proposte</button>
 		</div>
 		<div class="preferiti">
-			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./carrello.html'">Carrello ordini:<br/>procedi all'acquisto</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./cart/carrello.php'">Carrello ordini:<br/>procedi all'acquisto</button>
 		</div>
     </div>
   </article>

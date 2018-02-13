@@ -84,7 +84,7 @@
 									<div class="col-sm-3 aggiunte">
 									<span class="aggiunte text-center">';
 									
-										$sql2 = " SELECT nome_ingrediente
+										$sql2 = "SELECT nome_ingrediente
 												FROM ingrediente
 												WHERE id_ingrediente IN (SELECT id_ingrediente
 																		FROM aggiunta_ordine
