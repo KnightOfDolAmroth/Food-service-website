@@ -1,240 +1,109 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <title>Gestione ordinazioni</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="../css/order_management.css" rel="stylesheet" type="text/css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+<?php
+	session_start();
+	echo "passo 0";
+	if(isset($_SESSION["username"]) && isset($_REQUEST["id_prodotto"]) /*&& isset($_REQUEST["imp"])*/ && isset($_REQUEST["qta"])) {
+		$servername="localhost";
+		$username ="root";
+		$password ="";
+		$database = "food_service";
 
-<body>
-  <nav class="navbar fixed-top navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-        </ul>
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <header>
-    <h1>I TUOI ORDINI</h1>
-  </header>
-
-  <section>
-
-    <div class="tab">
-      <button class="tablinks" onclick="openList(event, 'current')">Ordini in corso</button>
-      <button class="tablinks" onclick="openList(event, 'previous')">Ordini precedenti</button>
-    </div>
-
-    <div id="current" class="tabcontent container">
-      <div class="row col-titles">
-        <div class="col-sm-3 field-title">id ordine</div>
-        <div class="col-sm-4 field-title">stato</div>
-        <div class="col-sm-3 field-title">riepilogo</div>
-        <div class="col-sm-2 field-title"></div>
-
-      </div>
-      <div class="ord-body">
-        <div class="row order">
-          <div class="col-sm-3 ord-info id-ord">
-            <span>
-              <h1>123</h1>
-            </span>
-          </div>
-
-
-          <div class="col-sm-4 ord-info">
-            <div class="tl-row">
-              <div class="timeline">
-                    <span class="stat">inattivo</span>
-                      <span class="stat">pendente</span>
-                      <span class="stat">partito</span>
-                      <span class="stat stat-active">concluso</span>
-              </div>
-            </div>
-          </div>
-
-            <div class="col-sm-3 ord-info riep">
-                <div class="riepilogo">
-                  <span class="field">
-                    <p class="field-name">Indirizzo: </p>
-                    <p class="field-value">Via 'ndante </p>
-                  </span>
-                  <span class="field">
-                    <p class="field-name">Campanello: </p>
-                    <p class="field-value">ciccio pasticcio</p>
-                  </span>
-                  <span class="field">
-                    <p class="field-name">Data: </p>
-                    <p class="field-value">10/02/2018</p>
-                  </span>
-                  <span class="field">
-                    <p class="field-name">Ora: </p>
-                    <p class="field-value">12:35</p>
-                  </span>
-                </div>
-          </div>
-
-
-          <div class="col-sm-2 ord-info trash">
-            <button type="button" class="btn btn-link btn-lg">
-									<span class="glyphicon glyphicon-trash"> </span>
-						</button>
-          </div>
-      </div>
-
-      <div class="row order">
-        <div class="col-sm-3 ord-info id-ord">
-          <span>
-            <h1>333</h1>
-          </span>
-        </div>
-
-
-        <div class="col-sm-4 ord-info">
-          <div class="tl-row">
-            <div class="timeline">
-                  <span class="stat">inattivo</span>
-                    <span class="stat">pendente</span>
-                    <span class="stat">partito</span>
-                    <span class="stat stat-active">concluso</span>
-            </div>
-          </div>
-        </div>
-
-          <div class="col-sm-3 ord-info riep">
-              <div class="riepilogo">
-                <span class="field">
-                  <p class="field-name">Indirizzo: </p>
-                  <p class="field-value">Via roma, 56 </p>
-                </span>
-                <span class="field">
-                  <p class="field-name">Campanello: </p>
-                  <p class="field-value">muzio scevola</p>
-                </span>
-                <span class="field">
-                  <p class="field-name">Data: </p>
-                  <p class="field-value">01/02/2018</p>
-                </span>
-                <span class="field">
-                  <p class="field-name">Ora: </p>
-                  <p class="field-value">08:40</p>
-                </span>
-              </div>
-        </div>
-
-
-        <div class="col-sm-2 ord-info trash">
-          <button type="button" class="btn btn-link btn-lg">
-                <span class="glyphicon glyphicon-trash"> </span>
-          </button>
-        </div>
-    </div>
-
-    <div class="row order">
-      <div class="col-sm-3 ord-info id-ord">
-        <span>
-          <h1>274</h1>
-        </span>
-      </div>
-
-
-      <div class="col-sm-4 ord-info">
-        <div class="tl-row">
-          <div class="timeline">
-                <span class="stat ">inattivo</span>
-                  <span class="stat">pendente</span>
-                  <span class="stat">partito</span>
-                  <span class="stat stat-active">concluso</span>
-          </div>
-        </div>
-      </div>
-
-        <div class="col-sm-3 ord-info riep">
-            <div class="riepilogo">
-              <span class="field">
-                <p class="field-name">Indirizzo: </p>
-                <p class="field-value">Via delle rose </p>
-              </span>
-              <span class="field">
-                <p class="field-name">Campanello: </p>
-                <p class="field-value">lina carto onloadedmetadata</p>
-              </span>
-              <span class="field">
-                <p class="field-name">Data: </p>
-                <p class="field-value">3/02/2018</p>
-              </span>
-              <span class="field">
-                <p class="field-name">Ora: </p>
-                <p class="field-value">13:50</p>
-              </span>
-            </div>
-      </div>
-
-
-      <div class="col-sm-2 ord-info trash">
-        <button type="button" class="btn btn-link btn-lg">
-              <span class="glyphicon glyphicon-trash"> </span>
-        </button>
-      </div>
-  </div>
-    </div>
-
-    <div id="previous" class="tabcontent">
-      <p>These are your previous orders.</p>
-    </div>
-  </section>
-
-  <script>
-  function openList(evt, category) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(category).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  </script>
-
-  <script type="text/javascript">
-  $(function() {
-  $('.timeline').on('click', '.stat', function() {
-      $('.stat').removeClass('stat-active');
-      $(this).addClass('stat-active');
-  })
-})
-  </script>
-</body>
-</html>
+		$conn = new mysqli($servername, $username, $password, $database);
+		if ($conn->connect_error) {
+			die("Connection failed: " .$conn->connect_error);
+		}
+			echo "passo 1";
+			/*CONTROLLO SE L'UTENTE HA UN ORDINE IN CREAZIONE*/
+			$usr = $_SESSION['username'];
+			$sql0 = "SELECT stato, codice_ordine
+					FROM ordine
+					WHERE username = '$usr'
+					AND stato = 'creazione'";
+			/*SE NON CE L'HA CREO UN NUOVO ORDINE*/
+			$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
+			if($result->num_rows === 0) {
+				echo "passo 2";
+				/*SELEZIONO IL CODICE ORDINE PIÚ RECENTE*/
+				$sql3 = "SELECT codice_ordine
+						FROM ordine
+						ORDER BY codice_ordine DESC";
+				/*SE ESISTE LO INCREMENTO DI 1, ALTRIMENTI SETTO A 1*/
+				$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
+				if($result->num_rows > 0) {
+					echo "passo 3";
+					$row3 = $result->fetch_assoc();
+					$id_ordine = ++$row3["codice_ordine"];
+				} else {
+					echo "passo 4";
+					$id_ordine = 1;
+				}
+				
+				/*INSERIMENTO NUOVO ORDINE*/
+				$data = date("Y-m-d H:i:s");
+				$indirizzo = "Da specificare";
+				$campanello = "Da specificare";
+				$stato = "Creazione";
+				$usr = $_SESSION["username"];
+				$sql4 = "INSERT INTO ordine(codice_ordine, data, indirizzo_recapito, nome_campanello, stato, username)
+						VALUES ('$id_ordine', '$data', '$indirizzo', '$campanello', '$stato', '$usr')";
+				$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+			} else {
+				$row0 = $result->fetch_assoc();
+				$id_ordine = $row0["codice_ordine"];
+			}
+			echo "passo 5";
+			/*PRENDO L'ID DELL'ULTIMO DETTAGLIO*/
+				$sql1 = "SELECT id_dettaglio
+						FROM dettaglio_ordine
+						ORDER BY id_dettaglio DESC";
+				/*SE ESISTE INCREMENTO, ALTRIMENTI SETTO A 1*/
+				$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
+				var_dump($result->num_rows);
+				if($result->num_rows > 0) {
+					echo "passo 6";
+					$row1 = $result->fetch_assoc();
+					$id_dettaglio = $row1["id_dettaglio"];
+					++$id_dettaglio;
+				} else {
+					echo "passo 7";
+					$id_dettaglio = 1;
+				}
+				
+				/*INSERISCO IL DETTAGLIO ORDINE*/
+				echo "passo 8";
+				$qta = $_REQUEST["qta"];
+				$id_prod = $_REQUEST["id_prodotto"];
+				if (isset($_REQUEST["imp"])) {
+					$nome_imp = $_REQUEST["imp"];
+					$sql5 = " SELECT id_impasto	
+							FROM impasto
+							WHERE nome_impasto = '$nome_imp'";
+					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
+					$row = $result->fetch_assoc();
+					$id_imp = $row["id_impasto"];
+				} else {
+					$id_imp = "1";
+				}
+				$sql2 = "INSERT INTO dettaglio_ordine(id_dettaglio,qta,codice_ordine,id_prodotto,id_impasto)
+						VALUES ('$id_dettaglio','$qta','$id_ordine','$id_prod','$id_imp')";
+				$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
+				
+				/*INSERISCO EVENTUALI AGGIUNTE*/
+				if(isset($_REQUEST["agg"])) {
+					$agg = $_REQUEST["agg"];
+					foreach($agg as $value) {
+						$nome_ingrediente = $value;
+						$sql3 = "SELECT id_ingrediente
+								FROM ingrediente
+								WHERE nome_ingrediente = '$nome_ingrediente'";
+						$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
+						$ingrediente = $result->fetch_assoc();
+						$id_ingrediente = $ingrediente["id_ingrediente"];
+						$sql4 = " INSERT INTO aggiunta_ordine(id_ingrediente, id_dettaglio)
+								VALUES ( '$id_ingrediente','$id_dettaglio')";
+						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
+					}
+				}
+				/*RITORNO A CASA*/
+				//header('Location: ./menu.php');
+	}
+?>
