@@ -28,11 +28,12 @@
 		if ($result->num_rows>0) {
 			$row = $result->fetch_assoc();
 			$id_messaggio = $row["id_messaggio"];
+			++$id_messaggio;
 		} else {
-			$id_messaggio = 1;
+			$id_messaggio = "1";
 		}
 		//---SETTO L'OGGETTO
-		$oggetto = "Stato ordine";
+		$oggetto = "Avanzamento ordine";
 		//---PRENDO L'USERNAME DELL'UTENTE
 		$sql = "SELECT username
 				FROM ordine
@@ -41,10 +42,10 @@
 		$row = $result->fetch_assoc();
 		$user = $row["username"];
 		//---SETTO IL TESTO DEL MESSAGGIO
-		$testo = "Il tuo ordine (cod:".$codice_ordine.") è ".$stato".";
+		$testo = "Il tuo ordine (cod:".$codice_ordine.") è ".$stato.".";
 		
 		$sql = "INSERT INTO messaggio (id_messaggio, username, oggetto, testo)
-				VAUES ('$id_messaggio', '$user', '$oggetto', '$testo')";
+				VALUES ('$id_messaggio', '$user', '$oggetto', '$testo')";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 	}
 ?>

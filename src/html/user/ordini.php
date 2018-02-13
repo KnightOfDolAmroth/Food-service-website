@@ -41,7 +41,7 @@
 				$data = date("Y-m-d H:i:s");
 				$indirizzo = "Da specificare";
 				$campanello = "Da specificare";
-				$stato = "Creazione";
+				$stato = "in creazione";
 				$usr = $_SESSION["username"];
 				$sql4 = "INSERT INTO ordine(codice_ordine, data, indirizzo_recapito, nome_campanello, stato, username)
 						VALUES ('$id_ordine', '$data', '$indirizzo', '$campanello', '$stato', '$usr')";
