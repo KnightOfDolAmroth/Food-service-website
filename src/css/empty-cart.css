@@ -3,8 +3,10 @@ background-color: rgb(239, 239, 239);
 }
 
 .navbar{
-  margin: 0%;
+  margin-bottom: 0;
+  border-radius: 0px;
 }
+
 .card-img{
   height: 85px;
   width: 125px;

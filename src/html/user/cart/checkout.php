@@ -27,17 +27,17 @@ session_start();
 </head>
 
 <script>
-	/*$(document).ready(function(){  
-		$('.pay-butt').click(function(){  
-			var codice_ordine = $(this).attr("value");  
+	/*$(document).ready(function(){
+		$('.pay-butt').click(function(){
+			var codice_ordine = $(this).attr("value");
 			$.ajax({
-				url:"paga.php",  
-				method:"post",  
-				data:{codice_ordine:codice_ordine},  
+				url:"paga.php",
+				method:"post",
+				data:{codice_ordine:codice_ordine},
 				success:function(data){
-					console.log(id_dettaglio); 
+					console.log(id_dettaglio);
 				}
-			});	
+			});
 			setTimeout(function () { location.reload(true); }, 100);
 		});
 	});*/
@@ -45,7 +45,7 @@ session_start();
 
 
 <body>
-  <!--navbar in cima-->
+	<!--navbar in cima-->
   <nav class="navbar fixed-top navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -58,19 +58,9 @@ session_start();
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
+  				<li><a href="../home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
         </ul>
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
@@ -104,7 +94,7 @@ session_start();
 					<div class="panel-body">
 						<div id="p-col" class="collapse" aria-labelledby="p-head">
 							<div class="p-body">
-							
+
 								<?php
 									$user = $_SESSION["username"];
 									$sql = " SELECT *
@@ -120,7 +110,7 @@ session_start();
 										while($row = $result->fetch_assoc()) {
 											include 'riepilogo.php';
 										}
-										
+
 										$sql = "SELECT codice_ordine
 											FROM ordine
 											WHERE username = '$user'
@@ -129,7 +119,7 @@ session_start();
 										$row = $result->fetch_assoc();
 										$codice_ordine = $row["codice_ordine"];
 									}
-								?>								
+								?>
 							</div>
 						</div>
 						<div class="form-group">
@@ -150,8 +140,8 @@ session_start();
 				</div>
 				<!--fine riepilogo-->
 			</div>
-			
-			
+
+
 			<div class="col-lg-6 col-md-6 col-sm-12">
 				<!--pagamento-->
 				<div class="panel panel-info pay-panel">

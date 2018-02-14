@@ -44,17 +44,17 @@ if ($result->num_rows < 1) {
 </head>
 
 <script>
-	$(document).ready(function(){  
-		$('.glyphicon-trash').click(function(){  
-			var id_dettaglio = $(this).attr("value");  
+	$(document).ready(function(){
+		$('.glyphicon-trash').click(function(){
+			var id_dettaglio = $(this).attr("value");
 			$.ajax({
-				url:"elimina.php",  
-				method:"post",  
-				data:{id_dettaglio:id_dettaglio},  
+				url:"elimina.php",
+				method:"post",
+				data:{id_dettaglio:id_dettaglio},
 				success:function(data){
-					console.log(id_dettaglio); 
+					console.log(id_dettaglio);
 				}
-			});	
+			});
 			setTimeout(function () { location.reload(true); }, 100);
 		});
 	});
@@ -74,19 +74,9 @@ if ($result->num_rows < 1) {
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
+          <li><a href="../home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
         </ul>
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
@@ -128,7 +118,7 @@ if ($result->num_rows < 1) {
 									<div class="col-sm-2">Importo</div>
 									<div class="col-sm-1"></div>
 								</div>
-				  
+
 								<?php
 									$totale = 0;
 									if ($result->num_rows > 0) {
@@ -141,7 +131,7 @@ if ($result->num_rows < 1) {
 								<div class="row" id="cart-tot">
 									<div class="cart-footer col-sm-push-4">
 										<div class="part1">
-											<div id="tot-label">Totale</div>						
+											<div id="tot-label">Totale</div>
 											<div id="tot">€ <?php echo $totale; ?></div>
 										</div>
 
