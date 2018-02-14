@@ -10,6 +10,23 @@ if ($conn->connect_error) {
 }
 
 session_start();
+
+$user = $_SESSION["username"];
+$sql = " SELECT *
+	FROM dettaglio_ordine
+	WHERE codice_ordine IN(
+		SELECT codice_ordine
+		FROM ordine
+		WHERE username = '$user'
+		AND stato = 'in creazione'
+	)";
+$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+
+if ($result->num_rows < 1) {
+	header('Location: ./empty.html');
+	exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +42,23 @@ session_start();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+
+<script>
+	$(document).ready(function(){  
+		$('.glyphicon-trash').click(function(){  
+			var id_dettaglio = $(this).attr("value");  
+			$.ajax({
+				url:"elimina.php",  
+				method:"post",  
+				data:{id_dettaglio:id_dettaglio},  
+				success:function(data){
+					console.log(id_dettaglio); 
+				}
+			});	
+			setTimeout(function () { location.reload(true); }, 100);
+		});
+	});
+</script>
 
 <body>
   <!--navbar in cima-->
@@ -61,93 +95,67 @@ session_start();
   </nav> <!--fine navbar in cima-->
 
 
-  <div class="container wrapper">
-
-    <div class="row cart-head">
-      <div class="container step-container">
-        <div class="row steps">
-          <a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-cart-arrow.png" alt="carrello"></a>
-          <a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-check-arrow.png" alt="checkout"></a>
-          <a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-thank-arrow.png" alt="grazie"></a>
-        </div>
-
-      </div>
-    </div>
-    <div class="row cart-body">
-      <form class="form-horizontal" method="post" action="">
-        <div class="col-sm-12">
-          <!--riepilogo-->
-          <div class="panel panel-info riep-panel">
-            <div class="card-header panel-heading" id="p-head">
-              <div class="mb-0">
-                <div class="btn btn-link collapsed"  id="titolo" data-toggle="collapse" data-target="#p-col" aria-expanded="false" aria-controls="p-col">
-                    Carrello <span><i class="glyphicon glyphicon-shopping-cart" ></i></span>
-
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="" id="cart-body">
-                <div class="cart">
-                  <div class="row titles">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-3">Ingredienti</div>
-                    <div class="col-sm-2">Aggiunte</div>
-                    <div class="col-sm-1">Quantità</div>
-                    <div class="col-sm-2">Impasto</div>
-                    <div class="col-sm-1">Importo</div>
-                    <div class="col-sm-1"></div>
-                  </div>
+	<div class="container wrapper">
+		<div class="row cart-head">
+			<div class="container step-container">
+				<div class="row steps">
+					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-cart-arrow.png" alt="carrello"></a>
+					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-check-arrow.png" alt="checkout"></a>
+					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-thank-arrow.png" alt="grazie"></a>
+				</div>
+			</div>
+		</div>
+		<div class="row cart-body">
+			<div class="col-sm-12">
+				<!--riepilogo-->
+				<div class="panel panel-info riep-panel">
+					<div class="card-header panel-heading" id="p-head">
+						<div class="mb-0">
+							<div class="btn btn-link collapsed"  id="titolo" data-toggle="collapse" data-target="#p-col" aria-expanded="false" aria-controls="p-col">
+								Carrello <span><i class="glyphicon glyphicon-shopping-cart" ></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="" id="cart-body">
+							<div class="cart">
+								<div class="row titles">
+									<div class="col-sm-2"></div>
+									<div class="col-sm-2">Ingredienti</div>
+									<div class="col-sm-2">Aggiunte</div>
+									<div class="col-sm-1">Quantità</div>
+									<div class="col-sm-2">Impasto</div>
+									<div class="col-sm-2">Importo</div>
+									<div class="col-sm-1"></div>
+								</div>
 				  
-					<?php
-						$user = $_SESSION["username"];
-						$sql = " SELECT *
-								FROM dettaglio_ordine
-								WHERE codice_ordine IN(
-									SELECT codice_ordine
-									FROM ordine
-									WHERE username = '$user'
-									AND stato = 'in creazione'
-								)";
-						$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+								<?php
+									$totale = 0;
+									if ($result->num_rows > 0) {
+										while($row = $result->fetch_assoc()) {
+											include 'dettagli.php';
+										}
+									}
+								?>
+								<div class="row" id="cart-tot">
+									<div class="cart-footer col-sm-push-4">
+										<div class="part1">
+											<div id="tot-label">Totale</div>						
+											<div id="tot">€ <?php echo $totale; ?></div>
+										</div>
 
-						if ($result->num_rows > 0) {
-							while($row = $result->fetch_assoc()) {
-								include 'dettagli.php';
-							}
-						}
-					?>
-					
-				  </div>
-
-                  <div class="row" id="cart-tot">
-                    <div class="cart-footer col-sm-push-4">
-                      <div class="part1">
-                        <div id="tot-label">Totale</div>
-                        <div id="tot">€ 40.00</div>
-                      </div>
-
-                      <div class="part2">
-                        <button class="btn btn-primary btn-lg"type="button" name="button">Procedi all'acquisto</button>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-          <!--fine riepilogo-->
-
-        </div>
-
-      </form>
-    </div>
-  </div>
-
-
+										<div class="part2">
+											<button class="btn btn-primary btn-lg"type="button" name="button">Procedi all'acquisto</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--fine riepilogo-->
+			</div>
+		</div>
+	</div>
 </body>
 </html>

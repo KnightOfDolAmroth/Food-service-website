@@ -73,7 +73,7 @@ session_start();
 						console.log(id_prodotto);
 					}
 				});
-				setTimeout(function () { location.reload(true); }, 500);
+				setTimeout(function () { location.reload(true); }, 100);
 			});
 
 			$('.selector').click(function(){  

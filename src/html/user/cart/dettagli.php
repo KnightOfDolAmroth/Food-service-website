@@ -15,7 +15,7 @@
 				$output .= '
 				<p class="card-title">'.$row1["nome_prodotto"].'</p>
 			</div>
-			<div class="col-sm-3 item-detail">
+			<div class="col-sm-2 item-detail">
 				<div class="card-body">
 					<p class="card-text">';
 					
@@ -63,37 +63,26 @@
 				</p>
 			</div>
 			<div class="col-sm-1 item-detail">
-				<div class="form-group">
-					<label class="hidden" for="qta">Quantità</label>
-					<select class="selectpicker" id="qta">
-					  <option>1</option>
-					  <option>2</option>
-					  <option>3</option>
-					  <option>4</option>
-					  <option>5</option>
-					</select>
-				</div>
+				<p>'.$row["qta"].'</p>
 			</div>
 			<div class="col-sm-2 item-detail">
-				<div class="form-group">
-					<p>';
-					
-					$id_imp = $row['id_impasto'];
-					$sql = "SELECT *
-						FROM impasto
-						WHERE id_impasto = '$id_imp'";
-					$impasto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
-					if ($impasto->num_rows>0) {
-						$row4 = $impasto->fetch_assoc();
-						$output .=
-						$row4["nome_impasto"];
-					}
-					
-					$output .= '
-					</p>
-				</div>
+				<p>';
+				
+				$id_imp = $row['id_impasto'];
+				$sql = "SELECT *
+					FROM impasto
+					WHERE id_impasto = '$id_imp'";
+				$impasto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+				if ($impasto->num_rows>0) {
+					$row4 = $impasto->fetch_assoc();
+					$output .=
+					$row4["nome_impasto"];
+				}
+				
+				$output .= '
+				</p>
 			</div>
-			<div class="col-sm-1 item-detail">
+			<div class="col-sm-2 item-detail">
 				<p>€ ';
 				
 				/*
@@ -115,6 +104,7 @@
 				$impasto = $row4['prezzo'];
 				
 				$spesa = $quantità*($base + $impasto + $costo_aggiunte);
+				$totale += $spesa;
 				
 				$output .= 
 				$spesa
@@ -122,7 +112,7 @@
 			</div>
 			<div class="col-sm-1 item-detail">
 				<button type="button" class="btn btn-link btn-lg">
-				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-trash" aria-hidden="true" value="'.$id_dettaglio.'"></span>
 				</button>
 			</div>
 		</div>';

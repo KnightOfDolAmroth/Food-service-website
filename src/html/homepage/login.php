@@ -26,8 +26,10 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 		$_SESSION["password"] = $_COOKIE["password"];
 		if ($_SESSION["username"] === "admin"){
 			header('Location: ../admin/home.php');
+			exit;
 		} else {
 			header('Location: ../user/home.php');
+			exit;
 		}
 	}
 }
