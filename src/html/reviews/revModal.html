@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="../../css/revModal.css" rel="stylesheet" type="text/css"/>
-
+  <link href="../../css/stars.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <script src="../../js/stars.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -31,10 +31,10 @@
 
 
 
-            <img src="../../../img/patacrescione.jpg" alt="" style="float: left; max-width: 120px;">
+            <img class="img-responsive img-thumbnail" src="../../../img/patacrescione.jpg" alt="" style="float: left; max-width: 120px;">
 
             <div style="margin-left: 150px;">
-                <a style="font-size: 21px; color: #0998a5;" href="javascript:void(0)">Patacrescione</a><br>
+                <p class="product-name">Patacrescione</p>
                 <small style="font-size: 16px;">carne, rucola, olive, maionese, rosmarino, peperoni verdi, zucca, avocado, carruba</small><br>
             </div>
             <div style="margin-left: 150px;">
@@ -44,19 +44,16 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
     </div>
-    <div class="row" style="margin-bottom: 15px;">
+    <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="title-rating-star">Rating*</div>
+            <div class="title-rating-star">Valutazione*</div>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-            <div class="stars-ctn">
-                <input id="Vote" name="Vote" type="hidden">
-                <span class="star not-starred star-1" data-valuestar="1"></span>
-                <span class="star not-starred star-2" data-valuestar="2"></span>
-                <span class="star not-starred star-3" data-valuestar="3"></span>
-                <span class="star not-starred star-4" data-valuestar="4"></span>
-                <span class="star not-starred star-5" data-valuestar="5"></span>
-            </div>
+          <div class="container">
+              <div class="row lead">
+                  <div id="stars-existing" class="starrr" data-rating='3'></div>
+              </div>
+          </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
             <ul class="votes">
@@ -69,12 +66,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            Titolo*
-            <div class="form-group">
-                <input class="form-control" placeholder="Inserisci il titolo del commento" id="title" name="title" type="text">
-            </div>
-        </div>
+
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             Scrivi qui la tua recensione*
             <div class="form-group">
@@ -89,22 +81,15 @@
 
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"><div id="review-message"></div></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-
-            <input id="sendReview" value="INVIA" type="button">
-            <input id="confirmReview" value="CONFERMA" style="display: none;" type="button">
-            <input id="changeReview" value="MODIFICA" style="display: none;" type="button">
-
+            <input class="btn" id="sendReview" value="INVIA" type="button">
         </div>
 
-        <input id="customerId" value="3560297" type="hidden">
-        <input id="userName" value="Sara" type="hidden">
-        <input id="email" value="arwen1996@gmail.com" type="hidden">
+
     </div>
     </div>
-            </div>
+  </div>
         </div>
   </div>
 </div>
-
 
 </body>
