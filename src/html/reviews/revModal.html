@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="../../css/revModal.css" rel="stylesheet" type="text/css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+
+<div id="popupAddReview" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div style="text-align:right;margin-right:10px;">
+                    <a href="javascript:void(0)"><img src="/Content/images/icon-close.png" alt="" data-dismiss="modal" width="30"></a>
+                </div>
+                <div class="modal-body">
+
+
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+
+
+
+            <img src="../../../img/patacrescione.jpg" alt="" style="float: left; max-width: 120px;">
+
+            <div style="margin-left: 150px;">
+                <a style="font-size: 21px; color: #0998a5;" href="javascript:void(0)">Patacrescione</a><br>
+                <small style="font-size: 16px;">carne, rucola, olive, maionese, rosmarino, peperoni verdi, zucca, avocado, carruba</small><br>
+            </div>
+            <div style="margin-left: 150px;">
+                <p class="price">€ 9,75</p>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="title-rating-star">Rating*</div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="stars-ctn">
+                <input id="Vote" name="Vote" type="hidden">
+                <span class="star not-starred star-1" data-valuestar="1"></span>
+                <span class="star not-starred star-2" data-valuestar="2"></span>
+                <span class="star not-starred star-3" data-valuestar="3"></span>
+                <span class="star not-starred star-4" data-valuestar="4"></span>
+                <span class="star not-starred star-5" data-valuestar="5"></span>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <ul class="votes">
+                <li class="vote-text vote-1" data-valuestar="1">Pessimo</li>
+                <li class="vote-text vote-2" data-valuestar="2">Scarso</li>
+                <li class="vote-text vote-3" data-valuestar="3">Nella media</li>
+                <li class="vote-text vote-4" data-valuestar="4">Molto buono</li>
+                <li class="vote-text vote-5" data-valuestar="5">Eccellente</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            Titolo*
+            <div class="form-group">
+                <input class="form-control" placeholder="Inserisci il titolo del commento" id="title" name="title" type="text">
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            Scrivi qui la tua recensione*
+            <div class="form-group">
+                <textarea placeholder="Hai a disposizione 2000 caratteri" maxlength="2000" class="form-control" id="Content" name="Content"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <p>* I campi contrassegnati con l'asterisco sono obbligatori</p>
+        </div>
+
+
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"><div id="review-message"></div></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+            <input id="sendReview" value="INVIA" type="button">
+            <input id="confirmReview" value="CONFERMA" style="display: none;" type="button">
+            <input id="changeReview" value="MODIFICA" style="display: none;" type="button">
+
+        </div>
+
+        <input id="customerId" value="3560297" type="hidden">
+        <input id="userName" value="Sara" type="hidden">
+        <input id="email" value="arwen1996@gmail.com" type="hidden">
+    </div>
+    </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+
+</body>
