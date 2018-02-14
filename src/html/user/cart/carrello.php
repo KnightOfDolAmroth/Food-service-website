@@ -88,7 +88,7 @@ if ($result->num_rows < 1) {
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -99,9 +99,9 @@ if ($result->num_rows < 1) {
 		<div class="row cart-head">
 			<div class="container step-container">
 				<div class="row steps">
-					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-cart-arrow.png" alt="carrello"></a>
-					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-check-arrow.png" alt="checkout"></a>
-					<a href="#"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-thank-arrow.png" alt="grazie"></a>
+					<img class="img img-responsive arrow" src="../../../../img/Arrows/blue-cart-arrow.png" alt="carrello">
+					<a href="checkout.php"> <img class="img img-responsive arrow" src="../../../../img/Arrows/white-check-arrow.png" alt="checkout"></a>
+					<img class="img img-responsive arrow" src="../../../../img/Arrows/white-thank-arrow.png" alt="grazie">
 				</div>
 			</div>
 		</div>
@@ -136,6 +136,7 @@ if ($result->num_rows < 1) {
 											include 'dettagli.php';
 										}
 									}
+									$_SESSION["totale"] = $totale;
 								?>
 								<div class="row" id="cart-tot">
 									<div class="cart-footer col-sm-push-4">
@@ -145,7 +146,7 @@ if ($result->num_rows < 1) {
 										</div>
 
 										<div class="part2">
-											<button class="btn btn-primary btn-lg"type="button" name="button">Procedi all'acquisto</button>
+											<button class="btn btn-primary btn-lg"type="button" name="button" onclick="window.location.href = 'checkout.php'">Procedi all'acquisto</button>
 										</div>
 									</div>
 								</div>
