@@ -35,39 +35,39 @@
 </head>
 
 <script>
-	$(document).ready(function(){  
-		$('.messaggi').click(function(){  
-			var username = $(this).attr("id");  
+	$(document).ready(function(){
+		$('.messaggi').click(function(){
+			var username = $(this).attr("id");
 			$.ajax({
-				url:"modal/messaggi.php",  
-				method:"post",  
-				data:{username:username},  
+				url:"modal/messaggi.php",
+				method:"post",
+				data:{username:username},
 				success:function(data){
 					console.log(username);
-					$('#dettagli_messaggi').html(data);  
-					$('#data_modal').modal("show");  
-				}  
-			});				
+					$('#dettagli_messaggi').html(data);
+					$('#data_modal').modal("show");
+				}
+			});
 		});
-		
-		$('.bottone_elimina').click(function(){  
-			var id_messaggio = $(this).attr("id"); 
+
+		$('.bottone_elimina').click(function(){
+			var id_messaggio = $(this).attr("id");
 			var username = $(this).attr("value");
 			$.ajax({
-				url:"modal/aggiorna.php",  
-				method:"post",  
-				data:{id_messaggio:id_messaggio, username:username},  
+				url:"modal/aggiorna.php",
+				method:"post",
+				data:{id_messaggio:id_messaggio, username:username},
 				success:function(data){
 					console.log(id_messaggio);
 					$('#data_modal').modal("hide");
-					$('#dettagli_messaggi').html(data);  
-					$('#data_modal').modal("show");  
-				}  
-			});				
-		}); 
+					$('#dettagli_messaggi').html(data);
+					$('#data_modal').modal("show");
+				}
+			});
+		});
 	});
-		
-</script>	
+
+</script>
 
 <body>
 	<nav class="navbar fixed-top navbar-inverse">
@@ -82,43 +82,41 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-				 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
-				<div id="user_data" class="modal">
-					<form class="modal-content animate" method="POST" action="./password_change.php">
-					<div class="container">
-						<label><b>Nome utente:</b></label>
-						<?php $username=$_SESSION['username']; echo $username; ?><br/>
-						<label><b>Punti premio:</b></label>
-						<?php $sql = "SELECT punti
-									FROM utente
-									WHERE username = '$username'";
-									$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
-									$row = $result->fetch_assoc();
-									$punti = $row["punti"];?><br/>
-						<label for="old"><b>Password corrente: </b></label>
-						<input type="password" placeholder="Enter Password" name="pwd" id="old" required>
-						<label for="new"><b>Nuova password:</b></label>
-						<input type="password" placeholder="Enter Password" name="new-pwd" id="new" required>
-						<label for="repeat"><b>Conferma password: </b></label>
-						<input type="password" placeholder="Enter Password" name="conf-pwd" id="repeat" required>
-						<button type="submit" id="invia">Aggiorna Password</button>
-					</div>
-					</form>
-				</div>
-				<li><a href="#" class="messaggi" id="<?php echo $_SESSION['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-				</ul>
-				<form class="navbar-form navbar-left" action="/action_page.php">
-				 <div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-						<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-				<li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<li><a href="#" class="messaggi"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle"> Gestione Password<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">
+								<label for="nome"><b>Nome utente: </b></label>
+							</a></li>
+							<li><a href="#">
+								<input type="text" placeholder="Enter Username" name="usr" id="nome" required>
+							</a></li>
+							<li><a href="#">
+								<label for="old"><b>Password corrente: </b></label>
+							</a></li>
+							<li><a href="#">
+								<input type="password" placeholder="Enter Old Password" name="pwd" id="old" required>
+							</a></li>
+							<li><a href="#">
+								<label for="new"><b>Nuova password:</b></label>
+							</a></li>
+							<li><a href="#">
+								<input type="password" placeholder="Enter New Password" name="new-pwd" id="new" required>
+							</a></li>
+							<li><a href="#">
+								<label for="repeat"><b>Conferma password: </b></label>
+							</a></li>
+							<li><a href="#">
+								<input type="password" placeholder="Enter New Password" name="conf-pwd" id="repeat" required>
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="#">
+								<button type="submit" value="aggiornaPassword" id="update">Aggiorna Password</button><br>
+								<button type="button" onclick="window.location.href='./home.php'" id="abort">Cancella</button>
+							</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -139,7 +137,7 @@
 		</div>
     </div>
   </article>
-  
+
   <div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">

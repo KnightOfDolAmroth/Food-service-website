@@ -78,13 +78,13 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
 	  <label for="new_telephone"><b>Telefono</b></label>
       <input type="text" placeholder="Enter telephone" name="new_telephone" id="new_telephone" required>
 
-    <label for="new_uname"><b>Username</b></label>
+    <label for="new_uname"><b>Nome utente</b></label>
       <input type="text" placeholder="Enter Username" name="new_uname" id="new_uname" required>
 
     <label for="new_psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="new_psw" id="new_psw" required>
 
-	  <label for="new_rep_psw"><b>Repeat Password</b></label>
+	  <label for="new_rep_psw"><b>Conferma Password</b></label>
       <input type="password" placeholder="Enter Password" name="new_rep_psw" id="new_rep_psw" required>
 
 		<div class="row butts">
