@@ -69,63 +69,8 @@
 
 </script>
 
-<body>
-	<nav class="navbar fixed-top navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="#" class="messaggi"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle"> Gestione Password<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">
-								<label for="nome"><b>Nome utente: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="text" placeholder="Enter Username" name="usr" id="nome" required>
-							</a></li>
-							<li><a href="#">
-								<label for="old"><b>Password corrente: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter Old Password" name="pwd" id="old" required>
-							</a></li>
-							<li><a href="#">
-								<label for="new"><b>Nuova password:</b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter New Password" name="new-pwd" id="new" required>
-							</a></li>
-							<li><a href="#">
-								<label for="repeat"><b>Conferma password: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter New Password" name="conf-pwd" id="repeat" required>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<button type="submit" value="aggiornaPassword" id="update">Aggiorna Password</button><br>
-								<button type="button" onclick="window.location.href='./home.php'" id="abort">Cancella</button>
-							</a></li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-	        <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
 	<?php
+		include 'navbar/home.html';
 		$username=$_SESSION['username'];
 		$sql = "SELECT punti
 			FROM utente
@@ -150,21 +95,6 @@
 		</div>
     </div>
   </article>
-
-  <div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
-				</div>
-				<div class="modal-body" id="dettagli_messaggi"></div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 </body>
 </html>

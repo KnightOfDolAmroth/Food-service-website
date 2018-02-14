@@ -45,6 +45,20 @@ if ($result->num_rows < 1) {
 
 <script>
 	$(document).ready(function(){
+		$('.messaggi').click(function(){
+			var username = $(this).attr("id");
+			$.ajax({
+				url:"../modal/messaggi.php",
+				method:"post",
+				data:{username:username},
+				success:function(data){
+					console.log(username);
+					$('#dettagli_messaggi').html(data);
+					$('#data_modal').modal("show");
+				}
+			});
+		});		
+		
 		$('.glyphicon-trash').click(function(){
 			var id_dettaglio = $(this).attr("value");
 			$.ajax({
@@ -61,29 +75,8 @@ if ($result->num_rows < 1) {
 </script>
 
 <body>
-  <!--navbar in cima-->
-  <nav class="navbar fixed-top navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../../homepage/home.html">La Malaghiotta</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="../home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav> <!--fine navbar in cima-->
-
+  
+	<?php include '../navbar/carrello.html'; ?>
 
 	<div class="container wrapper">
 		<div class="row cart-head">
