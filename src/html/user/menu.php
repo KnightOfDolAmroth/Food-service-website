@@ -76,19 +76,19 @@ session_start();
 				setTimeout(function () { location.reload(true); }, 100);
 			});
 
-			$('.selector').click(function(){  
-				var id_selezione = $(this).attr("name");  
+			$('.selector').click(function(){
+				var id_selezione = $(this).attr("name");
 				$.ajax({
-					url:"selezione.php",  
-					method:"post",  
-					data:{id_selezione:id_selezione},  
+					url:"selezione.php",
+					method:"post",
+					data:{id_selezione:id_selezione},
 					success:function(data){
-						console.log(id_selezione); 
-					}  
-				});				
+						console.log(id_selezione);
+					}
+				});
 			});
 		});
-		
+
 	</script>
 
     <nav class="navbar fixed-top navbar-inverse">
@@ -103,26 +103,16 @@ session_start();
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
+				<li><a href="./home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
 			</ul>
-			<form class="navbar-form navbar-left" action="/action_page.php">
-            <div class="input-group">
-				<input type="text" class="form-control" placeholder="Search">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="submit">
-					<i class="glyphicon glyphicon-search"></i>
-					</button>
-				</div>
-            </div>
-			</form>
 			<ul class="nav navbar-nav navbar-right">
-            <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 			</ul>
-        </div>
+      </div>
     </div>
-    </nav>
-	
+  </nav>
+
 	<div class="bkg">
 		<img class="img-responsive" src="../../../img/piadona.jpeg" alt="background piada">
 	</div>
@@ -172,7 +162,7 @@ session_start();
 		</a>
 	  </li>
     </ul>
-	
+
     <div class="tab-content">
 
 		<div role="tabpanel" class="tab-pane <?php if($_SESSION['menu'] === 'tutto') {echo 'active';}?>" id="tutto">
@@ -266,7 +256,7 @@ session_start();
 				</div>
 			</div>
 		</div>
-		
+
 		<div role="tabpanel" class="tab-pane <?php if($_SESSION['menu'] === 'altro') {echo 'active';}?>" id="altro">
 			<div class="tab-elements">
 				<div class="title-element">
@@ -289,7 +279,7 @@ session_start();
 				</div>
 			</div>
 		</div>
-	  
+
 		<div role="tabpanel" class="tab-pane <?php if($_SESSION['menu'] === 'bibite') {echo 'active';}?>" id="bibite">
 			<div class="tab-elements">
 				<div class="title-element">
@@ -359,6 +349,6 @@ session_start();
 			</div>
 		</div>
     </div>
-	
+
 </body>
 </html>
