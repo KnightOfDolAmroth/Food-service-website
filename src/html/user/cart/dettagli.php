@@ -15,7 +15,7 @@
 				$output .= '
 				<p class="card-title">'.$row1["nome_prodotto"].'</p>
 			</div>
-			<div class="col-sm-3 item-detail">
+			<div class="col-sm-2 item-detail">
 				<div class="card-body">
 					<p class="card-text">';
 					
@@ -63,30 +63,26 @@
 				</p>
 			</div>
 			<div class="col-sm-1 item-detail">
-				<div class="form-group">
-					<p>'.$row["qta"].'</p>
-				</div>
+				<p>'.$row["qta"].'</p>
 			</div>
 			<div class="col-sm-2 item-detail">
-				<div class="form-group">
-					<p>';
-					
-					$id_imp = $row['id_impasto'];
-					$sql = "SELECT *
-						FROM impasto
-						WHERE id_impasto = '$id_imp'";
-					$impasto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
-					if ($impasto->num_rows>0) {
-						$row4 = $impasto->fetch_assoc();
-						$output .=
-						$row4["nome_impasto"];
-					}
-					
-					$output .= '
-					</p>
-				</div>
+				<p>';
+				
+				$id_imp = $row['id_impasto'];
+				$sql = "SELECT *
+					FROM impasto
+					WHERE id_impasto = '$id_imp'";
+				$impasto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+				if ($impasto->num_rows>0) {
+					$row4 = $impasto->fetch_assoc();
+					$output .=
+					$row4["nome_impasto"];
+				}
+				
+				$output .= '
+				</p>
 			</div>
-			<div class="col-sm-1 item-detail">
+			<div class="col-sm-2 item-detail">
 				<p>€ ';
 				
 				/*
