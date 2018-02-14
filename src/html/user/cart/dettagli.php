@@ -64,14 +64,7 @@
 			</div>
 			<div class="col-sm-1 item-detail">
 				<div class="form-group">
-					<label class="hidden" for="qta">Quantità</label>
-					<select class="selectpicker" id="qta">
-					  <option>1</option>
-					  <option>2</option>
-					  <option>3</option>
-					  <option>4</option>
-					  <option>5</option>
-					</select>
+					<p>'.$row["qta"].'</p>
 				</div>
 			</div>
 			<div class="col-sm-2 item-detail">
@@ -115,6 +108,7 @@
 				$impasto = $row4['prezzo'];
 				
 				$spesa = $quantità*($base + $impasto + $costo_aggiunte);
+				$totale += $spesa;
 				
 				$output .= 
 				$spesa
@@ -122,7 +116,7 @@
 			</div>
 			<div class="col-sm-1 item-detail">
 				<button type="button" class="btn btn-link btn-lg">
-				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-trash" aria-hidden="true" value="'.$id_dettaglio.'"></span>
 				</button>
 			</div>
 		</div>';

@@ -17,7 +17,7 @@
 			$sql0 = "SELECT stato, codice_ordine
 					FROM ordine
 					WHERE username = '$usr'
-					AND stato = 'creazione'";
+					AND stato = 'in creazione'";
 			/*SE NON CE L'HA CREO UN NUOVO ORDINE*/
 			$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
 			if($result->num_rows === 0) {
@@ -81,7 +81,7 @@
 					$row = $result->fetch_assoc();
 					$id_imp = $row["id_impasto"];
 				} else {
-					$id_imp = "1";
+					$id_imp = "0";
 				}
 				$sql2 = "INSERT INTO dettaglio_ordine(id_dettaglio,qta,codice_ordine,id_prodotto,id_impasto)
 						VALUES ('$id_dettaglio','$qta','$id_ordine','$id_prod','$id_imp')";

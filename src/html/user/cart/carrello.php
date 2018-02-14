@@ -10,6 +10,23 @@ if ($conn->connect_error) {
 }
 
 session_start();
+
+$user = $_SESSION["username"];
+$sql = " SELECT *
+	FROM dettaglio_ordine
+	WHERE codice_ordine IN(
+		SELECT codice_ordine
+		FROM ordine
+		WHERE username = '$user'
+		AND stato = 'in creazione'
+	)";
+$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+
+if ($result->num_rows < 1) {
+	header('Location: ./empty.html');
+	exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +42,23 @@ session_start();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+
+<script>
+	$(document).ready(function(){  
+		$('.glyphicon-trash').click(function(){  
+			var id_dettaglio = $(this).attr("value");  
+			$.ajax({
+				url:"elimina.php",  
+				method:"post",  
+				data:{id_dettaglio:id_dettaglio},  
+				success:function(data){
+					console.log(id_dettaglio); 
+				}
+			});	
+			setTimeout(function () { location.reload(true); }, 100);
+		});
+	});
+</script>
 
 <body>
   <!--navbar in cima-->
@@ -100,7 +134,7 @@ session_start();
                   </div>
 				  
 					<?php
-						$user = $_SESSION["username"];
+						$totale = 0;
 						$sql = " SELECT *
 								FROM dettaglio_ordine
 								WHERE codice_ordine IN(
@@ -112,6 +146,7 @@ session_start();
 						$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 
 						if ($result->num_rows > 0) {
+							
 							while($row = $result->fetch_assoc()) {
 								include 'dettagli.php';
 							}
@@ -123,8 +158,8 @@ session_start();
                   <div class="row" id="cart-tot">
                     <div class="cart-footer col-sm-push-4">
                       <div class="part1">
-                        <div id="tot-label">Totale</div>
-                        <div id="tot">€ 40.00</div>
+                        <div id="tot-label">Totale</div>						
+                        <div id="tot">€ <?php echo $totale; ?></div>
                       </div>
 
                       <div class="part2">

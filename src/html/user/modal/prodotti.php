@@ -55,7 +55,8 @@
 								<label for="imp">Impasto:</label>
 								<select class="selectpicker" name="impasto" id="impasto">';
 								$sql1 = "SELECT nome_impasto
-									FROM impasto";
+									FROM impasto
+									WHERE nome_impasto <> 'nessuno'";
 									$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 									while ($row = $result->fetch_assoc()) {
 									  $output .= '<option>'.$row["nome_impasto"].'</option>';
