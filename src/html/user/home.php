@@ -125,6 +125,16 @@
 		</div>
 	</nav>
 
+	<?php
+		$username=$_SESSION['username'];
+		$sql = "SELECT punti
+			FROM utente
+			WHERE username = '$username'";
+		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+		$row = $result->fetch_assoc();
+		$punti = $row["punti"];
+	?>
+
   <header>
     <h1>Benvenuto/a, <?php echo $username; ?></h1>
     <h3>Hai accumulato: <?php echo $punti; ?> punti</h3>
