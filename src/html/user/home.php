@@ -70,7 +70,7 @@
 </script>
 
 	<?php
-		include 'navbar/home.html';
+		include 'navbar/user-home.html';
 		$username=$_SESSION['username'];
 		$sql = "SELECT punti
 			FROM utente
