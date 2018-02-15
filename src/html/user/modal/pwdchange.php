@@ -25,25 +25,23 @@
 </head>
 
 <body>
-  <div id="change-pwd" class="modal show">
-    <form class="modal-content animate" action="./pwdchange.php" method="post">
-      <div class="container">
-        <label for="old-pwd"><b>Password attuale: </b></label>
-        <input type="password" placeholder="Enter Current Password" name="old-pwd" id="old-pwd" required>
-
-        <label for="new-pwd"><b>Nuova password: </b></label>
-        <input type="password" placeholder="Enter New Password" name="new-pwd" id="new-pwd" required>
-
-        <label for="repeat-pwd"><b>Conferma password: </b></label>
-        <input type="password" placeholder="Enter New Password" name="repeat-pwd" id="repeat-pwd" required>
-      </div>
-
-      <div class="container" style="background-color: #cccccc;">
-        <button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="modifica">Modifica</button>
-  	  	<button type="reset" onclick="window.location.href='../home.php'" id="annulla" class="btn btn-primary btn-lg btn-block btn-huge">Annulla</button>
-      </div>
-    </form>
-  </div>
+	<div id="change-pwd" class="modal show">
+		<form class="modal-content animate" action="./pwdchange.php" method="post">
+		<div class="container">
+			<label for="old-pwd"><b>Password attuale: </b></label>
+			<input type="password" placeholder="Enter Current Password" name="old-pwd" id="old-pwd" required>
+			<label for="new-pwd"><b>Nuova password: </b></label>
+			<input type="password" placeholder="Enter New Password" name="new-pwd" id="new-pwd" required>
+			<label for="repeat-pwd"><b>Conferma password: </b></label>
+			<input type="password" placeholder="Enter New Password" name="repeat-pwd" id="repeat-pwd" required>
+			<button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="modifica">Modifica</button>
+		</div>
+		<div class="container" style="background-color: #cccccc;">
+			<button type="button" onclick="window.location.href='./home.php'" class="btn btn-danger">Annulla</button>
+  	  	<!--<button type="reset" onclick="window.location.href='../home.php'" id="annulla" class="btn btn-primary btn-lg btn-block btn-huge">Annulla</button>-->
+		</div>
+		</form>
+	</div>
 
 <?php
 	if (isset($_REQUEST["old-pwd"]) && isset($_REQUEST["new-pwd"]) && isset($_REQUEST["repeat-pwd"])) {

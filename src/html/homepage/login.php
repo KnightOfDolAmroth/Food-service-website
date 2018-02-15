@@ -64,7 +64,7 @@ if(isset($_COOKIE["username"]) && ($_COOKIE["password"] != 'false')) {
     </div>
 
     <div class="container" style="background-color: #cccccc;">
-      <button type="button" onclick="window.location.href='./home.html'" class="btn btn-danger">Cancel</button>
+      <button type="button" onclick="window.location.href='home.php'" class="btn btn-danger">Cancel</button>
       <span class="psw">Forgot <a onclick="forgot_pwd()" style="cursor: pointer; cursor: hand;">password?</a></span>
     </div>
   </form>
