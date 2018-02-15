@@ -1,3 +1,16 @@
+<?php
+	$servername="localhost";
+	$username ="root";
+	$password ="";
+	$database = "food_service";
+
+	$conn = new mysqli($servername, $username, $password, $database);
+	if ($conn->connect_error) {
+		die("Connection failed: " .$conn->connect_error);
+	}
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +26,9 @@
 
 <body>
   
-	<?php include '../navbar/carrello.html'; ?>
+	<?php
+		include '../navbar/carrello.html';
+	?>
 
   <div class="container wrapper">
 

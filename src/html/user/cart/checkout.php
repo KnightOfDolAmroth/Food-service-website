@@ -1,16 +1,30 @@
 <?php
-$servername="localhost";
-$username ="root";
-$password ="";
-$database = "food_service";
+	$servername="localhost";
+	$username ="root";
+	$password ="";
+	$database = "food_service";
 
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-	die("Connection failed: " .$conn->connect_error);
-}
+	$conn = new mysqli($servername, $username, $password, $database);
+	if ($conn->connect_error) {
+		die("Connection failed: " .$conn->connect_error);
+	}
 
-session_start();
+	session_start();
 
+	$user = $_SESSION["username"];
+	$sql = " SELECT *
+		FROM dettaglio_ordine
+		WHERE codice_ordine IN(
+			SELECT codice_ordine
+			FROM ordine
+			WHERE username = '$user'
+			AND stato = 'in creazione'
+		)";
+	$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+	if ($result->num_rows < 1) {
+		header('Location: carrello.php');
+		exit;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +42,19 @@ session_start();
 
 <script>
 	$(document).ready(function(){
-		$('.messaggi').click(function(){
-			var username = $(this).attr("id");
+		$('.sconto').change(function(){
+			var sconto = $(this).val();
 			$.ajax({
-				url:"../modal/messaggi.php",
+				url:"sconto.php",
 				method:"post",
-				data:{username:username},
+				data:{sconto:sconto},
 				success:function(data){
-					console.log(username);
-					$('#dettagli_messaggi').html(data);
-					$('#data_modal').modal("show");
+					console.log(sconto);
 				}
 			});
+			setTimeout(function () { location.reload(true); }, 100);
 		});
-	});	
+	});		
 </script>
 
 <body>
@@ -75,16 +88,7 @@ session_start();
 							<div class="p-body">
 
 								<?php
-									$user = $_SESSION["username"];
-									$sql = " SELECT *
-										FROM dettaglio_ordine
-										WHERE codice_ordine IN(
-											SELECT codice_ordine
-											FROM ordine
-											WHERE username = '$user'
-											AND stato = 'in creazione'
-										)";
-									$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+									//CARICO I DETTAGLI
 									if ($result->num_rows > 0) {
 										while($row = $result->fetch_assoc()) {
 											include 'riepilogo.php';
@@ -98,6 +102,19 @@ session_start();
 										$row = $result->fetch_assoc();
 										$codice_ordine = $row["codice_ordine"];
 									}
+									
+									//GESTIONE PUNTI
+									$sql = "SELECT punti
+										FROM utente
+										WHERE username = '$user'";
+									$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+									$row = $result->fetch_assoc();
+									if (floor($_SESSION["totale"]/2) < $row["punti"]) {
+										$punti_massimi = floor($_SESSION["totale"]/2);
+									} else {
+										$punti_massimi = $row["punti"];
+									}
+									
 								?>
 							</div>
 						</div>
@@ -114,6 +131,17 @@ session_start();
 						<div class="form-group">
 							<div class="col-md-12"><strong>Nome campanello:</strong></div>
 							<div class="col-md-12"><input required type="text" class="form-control" name="campanello" value=""/></div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12"><strong>Data e ora consegna:</strong></div>
+							<div class="col-md-12"><input required type="datetime-local" class="form-control" name="consegna" value=""/></div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12"><strong>Punti bonus:</strong></div>
+							<div class="col-md-12"><input required type="number" class="form-control sconto" name="sconto"
+								min="0" max="<?php echo $punti_massimi; ?>"
+								value="<?php if(isset($_SESSION["sconto"])){echo $_SESSION["sconto"];} else {echo '0';}?>"/>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -15,7 +15,6 @@
 <body>
 
 <script>
-
 	var dropCookie = true; // false disables the Cookie, allowing you to style the banner
 	var cookieDuration = 14; // Number of days before the cookie expires, and the banner reappears
 	var cookieName = 'complianceCookie'; // Name of our cookie
@@ -73,27 +72,7 @@
 
 </script>
 
-<nav class="navbar navbar-inverse navbar-static-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Avvisi</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-text-background"></span> Chi siamo</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Contatti</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="./login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php include 'navbar/home.html'; ?>
 
 <div class="container text-center">
   <div class="row">
@@ -101,7 +80,6 @@
   		<h2>Dove Siamo</h2>
   		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.263526976612!2d12.24132431551359!3d44.13838607910776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ca4c89d21b735%3A0x3d6c5c21ea807c37!2s%22La+Malaghiotta%22!5e1!3m2!1sen!2sit!4v1514203490102"
   		width=100% height=300px frameborder="0" allowfullscreen></iframe>
-  		<p>Piazza Fabbri 15 davanti alla biblioteca Malatestiana 47521 Cesena</p>
 	  </div>
 
     <div class="col-sm-4">
