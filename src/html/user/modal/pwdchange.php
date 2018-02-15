@@ -40,7 +40,7 @@
 
       <div class="container" style="background-color: #cccccc;">
         <button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="modifica">Modifica</button>
-  	  	<button type="reset" onclick="window.location.href='../home.php'" class="btn btn-danger">Annulla</button>
+  	  	<button type="reset" onclick="window.location.href='../home.php'" id="annulla" class="btn btn-primary btn-lg btn-block btn-huge">Annulla</button>
       </div>
     </form>
   </div>
@@ -61,22 +61,22 @@
 			$pwd = $row["password"];
 			$oldpwd = $oldpwd.$row["salt"];
 			$oldpwd = substr(sha1($oldpwd),0,32);
-			
+
 			echo $pwd."   ===   ";
 			echo $oldpwd;
 			if ($pwd === $oldpwd) {
-				$newpwd = sha1($newpwd.$row["salt"]);				
+				$newpwd = sha1($newpwd.$row["salt"]);
 				$sql = "UPDATE utente
 					SET password = '$newpwd'
 					WHERE username = '$user'";
 				$conn->query($sql) or trigger_error($conn->error."[$sql]");
 				$conn->close();
-				
+
 				$subject = "Your Recovered Password";
 				$message = "Please use this new password to login: ".$repeatpwd;
 				$headers = "From: prova@unibo.it";
 				mail($email, $subject, $message, $headers);
-				
+
 				header('Location: ../home.php');
 				exit;
 			} else {

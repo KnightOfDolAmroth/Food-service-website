@@ -59,6 +59,15 @@ button {
 	display: inline;
 }
 
+/* Exclusive to the pwdchange.php modal. */
+#annulla {
+	background-color: #f44336;
+	border: red;
+	margin-top: 15px;
+	margin-right: 15px;
+	margin-right: 15px;
+}
+
 .butts{
 	display: flex;
 	justify-content: space-between;
