@@ -9,15 +9,35 @@
 		die("Connection failed: " .$conn->connect_error);
 	}
 	
-	if (isset($_REQUEST["codice_ordine"]) && isset($_REQUEST["indirizzo"]) && isset($_REQUEST["campanello"])) {
+	session_start();
+	if (isset($_REQUEST["codice_ordine"]) && isset($_REQUEST["indirizzo"]) && isset($_REQUEST["campanello"])
+		&& isset($_REQUEST["consegna"]) && isset($_REQUEST["sconto"])) {
+			
+		//CONTROLLO PER IMPEDIRE A QUELLI SVEGLI DI AVERE PUNTI INFINITI
+		if ($_SESSION["codice_ordine"] === $_REQUEST["codice_ordine"]) {
+			header('Location: grazie.php');
+			exit;
+		}
 		
 		//CAMBIO STATO
 		$codice_ordine = $_REQUEST["codice_ordine"];
 		$indirizzo = $_REQUEST["indirizzo"];
 		$campanello = $_REQUEST["campanello"];
+		$consegna = $_REQUEST["consegna"];
 		$sql = "UPDATE ordine
-				SET stato = 'inattivo', indirizzo_recapito = '$indirizzo', nome_campanello = '$campanello'
+				SET stato = 'inattivo', indirizzo_recapito = '$indirizzo', nome_campanello = '$campanello', consegna = '$consegna'
 				WHERE codice_ordine = '$codice_ordine'";
+		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+		$_SESSION["codice_ordine"] = $_REQUEST["codice_ordine"];
+		
+		//CALCOLO PUNTI BONUS
+		$punti_aggiunti = floor($_SESSION["totale"]/5);
+		$punti_tolti = $_REQUEST["sconto"];
+		$_SESSION["punti_aggiunti"] = $punti_aggiunti;
+		$user = $_SESSION["username"];
+		$sql = "UPDATE utente
+				SET punti = punti + '$punti_aggiunti' -'$punti_tolti'
+				WHERE username = '$user'";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		
 		//NOTIFICA DI CAMBIO STATO
@@ -41,7 +61,7 @@
 				WHERE codice_ordine = '$codice_ordine'";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		$row = $result->fetch_assoc();
-		$user = $row["username"];
+		$user = $_SESSION["username"];
 		//---SETTO IL TESTO DEL MESSAGGIO
 		$testo = "Il tuo ordine (cod:".$codice_ordine.") è stato accolto";
 		
@@ -58,5 +78,6 @@
 		$row = $result->fetch_assoc();
 		$email = $row["email"];
 		mail($email, $oggetto, $testo, $headers);
+		header('Location: grazie.php');
 	}
 ?>

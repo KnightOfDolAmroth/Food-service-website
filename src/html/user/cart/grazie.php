@@ -1,3 +1,16 @@
+<?php
+	$servername="localhost";
+	$username ="root";
+	$password ="";
+	$database = "food_service";
+
+	$conn = new mysqli($servername, $username, $password, $database);
+	if ($conn->connect_error) {
+		die("Connection failed: " .$conn->connect_error);
+	}
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,43 +21,13 @@
   <link href="../../../css/empty-cart.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
-  <!--navbar in cima-->
-  <nav class="navbar fixed-top navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./homepage.html">La Malaghiotta</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dati utente</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-        </ul>
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav> <!--fine navbar in cima-->
 
+  <?php
+		include '../navbar/carrello.html';
+	?>
 
   <div class="container wrapper">
 
@@ -52,8 +35,8 @@
       <div class="container step-container">
         <div class="row steps">
           <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-cart-arrow.png" alt="carrello">
-          <img class="img img-responsive arrow" src="../../../../img/Arrows/white-check-arrow.png" alt="checkout">
-          <img class="img img-responsive arrow" src="../../../../img/Arrows/white-thank-arrow.png" alt="grazie">
+          <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-check-arrow.png" alt="checkout">
+          <img class="img img-responsive arrow" src="../../../../img/Arrows/blue-thank-arrow.png" alt="grazie">
         </div>
 
       </div>
@@ -73,7 +56,8 @@
             <div class="panel-body">
               <div class="" id="cart-body">
                 <div class="cart">
-                  <h2>Grazie, il tuo ordine è stato accettato</h2>
+                  <h2>Grazie, il tuo ordine è stato accettato.<br>
+					Hai ottenuto <?php echo $_SESSION["punti_aggiunti"] ?> punti bonus!</h2>
                   <div class="row cart-img-holder">
                     <img class="img-responsive" src="../../../../img/trunk.png" alt="trunk">
                   </div>

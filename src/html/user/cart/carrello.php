@@ -23,7 +23,7 @@ $sql = " SELECT *
 $result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 
 if ($result->num_rows < 1) {
-	header('Location: ./empty.html');
+	header('Location: ./empty.php');
 	exit;
 }
 
@@ -37,28 +37,14 @@ if ($result->num_rows < 1) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="../../../css/checkout.css" rel="stylesheet" type="text/css"/>
   <link href="../../../css/empty-cart.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../css/cart.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/cart.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
 <script>
-	$(document).ready(function(){
-		$('.messaggi').click(function(){
-			var username = $(this).attr("id");
-			$.ajax({
-				url:"../modal/messaggi.php",
-				method:"post",
-				data:{username:username},
-				success:function(data){
-					console.log(username);
-					$('#dettagli_messaggi').html(data);
-					$('#data_modal').modal("show");
-				}
-			});
-		});		
-		
+	$(document).ready(function(){		
 		$('.glyphicon-trash').click(function(){
 			var id_dettaglio = $(this).attr("value");
 			$.ajax({
@@ -120,6 +106,7 @@ if ($result->num_rows < 1) {
 										}
 									}
 									$_SESSION["totale"] = $totale;
+									$_SESSION["totale_iniziale"] = $_SESSION["totale"];
 								?>
 								<div class="row" id="cart-tot">
 									<div class="cart-footer col-sm-push-4">
