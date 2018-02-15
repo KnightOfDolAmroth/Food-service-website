@@ -37,7 +37,7 @@
 			<button type="submit" class="btn btn-primary btn-lg btn-block btn-huge" id="modifica">Modifica</button>
 		</div>
 		<div class="container" style="background-color: #cccccc;">
-			<button type="button" onclick="window.location.href='./home.php'" class="btn btn-danger">Annulla</button>
+			<button type="button" onclick="window.location.href='../home.php'" class="btn btn-danger">Annulla</button>
   	  	<!--<button type="reset" onclick="window.location.href='../home.php'" id="annulla" class="btn btn-primary btn-lg btn-block btn-huge">Annulla</button>-->
 		</div>
 		</form>
