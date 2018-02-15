@@ -1,3 +1,21 @@
+<script>
+$(document).ready(function(){
+		$('.avvisi').click(function(){
+			var username = 'admin';
+			$.ajax({
+				url:"modal/messaggi.php",
+				method:"post",
+				data:{username:username},
+				success:function(data){
+					console.log(username);
+					$('#dettagli_messaggi').html(data);
+					$('#data_modal').modal("show");
+				}
+			});
+		});
+	});
+</script>
+
 <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -10,42 +28,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Avvisi</a></li>
+            <li><a href="#" class="avvisi"><span class="glyphicon glyphicon-pencil"></span> Avvisi</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Orari</a></li>
-						<li class="dropdown">
-							<a href="#" data-toggle="dropdown" class="dropdown-toggle"> Gestione Password<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">
-									<label for="nome"><b>Nome admin: </b></label>
-								</a></li>
-								<li><a href="#">
-									<input type="text" placeholder="Enter Admin Name" name="adm" id="nome" required>
-								</a></li>
-								<li><a href="#">
-									<label for="old"><b>Password corrente: </b></label>
-								</a></li>
-								<li><a href="#">
-									<input type="password" placeholder="Enter Old Password" name="pwd" id="old" required>
-								</a></li>
-								<li><a href="#">
-									<label for="new"><b>Nuova password:</b></label>
-								</a></li>
-								<li><a href="#">
-									<input type="password" placeholder="Enter New Password" name="new-pwd" id="new" required>
-								</a></li>
-								<li><a href="#">
-									<label for="repeat"><b>Conferma password: </b></label>
-								</a></li>
-								<li><a href="#">
-									<input type="password" placeholder="Enter New Password" name="conf-pwd" id="repeat" required>
-								</a></li>
-								<li class="divider"></li>
-								<li><a href="#">
-									<button type="submit" value="aggiornaPassword" id="update">Aggiorna Password</button><br>
-									<button type="button" onclick="window.location.href='./home.php'" id="abort">Cancella</button>
-								</a></li>
-							</ul>
-						</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -53,3 +37,18 @@
         </div>
       </div>
     </nav>
+	
+	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
+				</div>
+				<div class="modal-body" id="dettagli_messaggi"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+				</div>
+			</div>
+		</div>
+	</div>

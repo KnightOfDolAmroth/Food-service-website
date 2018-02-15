@@ -79,5 +79,6 @@
 		$email = $row["email"];
 		mail($email, $oggetto, $testo, $headers);
 		header('Location: grazie.php');
+		exit;
 	}
 ?>
