@@ -1,3 +1,21 @@
+<script>
+	$(document).ready(function(){
+		$('.avvisi').click(function(){
+			var username = 'admin';
+			$.ajax({
+				url:"modal/messaggi.php",
+				method:"post",
+				data:{username:username},
+				success:function(data){
+					console.log(username);
+					$('#dettagli_messaggi').html(data);
+					$('#data_modal').modal("show");
+				}
+			});
+		});
+	});
+</script>
+<link href="../../css/admin_home.css" rel="stylesheet" type="text/css"/>
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -9,7 +27,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Avvisi</a></li>
+        <li><a href="#" class="avvisi"><span class="glyphicon glyphicon-envelope"></span> Avvisi</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-text-background"></span> Chi siamo</a></li>
         <li><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-list-alt"></span> Contatti</a>
 			<ul class="dropdown-menu">
@@ -28,3 +46,18 @@
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
+			</div>
+			<div class="modal-body" id="dettagli_messaggi"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+			</div>
+		</div>
+	</div>
+</div>

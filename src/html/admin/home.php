@@ -19,6 +19,11 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " .$conn->connect_error);
 	}
+	
+	if (isset($_SESSION["avvisi"])) {
+		echo "<script>$('#data_modal').modal('show');</script>";
+		unset($_SESSION["avvisi"]);
+	}
 ?>
 
 <html>
@@ -44,7 +49,7 @@
 					success:function(data){
 						console.log(codice_ordine);
 						$('#dettagli_ordine').html(data);
-						$('#data_modal').modal("show");
+						$('#data_modal_dettagli').modal("show");
 					}
 				});
 			});
@@ -123,7 +128,7 @@
 	  </div>
 	</div>
 
-	<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="data_modal_dettagli" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
