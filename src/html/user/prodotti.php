@@ -1,5 +1,6 @@
 <?php
 	$output = '';
+
 	$output .= '
 	<div class="col-sm-6 col-md-4 col-lg-3">
 		<div class="card-container">
@@ -10,7 +11,7 @@
 					<p class="card-text"></p>
 				</div>
 				<div class="checkout-details">
-					<div class="price">€ "'.$row['prezzo_base'].'"
+					<div class="price">€ '.number_format((float)$row['prezzo_base'], 2, ',', '').'
 					</div>
 					<div class="btn-container">
 						<button type="button" name="id_prodotto" id="'.$row['id_prodotto'].'" ';

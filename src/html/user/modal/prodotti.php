@@ -1,10 +1,10 @@
-<?php 
+<?php
 	if(isset($_REQUEST["id_prodotto"])) {
 		$servername="localhost";
 		$username ="root";
 		$password ="";
 		$database = "food_service";
-		
+
 		$_SESSION["id_prodotto"] = $_REQUEST["id_prodotto"];
 
 		$conn = new mysqli($servername, $username, $password, $database);
@@ -12,13 +12,13 @@
 			die("Connection failed: " .$conn->connect_error);
 		}
 		$id_pr = $_REQUEST['id_prodotto'];
-		
+
 		$sql = "SELECT *
 				FROM prodotto
 				WHERE id_prodotto = '$id_pr'";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		$dati_prodotto = $result->fetch_assoc();
-		
+
 		$sql = "SELECT *
 				FROM ingrediente
 				WHERE id_ingrediente IN (SELECT id_ingrediente
@@ -26,11 +26,11 @@
 					WHERE id_prodotto = '$id_pr'
 					ORDER BY id_ingrediente)";
 		$dati_ingredienti = $conn->query($sql) or trigger_error($conn->error."[$sql]");
-		
+
 		$output = '';
 		$output .= '
 			<input type="hidden" id="id_prodotto" value="'.$_REQUEST["id_prodotto"].'"/>
-			<div class="mod-card-container">
+			<div class="mod-card-container container">
 				<div class="mod-card">
 					<img class="mod-card-img img-rounded" src="'.$_REQUEST["id_prodotto"].'" alt="immagine prodotto">
 					<div class="mod-card-body">
@@ -38,18 +38,24 @@
 						if ($dati_prodotto["tipo"]!=="Bibite") {
 							$output .= '
 							<p class="card-text">Ingredienti: ';
+							$first = 0;
 							while ($row = $dati_ingredienti->fetch_assoc()) {
-								$output .= $row["nome_ingrediente"].' ';
+								if($first != 0){
+									$output .= ', '.$row["nome_ingrediente"];
+								} else {
+										$output .= $row["nome_ingrediente"];
+										$first=1;
+									}
 							}
 							$output .= '</p>';
 						}
-					$output .= '  
+					$output .= '
 					</div> <!--end product-->
 				</div>
 				<legend class="details">Dettagli aggiuntivi</legend>
 				<div class="supplements">
-					<div class="form-inline" id="dropdowns">
-						<div class="form-group">';
+					<div class="row" id="dropdowns">
+						<div class="form-group col-sm-6">';
 							if ($dati_prodotto["tipo"]!=="Bibite") {
 								$output .= '
 									<label for="imp">Impasto:</label>
@@ -65,14 +71,14 @@
 									</select>';
 							}
 							$output .= '
-						</div>					
-						<div class="form-group">
+						</div>
+						<div class="form-group col-sm-6">
 							<label for="qta">Quantità </label>
 							<input id="qta" type="number" min="1" max="10" value="1">
 							</select>
 						</div>
 					</div>';
-				
+
 					if ($dati_prodotto["tipo"]!=="Bibite") {
 						$output .= '
 							<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse-supp" aria-expanded="false" aria-controls="collapse-supp">
