@@ -12,40 +12,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="#" class="messaggi" id="<?php echo $_SESSION['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-					<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle"> Gestione Password<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">
-								<label for="nome"><b>Nome utente: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="text" placeholder="Enter Username" name="usr" id="nome" required>
-							</a></li>
-							<li><a href="#">
-								<label for="old"><b>Password corrente: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter Old Password" name="pwd" id="old" required>
-							</a></li>
-							<li><a href="#">
-								<label for="new"><b>Nuova password:</b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter New Password" name="new-pwd" id="new" required>
-							</a></li>
-							<li><a href="#">
-								<label for="repeat"><b>Conferma password: </b></label>
-							</a></li>
-							<li><a href="#">
-								<input type="password" placeholder="Enter New Password" name="conf-pwd" id="repeat" required>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<button type="submit" value="aggiornaPassword" id="update">Aggiorna Password</button><br>
-								<button type="button" onclick="window.location.href='./home.php'" id="abort">Cancella</button>
-							</a></li>
-						</ul>
-					</li>
+					<li><a href="./modal/pwdchange.php" class="gestione-pwd" id="modify"><span class="glyphicon glyphicon-edit"></span> Gestione password</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 	        <li><a href="./logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
