@@ -52,14 +52,14 @@
 					$output .= '
 					</div> <!--end product-->
 				</div>
-				<legend class="details">Dettagli aggiuntivi</legend>
+				<legend class="details">Modifiche</legend>
 				<div class="supplements">
 					<div class="row" id="dropdowns">
 						<div class="form-group col-sm-6">';
-							if ($dati_prodotto["tipo"]!=="Bibite") {
+
 								$output .= '
-									<label for="imp">Impasto:</label>
-									<select class="selectpicker" name="impasto" id="impasto">';
+									<label for="imp">Categoria:</label>
+									<select class="selectpicker" name="categoria" id="categoria">';
 									$sql1 = "SELECT nome_impasto
 										FROM impasto
 										WHERE nome_impasto <> 'nessuno'";
@@ -69,15 +69,8 @@
 										}
 								$output .= '
 									</select>';
-							}
-							$output .= '
-						</div>
-						<div class="form-group col-sm-6">
-							<label for="qta">Quantità </label>
-							<input id="qta" type="number" min="1" max="10" value="1">
-							</select>
-						</div>
-					</div>';
+
+
 
 					if ($dati_prodotto["tipo"]!=="Bibite") {
 						$output .= '
