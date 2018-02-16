@@ -73,7 +73,7 @@
 			<h3 class="card-title"><?php echo$row["nome_prodotto"];?></h3>
 			<p class="card-text"></p>
 		</div>
-		<div class="price">€ <?php echo number_format((float)$row['prezzo_base'], 2, ',', '');?></div>
+		<div>€ <?php echo number_format((float)$row['prezzo_base'], 2, ',', '');?></div>
 		<p class="card-text">Ingredienti: 
 		<?php
 			
