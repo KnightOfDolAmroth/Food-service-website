@@ -34,7 +34,7 @@
 				<div class="mod-card">
 					<img class="mod-card-img img-rounded" src="'.$_REQUEST["id_prodotto"].'" alt="immagine prodotto">
 					<div class="mod-card-body">
-						<h2 class="mod-card-title">'.$dati_prodotto["nome_prodotto"].'</h2>';
+						<h2 contenteditable="true" class="mod-card-title">'.$dati_prodotto["nome_prodotto"].'</h2>';
 						if ($dati_prodotto["tipo"]!=="Bibite") {
 							$output .= '
 							<p class="card-text">Ingredienti: ';
@@ -50,32 +50,43 @@
 							$output .= '</p>';
 						}
 					$output .= '
+
 					</div> <!--end product-->
 				</div>
-				<legend class="details">Modifiche</legend>
+				<div id="img-loading-area">
+					<label for="img-load">Carica immagine </label>
+					<input id="img-load" type="file" accept="image/*">
+				</div>
+				<legend class="details">Dettagli</legend>
 				<div class="supplements">
 					<div class="row" id="dropdowns">
 						<div class="form-group col-sm-6">';
-
+							if ($dati_prodotto["tipo"]!=="Bibite") {
 								$output .= '
-									<label for="imp">Categoria:</label>
-									<select class="selectpicker" name="categoria" id="categoria">';
-									$sql1 = "SELECT nome_impasto
-										FROM impasto
-										WHERE nome_impasto <> 'nessuno'";
+									<label for="tipo">Tipologia:</label>
+									<select class="selectpicker" name="tipologia" id="tipologia">';
+									$sql1 = "SELECT tipo
+										FROM tipologia";
 										$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 										while ($row = $result->fetch_assoc()) {
-										  $output .= '<option>'.$row["nome_impasto"].'</option>';
+										  $output .= '<option>'.$row["tipo"].'</option>';
 										}
 								$output .= '
 									</select>';
+							}
+							$output .= '
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="prz">Prezzo </label>
+							<input id="prz" type="number" min="1" max="30" step=".01" value="0.00">
 
-
+						</div>
+					</div>';
 
 					if ($dati_prodotto["tipo"]!=="Bibite") {
 						$output .= '
 							<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse-supp" aria-expanded="false" aria-controls="collapse-supp">
-							Aggiunte (0,50€)
+							Ingredienti
 							</button>
 							<div class="collapse" id="collapse-supp">
 								<div class="well">
@@ -87,7 +98,7 @@
 										$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 										while ($row = $result->fetch_assoc()) {
 												$output .= '
-													<div class="col-sm-4 col-md-3">
+													<div class="col-sm-4">
 														<div class="form-check">
 															<label class="supp-label">
 															<input type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
