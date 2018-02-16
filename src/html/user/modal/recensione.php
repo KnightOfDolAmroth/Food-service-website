@@ -59,9 +59,6 @@
 
 			</div>
 			<div class="row" style="margin-bottom: 15px; margin-top: 15px;">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 valut-container">
-					<div class="title-rating-star">Valutazione*</div>
-				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 valut-container">
 					<div class="">
 						<div class="row lead">
@@ -82,13 +79,9 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					Scrivi qui la tua recensione*
 					<div class="form-group">
 						<textarea placeholder="Hai a disposizione 250 caratteri" maxlength="250" class="form-control" id="Content" name="Content"></textarea>
 					</div>
-				</div>
-				<div>
-					<p>* I campi contrassegnati con l`asterisco sono obbligatori</p>
 				</div>
 				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"><div id="review-message"></div></div>
 				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
