@@ -116,6 +116,7 @@
 								$("#modal-recensione").modal("hide");
 							}
 						});
+						$("#modal-recensione").modal("hide");
 					});
 				});
 			</script>';

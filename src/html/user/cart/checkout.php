@@ -233,7 +233,8 @@
 						</div>
 					</div>
 					<div class="panel-footer">
-						<button class="btn btn-default pol-butt pay-butt collapsed" data-toggle="collapse" data-target="#p-col2" aria-expanded="false" aria-controls="p-col2" type="submit" name="button">Paga online</button>
+						<button class="btn btn-default pol-butt pay-butt collapsed" data-toggle="collapse" data-target="#p-col2" aria-expanded="false" aria-controls="p-col2"
+						type="button" name="button" onclick="alert('Servizio al momento non disponibile');">Paga online</button>
 						<button class="btn btn-default pay-butt" type="submit" name="codice_ordine" value="<?php echo $codice_ordine; ?>">Paga alla consegna</button>
 					</div>
 					<!--fine pagamento-->
