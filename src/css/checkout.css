@@ -219,3 +219,10 @@ h3{
 .qta-cont{
   text-align: center;
 }
+
+@media screen and (max-width:500px) {
+  .arrow{
+    height: 100%;
+    width: 100%;
+    }
+}
