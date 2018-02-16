@@ -17,14 +17,16 @@
 		exit;
 	}
 	
-	$sql = "SELECT AVARAGE(stelle) AS media
-		FROM prodotto
+	$sql = "SELECT AVG(stelle) AS media
+		FROM recensione
 		WHERE id_prodotto = '$id_prodotto'";
-	$result = $conn->query($sql) or trigger_error($conn->error."[$sql0]");
+	$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 	if ($result->num_rows>0) {
 		$row = $result->fetch_assoc();
-		$media = $row["media"];
-	} else
+		$media = number_format((float)$row["media"], 1, ',', '');
+	} else {
+		$media = "Non è stato espresso ancora alcun voto";
+	}
 	
 	$sql = "SELECT *
 		FROM prodotto
@@ -65,6 +67,36 @@
 	
 	<header>
 		<!-- DA METTERE LE INFORMAZIONI SUL PRODOTTO -->
+		<img class="card-img img-rounded" alt="immagine prodotto" width="300" height="300" src="<?php echo $row["id_prodotto"];?>">
+		<div class="card-body">
+			<h3 class="card-title"><?php echo$row["nome_prodotto"];?></h3>
+			<p class="card-text"></p>
+		</div>
+		<div class="price">€ <?php echo number_format((float)$row['prezzo_base'], 2, ',', '');?></div>
+		<p class="card-text">Ingredienti: 
+		<?php
+			
+			$sql = "SELECT *
+				FROM ingrediente
+				WHERE id_ingrediente IN (SELECT id_ingrediente
+					FROM ingredienti_pietanza
+					WHERE id_prodotto = '$id_prodotto'
+					ORDER BY id_ingrediente)";
+			$dati_ingredienti = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+			$first = 0;
+			if ($dati_ingredienti->num_rows > 0) {
+				while ($row = $dati_ingredienti->fetch_assoc()) {
+					if($first != 0){
+						echo ', '.$row["nome_ingrediente"];
+					} else {
+						echo $row["nome_ingrediente"];
+						$first=1;
+					}
+				}
+			}
+		?>
+		</p>
+		<p>Media recensioni: <?php echo $media; ?></p>
     </header>
 
   <body>
