@@ -44,6 +44,20 @@ session_start();
 				});
 			});
 			
+			$('.glyphicon-pencil').click(function(){
+				var id_prodotto = $(this).attr("name");
+				$.ajax({
+					url:"modal/recensione.php",
+					method:"post",
+					data:{id_prodotto:id_prodotto},
+					success:function(data){
+						console.log(id_prodotto);
+						$('#dettagli_recensione').html(data);
+						$('#modal-recensione').modal("show");
+					}
+				});
+			});
+			
 			$('.glyphicon-shopping-cart').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
@@ -343,6 +357,17 @@ session_start();
 			</div>
 		</div>
     </div>
+	
+	<div id="modal-recensione" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-body" id="dettagli_recensione"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

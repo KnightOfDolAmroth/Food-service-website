@@ -12,6 +12,8 @@
 				<div class="checkout-details">
 					<div class="price">€ '.number_format((float)$row['prezzo_base'], 2, ',', '').'</div>
 					<div class="btn-container">
+						<button type="button" name="'.$row['id_prodotto'].'" id="review-button"
+						class="btn btn-default btn-circle glyphicon glyphicon-pencil"></button>
 						<button type="button" name="id_prodotto" id="'.$row['id_prodotto'].'" ';
 						$username = $_SESSION["username"];
 						$id_prodotto = $row['id_prodotto'];
