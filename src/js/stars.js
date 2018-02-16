@@ -74,6 +74,7 @@ var __slice = [].slice;
             $(vote).addClass("bold");
           }
         }
+		$("#stars-existing").attr("data-rating",vote);
 
       }
       if (rating && rating < 5) {

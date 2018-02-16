@@ -1,6 +1,8 @@
 <?php
 
 	if(isset($_REQUEST["id_prodotto"])) {
+		session_start();
+		
 		$servername="localhost";
 		$username ="root";
 		$password ="";
@@ -11,6 +13,7 @@
 			die("Connection failed: " .$conn->connect_error);
 		}
 		
+		$user = $_SESSION["username"];
 		$id_prodotto = $_REQUEST["id_prodotto"];
 		$sql = "SELECT *
 			FROM prodotto
@@ -81,7 +84,7 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					Scrivi qui la tua recensione*
 					<div class="form-group">
-						<textarea placeholder="Hai a disposizione 300 caratteri" maxlength="300" class="form-control" id="Content" name="Content"></textarea>
+						<textarea placeholder="Hai a disposizione 250 caratteri" maxlength="250" class="form-control" id="Content" name="Content"></textarea>
 					</div>
 				</div>
 				<div>
@@ -89,9 +92,33 @@
 				</div>
 				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"><div id="review-message"></div></div>
 				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-					<input class="btn" id="sendReview" value="INVIA" type="button">
+					<input class="btn bottone-invio" id="'.$user.'" value="Iniva" name="'.$id_prodotto.'" type="button">
 				</div>
-			</div>';
+			</div>
+			
+			<script>
+				
+				$(document).ready(function(){
+						$(".bottone-invio").click(function(){
+						var username = $(this).attr("id");
+						var id_prodotto = $(this).attr("name");
+						var stelle = $("#stars-existing").attr("data-rating");
+						var recensione = $("#Content").val();					
+						$.ajax({
+							url:"reviews/scrivi.php",
+							method:"post",
+							data:{username:username, id_prodotto:id_prodotto, stelle:stelle, recensione:recensione},
+							success:function(data){
+								console.log(username);
+								console.log(id_prodotto);
+								console.log(stelle);
+								console.log(recensione);
+								$("#modal-recensione").modal("hide");
+							}
+						});
+					});
+				});
+			</script>';
 		echo $output;
 	}
 ?>
