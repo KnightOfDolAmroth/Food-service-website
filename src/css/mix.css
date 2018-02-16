@@ -350,6 +350,25 @@ input[type="checkbox"]:disabled + .label-text:before{
 #qta{
   line-height: initial;
 }
+
+#dettagli_recensione{
+  display: flex;
+  flex-direction: column;
+}
+
+.rec-details{
+  text-align: left;
+}
+
+#send-rev-area{
+  text-align: right;
+}
+.votes{
+  display: flex;
+  justify-content: space-around;
+}
+
+
 @media screen and (max-width:520px) {
   .mod-card{
     display: flex;
