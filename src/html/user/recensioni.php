@@ -24,8 +24,9 @@
 	if ($result->num_rows>0) {
 		$row = $result->fetch_assoc();
 		$media = number_format((float)$row["media"], 1, ',', '');
-	} else {
-		$media = "Non è stato espresso ancora alcun voto";
+		if ($media < 1) {
+			$media = "non è stato espresso ancora alcun voto.";
+		}
 	}
 	
 	$sql = "SELECT *
