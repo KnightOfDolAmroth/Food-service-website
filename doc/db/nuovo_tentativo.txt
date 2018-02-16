@@ -66,7 +66,25 @@ create table ordine (
 	stato char(20) not null,
 	username char(20) not null,
 	primary key (codice_ordine));
+	
+create table orari (
+	ordine int not null,
+	giorno char(10) not null,
+	apertura_mattina time,
+	chiusura_mattina time,
+	apertura_pomeriggio time,
+	chiusura_pomeriggio time,
+	primary key (ordine));
 
+INSERT INTO orari (ordine, giorno, apertura_mattina, chiusura_mattina, apertura_pomeriggio, chiusura_pomeriggio)
+VALUES ('0', 'lunedì', '12:00', '14:00', '17:00', '19:30'),
+('1', 'martedì', '12:00', '14:00', '17:00', '19:30'),
+('2','mercoledì', '12:00', '14:00', '17:00', '19:30'),
+('3','giovedì', '12:00', '14:00', '17:00', '19:30'),
+('4','venerdì', '12:00', '14:00', '17:00', '19:30'),
+('5','sabato', '12:00', '14:00', '17:00', '19:30'),
+('6','domenica', '12:00', '14:00', '17:00', '19:30');
+	
 create table preferisce (
 	id_prodotto char(5) not null,
 	username char(20) not null,

@@ -13,6 +13,20 @@ $(document).ready(function(){
 				}
 			});
 		});
+		
+		$('.orari').click(function(){
+			var procedi = 'admin';
+			$.ajax({
+				url:"modal/orari.php",
+				method:"post",
+				data:{procedi:procedi},
+				success:function(data){
+					console.log(procedi);
+					$('#dettagli_orari').html(data);
+					$('#data_modal_orari').modal("show");
+				}
+			});
+		});
 	});
 </script>
 
@@ -29,7 +43,7 @@ $(document).ready(function(){
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#" class="avvisi"><span class="glyphicon glyphicon-pencil"></span> Avvisi</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Orari</a></li>
+        <li><a href="#" class="orari"><span class="glyphicon glyphicon-calendar"></span> Orari</a></li>
 				<li><a href="./modal/pwdchange.php" class="gestione-pwd" id="modify"><span class="glyphicon glyphicon-edit"></span> Gestione password</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -47,6 +61,21 @@ $(document).ready(function(){
 					<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
 				</div>
 				<div class="modal-body" id="dettagli_messaggi"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="data_modal_orari" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Tabella degli orari</h4>
+				</div>
+				<div class="modal-body" id="dettagli_orari"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
 				</div>
