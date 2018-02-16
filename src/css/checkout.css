@@ -219,3 +219,20 @@ h3{
 .qta-cont{
   text-align: center;
 }
+
+@media screen and (max-width:440px) {
+  .arrow{
+    height: 100%;
+    width: 100%;
+    }
+
+    .panel-footer{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pay-butt{
+      width: 100%;
+      margin: 5px;
+    }
+}
