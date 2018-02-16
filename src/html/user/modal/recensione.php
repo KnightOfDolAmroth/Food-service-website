@@ -102,7 +102,7 @@
 						$(".bottone-invio").click(function(){
 						var username = $(this).attr("id");
 						var id_prodotto = $(this).attr("name");
-						var stelle = $("#stars-existing").attr("data-rating");
+						var stelle = $(".glyphicon-star").length;
 						var recensione = $("#Content").val();					
 						$.ajax({
 							url:"reviews/scrivi.php",
