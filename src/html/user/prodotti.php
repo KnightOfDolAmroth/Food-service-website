@@ -10,8 +10,7 @@
 					<p class="card-text"></p>
 				</div>
 				<div class="checkout-details">
-					<div class="price">€ '.$row['prezzo_base'].'
-					</div>
+					<div class="price">€ '.number_format((float)$row['prezzo_base'], 2, ',', '').'</div>
 					<div class="btn-container">
 						<button type="button" name="id_prodotto" id="'.$row['id_prodotto'].'" ';
 						$username = $_SESSION["username"];

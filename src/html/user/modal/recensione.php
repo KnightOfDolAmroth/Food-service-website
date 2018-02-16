@@ -28,6 +28,10 @@
 		
 		$output = '';
 		$output .= '
+			<link href="../../css/revModal.css" rel="stylesheet" type="text/css"/>
+			<link href="../../css/stars.css" rel="stylesheet" type="text/css"/>
+			<script src="../../js/stars.js" type="text/javascript"></script>
+		
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 img-cont">
 					<img class="img-responsive img-thumbnail" src="'.$id_prodotto.'" alt="">

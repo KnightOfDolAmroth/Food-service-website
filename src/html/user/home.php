@@ -94,7 +94,7 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='./cart/carrello.php'">Carrello ordini:<br/>procedi all'acquisto</button>
 		</div>
 		<div class="preferiti">
-			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='reviews/recensioni.php'">Recensioni:<br/>scrivi le tue impressioni</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block btn-huge" onclick="window.location.href='recensioni.php'">Recensioni:<br/>scrivi le tue impressioni</button>
 		</div>
     </div>
   </article>

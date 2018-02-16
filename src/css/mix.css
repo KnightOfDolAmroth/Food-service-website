@@ -333,7 +333,23 @@ input[type="checkbox"]:disabled + .label-text:before{
   color: white;
 }
 
+.form-group {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#dropdowns {
+    display: flex;
+    justify-content: space-around;
+}
+
+#qta{
+  line-height: initial;
+}
 @media screen and (max-width:520px) {
   .mod-card{
     display: flex;
