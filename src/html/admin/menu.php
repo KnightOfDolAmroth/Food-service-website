@@ -18,7 +18,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="../../css/menu.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../../css/menu.css" rel="stylesheet" type="text/css"/>-->
 	<link href="../../css/mix.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -58,24 +58,23 @@ session_start();
 				});
 			});
 
-			/*$('#submit_form').click(function(event){
+			$('#submit_form').click(function(event){
 				var id = $('#id_prodotto').val();
-				var qta = $('#qta').val();
-				var imp = $('.selectpicker').val();
-				var agg = new Array();
+				var tipo = $('.selectpicker').val();
+				var ing = new Array();
 				$('.check:checked').each(function(){
-					agg.push($(this).val());
+					ing.push($(this).val());
 				});
 				$.ajax({
 					url:"ordini.php",
 					method:"post",
-					data:{id_prodotto:id,qta:qta,imp:imp,agg:agg},
+					data:{id_prodotto:id,prz:prz,imp:imp,ing:ing},
 					success:function(data){
 						console.log(`${imp}`);
 						$('#data_modal_prodotti').modal("hide");
 					}
 				});
-			});*/
+			});
 
 			$('.glyphicon-trash').click(function(){
 				var id_prodotto = $(this).attr("id");
@@ -172,7 +171,7 @@ session_start();
 
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'aggiungi-prodotto.php';
+								include 'prodotti.php';
 							}
 						}
 						?>
@@ -195,7 +194,7 @@ session_start();
 						$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'aggiungi-prodotto.php';
+								include 'prodotti.php';
 							}
 						}
 						?>
@@ -218,7 +217,7 @@ session_start();
 						$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'aggiungi-prodotto.php';
+								include 'prodotti.php';
 							}
 						}
 						?>
@@ -241,7 +240,7 @@ session_start();
 					$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'aggiungi-prodotto.php';
+							include 'prodotti.php';
 						}
 					}
 					?>
@@ -264,7 +263,7 @@ session_start();
 						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'aggiungi-prodotto.php';
+								include 'prodotti.php';
 							}
 						}
 						?>
@@ -287,7 +286,7 @@ session_start();
 					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'aggiungi-prodotto.php';
+							include 'prodotti.php';
 						}
 					}
 					?>
@@ -315,7 +314,7 @@ session_start();
 					$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'aggiungi-prodotto.php';
+							include 'prodotti.php';
 						}
 					}
 					?>
@@ -335,7 +334,7 @@ session_start();
 				<div class="modal-body" id="dettagli_prodotto"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default " data-dismiss="modal">Annulla
-					
+
 				</button>
 					<button type="button" class="btn btn-default" id="submit_form">Salva
 					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
