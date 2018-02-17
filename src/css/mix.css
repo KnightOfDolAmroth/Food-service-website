@@ -369,6 +369,27 @@ input[type="checkbox"]:disabled + .label-text:before{
   justify-content: space-around;
 }
 
+.mod-msg{
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.modal-msg-title{
+  font-size: 18px;
+  text-align: left;
+  color: black;
+}
+.btn-delete{
+  background-color: #5bc0de;
+}
+
+.btn-exit{
+  background-color: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
 
 @media screen and (max-width:520px) {
   .mod-card{

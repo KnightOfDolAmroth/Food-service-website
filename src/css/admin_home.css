@@ -81,6 +81,27 @@ legend {
   background-color: #e1e1e1;
 }
 
+.mod-msg{
+  display: block;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.modal-msg-title{
+  font-size: 18px;
+  text-align: left;
+  color: black;
+}
+.btn-delete{
+  background-color: #5bc0de;
+}
+
+.btn-exit{
+  background-color: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
 @media only screen and (max-width: 768px) {
   .col-titles {
     display: none;
