@@ -46,7 +46,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
-  <?php include 'navbar/generica.html'; ?>
+  <?php include 'navbar/generica.php'; ?>
 
 	<script>
 		$(document).ready(function(){
