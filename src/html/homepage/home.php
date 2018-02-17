@@ -85,7 +85,7 @@
     <div class="col-sm-4">
 		<h2>Orari</h2>
 		<table class='table table-striped table-borded'>
-		
+
 			<?php
 				$servername="localhost";
 				$username ="root";

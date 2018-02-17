@@ -59,9 +59,9 @@ $usr_img_path = $res->fetch_assoc();
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
 				</div>
-				<div class="modal-body" id="dettagli_messaggi"></div>
+				<div class="modal-body mod-msg" id="dettagli_messaggi"></div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+					<button type="button" class="btn btn-default btn-exit" data-dismiss="modal">Esci</button>
 				</div>
 			</div>
 		</div>

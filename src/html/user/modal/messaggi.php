@@ -10,10 +10,10 @@
 			die("Connection failed: " .$conn->connect_error);
 		}
 		$usr = $_REQUEST["username"];
-		
+
 		$sql = "SELECT *
 				FROM messaggio
-				WHERE username = '$usr'";	
+				WHERE username = '$usr'";
 		$output = '';
 		$output .= '
 			<legend>Messaggi utente</legend>';
@@ -26,7 +26,7 @@
 							<div class="col-sm-2 field-title"></div>
 						</div>
 						<div class="ord-body">';
-					while ($row = $result->fetch_assoc()) {															
+					while ($row = $result->fetch_assoc()) {
 						$output .= '
 							<div class="row order">
 								<div class="col-sm-2 oggetto">
@@ -36,7 +36,7 @@
 									<span class="ord-id text-center"><p>'.$row["testo"].'</p></span>
 								</div>
 								<div class="col-sm-2 elimina">
-									<button class="btn btn-info bottone_elimina" type="button" name="button" id="'.$row["id_messaggio"].'" value="'.$usr.'">Elimina</button>
+									<button class="btn btn-info btn-delete bottone_elimina" type="button" name="button" id="'.$row["id_messaggio"].'" value="'.$usr.'">Elimina</button>
 								</div>
 							</div>';
 					}
@@ -51,31 +51,31 @@
 				$output .= '
 			</div>
 			<script>
-				$(document).ready(function(){					
-					$(".bottone_elimina").click(function(){  
-						var id_messaggio = $(this).attr("id"); 
+				$(document).ready(function(){
+					$(".bottone_elimina").click(function(){
+						var id_messaggio = $(this).attr("id");
 						var username = $(this).attr("value");
 						$.ajax({
-							url:"modal/aggiorna.php",  
-							method:"post",  
-							data:{id_messaggio:id_messaggio},  
+							url:"modal/aggiorna.php",
+							method:"post",
+							data:{id_messaggio:id_messaggio},
 							success:function(data){
 								console.log(id_messaggio);
-							}  
+							}
 						});
 						setTimeout(function(){
 							$.ajax({
-								url:"modal/messaggi.php",  
-								method:"post",  
-								data:{username:username},  
+								url:"modal/messaggi.php",
+								method:"post",
+								data:{username:username},
 								success:function(data){
 									console.log(username);
-									$("#dettagli_messaggi").html(data);  
-									$("#data_modal").modal("show");  
-								}  
+									$("#dettagli_messaggi").html(data);
+									$("#data_modal").modal("show");
+								}
 							});
 						}, 100);
-					}); 
+					});
 				});
 			</script>';
 		echo $output;
