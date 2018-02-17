@@ -69,7 +69,12 @@
 										FROM tipologia";
 										$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 										while ($row = $result->fetch_assoc()) {
-										  $output .= '<option>'.$row["tipo"].'</option>';
+											if($row["tipo"] == $dati_prodotto["tipo"]){
+												$output .= '<option selected>'.$row["tipo"].'</option>';
+											} else {
+												$output .= '<option>'.$row["tipo"].'</option>';
+											}
+
 										}
 								$output .= '
 									</select>';
@@ -78,12 +83,13 @@
 						</div>
 						<div class="form-group col-sm-6">
 							<label for="prz">Prezzo </label>
-							<input id="prz" type="number" min="1" max="30" step=".01" value="0.00">
+							<input id="prz" type="number" min="1" max="30" step=".01" value="'.$dati_prodotto["prezzo_base"].'">
 
 						</div>
 					</div>';
 
 					if ($dati_prodotto["tipo"]!=="Bibite") {
+						$id_prod = $dati_prodotto["id_prodotto"];
 						$output .= '
 							<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse-supp" aria-expanded="false" aria-controls="collapse-supp">
 							Ingredienti
@@ -94,18 +100,41 @@
 									<form class="supplements-list">
 									<div class="row">';
 										$sql2 = "SELECT nome_ingrediente
-												FROM ingrediente";
+												FROM ingrediente
+												WHERE id_ingrediente IN ( SELECT id_ingrediente
+													FROM ingredienti_pietanza
+													WHERE id_prodotto = '$id_prod'
+												) ";
 										$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 										while ($row = $result->fetch_assoc()) {
 												$output .= '
 													<div class="col-sm-4">
 														<div class="form-check">
 															<label class="supp-label">
-															<input type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
+															<input checked= "checked" type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
 															<span class="label-text">'.$row["nome_ingrediente"].'</span></label>
 														</div>
 													</div>';
 											}
+
+
+											$sql2bis = "SELECT nome_ingrediente
+													FROM ingrediente
+													WHERE id_ingrediente NOT IN ( SELECT id_ingrediente
+														FROM ingredienti_pietanza
+														WHERE id_prodotto = '$id_prod'
+													) ";
+											$result = $conn->query($sql2bis) or trigger_error($conn->error."[$sql2bis]");
+											while ($row = $result->fetch_assoc()) {
+													$output .= '
+														<div class="col-sm-4">
+															<div class="form-check">
+																<label class="supp-label">
+																<input  type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
+																<span class="label-text">'.$row["nome_ingrediente"].'</span></label>
+															</div>
+														</div>';
+												} /**/
 									$output .= '
 									</div>
 								</div>
