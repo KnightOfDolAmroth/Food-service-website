@@ -38,8 +38,11 @@ $usr_img_path = $res->fetch_assoc();
              </div>
              <hr>
              <div id="img-loading-area">
-               <label class="hidden" for="img-load">Carica immagine </label>
-               <input id="img-load" type="file" accept="image/*">
+               <form class="form-img" method="post"  action="">
+                 <label class="btn btn-default" id="change-img-label" for="img-load">Cambia immagine</label>
+                 <input id="img-load" type="file" accept="image/*">
+                   <input class="btn btn-default" id="ok" type="submit" name="submit" value="Ok">
+                </form>
              </div>
            </div>
         </li>
@@ -63,3 +66,8 @@ $usr_img_path = $res->fetch_assoc();
 			</div>
 		</div>
 	</div>
+
+<script type="text/javascript">
+  var input = document.querySelector('#img-load');
+  input.style.opacity = 0;
+</script>

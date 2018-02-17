@@ -10,6 +10,15 @@ flex-direction: column;
 align-items: center;
 }
 
+#ok{
+  width: 90%;
+  margin-top: 5%;
+}
+
+.form-img{
+  text-align: center;
+}
+
 
 .user-img{
  width: 30%;
@@ -17,6 +26,16 @@ align-items: center;
  margin-bottom: 5px;
 }
 
+.img-load{
+  display: flex;
+  flex-direction: column;
+}
+
+#change-img-label{
+  width: 90%;
+  background-color: #ddd;
+  color: grey;
+}
 @media screen and (max-width:767px) {
   #img-loading-area{
     color: #9d9d9d;
