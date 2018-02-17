@@ -1,4 +1,4 @@
-
+gl
 ul {
   list-style: outside none none;
   margin: 0;
@@ -79,7 +79,10 @@ li {
       text-align: center;
     }
 
-    .glyphicon{
+    .glyphicon-star{
+      font-size: 200%;
+    }
+    .glyphicon-star-empty{
       font-size: 200%;
     }
 

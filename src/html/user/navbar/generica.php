@@ -13,38 +13,41 @@
         <div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
         <li><a href="#" class="messaggi" id="<?php echo $_SESSION['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-				<li><a href="./home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
+				<li><a href="<?php if($_SESSION["username"] === "admin") {echo "../admin/home.php";} else {echo "./home.php";}?>"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-        <!--<li>
+        <li>
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="glyphicon glyphicon-user"></span>
             Profilo
-           </a>-->
+           </a>
 
 <?php
 $usr_name = $_SESSION['username'];
-/*$sql_query = " SELECT immagine
+$sql_query = " SELECT immagine
     FROM utente
     WHERE username = '$usr_name'";
 
 $res = $conn->query($sql_query) or trigger_error($conn->error."[$sql_query]");
-$usr_img_path = $res->fetch_assoc();*/
+$usr_img_path = $res->fetch_assoc();
  ?>
-           <!--<div class="dropdown-menu" aria-labelledby="userDropdown">
+           <div class="dropdown-menu" aria-labelledby="userDropdown">
              <div class="user-data">
-               <img class="img-responsive img-circle user-img" src="<?php echo $usr_img_path['immagine'] ?>" alt="user image">
-               <span><?php echo $_SESSION['username'] ?></span>
+               <img class="img-responsive img-circle user-img" src="<?php //echo $usr_img_path['immagine'] ?>" alt="user image">
+               <span><?php //echo $_SESSION['username'] ?></span>
              </div>
              <hr>
              <div id="img-loading-area">
-               <label class="hidden" for="img-load">Carica immagine </label>
-               <input id="img-load" type="file" accept="image/*">
+               <form class="form-img" method="post"  action="">
+                 <label class="btn btn-default" id="change-img-label" for="img-load">Cambia immagine</label>
+                 <input id="img-load" type="file" accept="image/*">
+                   <input class="btn btn-default" id="ok" type="submit" name="submit" value="Ok">
+                </form>
              </div>
            </div>
-        </li>
+        </li>-->
         <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-  		</ul>-->
+  		</ul>
       </div>
     </div>
   </nav>
@@ -63,3 +66,8 @@ $usr_img_path = $res->fetch_assoc();*/
 			</div>
 		</div>
 	</div>
+
+<script type="text/javascript">
+  var input = document.querySelector('#img-load');
+  input.style.opacity = 0;
+</script>

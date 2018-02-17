@@ -59,7 +59,8 @@
 							$output .= '
 								<div class="row order">
 									<div class="col-sm-1 image">
-										<span class="text-center"><img class="media-object" src="'.$img.'"alt="immagine prodotto" style="width: 72px; height: 72px;"></span>
+										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
+										<span class="text-center"><img class="media-object" src="'.$img.'"alt="immagine prodotto" style="width: 72px; height: 72px;"></span></a>
 									</div>
 									<div class="col-sm-2 id-dettaglio">
 										<span class="ord-id text-center"><p>'.$row["id_dettaglio"].'</p></span>
@@ -68,7 +69,8 @@
 										<span class="quantità text-center"><p>'.$row["qta"].'</p></span>
 									</div>
 									<div class="col-sm-2 nome-prodotto">
-										<span class="nome-prodotto text-center"><p>'.$row1["nome_prodotto"].'</p></span>
+										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
+										<span class="nome-prodotto text-center"><p>'.$row1["nome_prodotto"].'</p></span></a>
 									</div>
 									<div class="col-sm-2 impasto">';
 										
