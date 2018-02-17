@@ -54,7 +54,7 @@ $usr_img_path = $res->fetch_assoc();*/
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
+					<h4 class="modal-title modal-msg-title" id="myModalLabel">Casella degli avvisi</h4>
 				</div>
 				<div class="modal-body mod-msg" id="dettagli_messaggi"></div>
 				<div class="modal-footer">

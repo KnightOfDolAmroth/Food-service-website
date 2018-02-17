@@ -371,10 +371,15 @@ input[type="checkbox"]:disabled + .label-text:before{
 
 .mod-msg{
   display: block;
-  padding-left: 3%;
-  padding-right: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
+.modal-msg-title{
+  font-size: 18px;
+  text-align: left;
+  color: black;
+}
 .btn-delete{
   background-color: #5bc0de;
 }
@@ -384,6 +389,8 @@ input[type="checkbox"]:disabled + .label-text:before{
   border-color: #ccc;
   color: #333;
 }
+
+
 @media screen and (max-width:520px) {
   .mod-card{
     display: flex;
