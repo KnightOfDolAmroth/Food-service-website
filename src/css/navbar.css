@@ -1,6 +1,5 @@
 #img-load{
-  display: flex;
-  flex-direction: column;
+  height: 5px;
 }
 
 .user-data{
@@ -33,8 +32,15 @@ align-items: center;
 
 #change-img-label{
   width: 90%;
-  background-color: #ddd;
-  color: grey;
+  background-color: #fff;
+  border-color: #ddd;
+  color: #333;
+}
+
+#change-img-label:hover{
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  color: #333;
 }
 @media screen and (max-width:767px) {
   #img-loading-area{
@@ -43,4 +49,5 @@ align-items: center;
   .user-data{
     color: #9d9d9d;
   }
+
 }
