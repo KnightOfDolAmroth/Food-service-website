@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
         <li><a href="#" class="messaggi" id="<?php echo $_SESSION['username'] ?>"><span class="glyphicon glyphicon-envelope"></span> Messaggi</a></li>
-				<li><a href="./home.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
+				<li><a href="<?php if($_SESSION["username"] === "admin") {echo "../admin/home.php";} else {echo "./home.php";}?>"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
         <!--<li>
@@ -33,8 +33,8 @@ $usr_img_path = $res->fetch_assoc();*/
  ?>
            <!--<div class="dropdown-menu" aria-labelledby="userDropdown">
              <div class="user-data">
-               <img class="img-responsive img-circle user-img" src="<?php echo $usr_img_path['immagine'] ?>" alt="user image">
-               <span><?php echo $_SESSION['username'] ?></span>
+               <img class="img-responsive img-circle user-img" src="<?php //echo $usr_img_path['immagine'] ?>" alt="user image">
+               <span><?php //echo $_SESSION['username'] ?></span>
              </div>
              <hr>
              <div id="img-loading-area">
@@ -42,9 +42,9 @@ $usr_img_path = $res->fetch_assoc();*/
                <input id="img-load" type="file" accept="image/*">
              </div>
            </div>
-        </li>
+        </li>-->
         <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-  		</ul>-->
+  		</ul>
       </div>
     </div>
   </nav>
