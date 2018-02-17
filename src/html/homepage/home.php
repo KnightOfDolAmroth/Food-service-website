@@ -85,36 +85,56 @@
     <div class="col-sm-4">
 		<h2>Orari</h2>
 		<table class='table table-striped table-borded'>
-			<tr>
-				<th>Lunedì</th>
-				<th>12:00 - 14:00 | 18:30 - 20:30</th>
-			</tr>
-			<tr>
-				<th>Martedì</th>
-				<th>12:00 - 14:00 | 18:30 - 20:30</th>
-			</tr>
-			<tr>
-				<th>Mercoledì</th>
-				<th>12:00 - 14:00 | 18:30 - 20:30</th>
-			</tr>
-			<tr>
-				<th>Giovedì</th>
-				<th>Chiuso</th>
-			</tr>
-			<tr>
-				<th>Venerdì</th>
-				<th>12:00 - 14:00 | 18:30 - 20:30</th>
-			</tr>
-			<tr>
-				<th>Sabato</th>
-				<th>12:00 - 14:00 | 18:30 - 20:30</th>
-			</tr>
-			<tr>
-				<th>Domenica</th>
-				<th>12:00 - 14:00</th>
-			</tr>
+		
+			<?php
+				$servername="localhost";
+				$username ="root";
+				$password ="";
+				$database = "food_service";
+
+				$conn = new mysqli($servername, $username, $password, $database);
+				if ($conn->connect_error) {
+					die("Connection failed: " .$conn->connect_error);
+				}
+				$sql = "SELECT *
+					FROM orari";
+				$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+				$output = '';
+				while ($row = $result->fetch_assoc()) {
+					$output .= '
+						<tr>
+						<th>'.$row["giorno"].'</th>
+						<th>';
+						if (strtotime($row["apertura_mattina"]) === strtotime("00:00") && strtotime($row["apertura_mattina"]) === strtotime("00:00")) {
+							$output .= '--- chiuso --- | ';
+						} else {
+							$output .= substr($row["apertura_mattina"], 0, 5).' - '.substr($row["apertura_mattina"], 0, 5).' | ';
+						}
+						if (strtotime($row["apertura_pomeriggio"]) === strtotime("00:00") && strtotime($row["chiusura_pomeriggio"]) === strtotime("00:00")) {
+							$output .= '--- chiuso ---</th></th>';
+						} else {
+							$output .= substr($row["apertura_pomeriggio"], 0, 5).' - '.substr($row["chiusura_pomeriggio"], 0, 5).'</th></th>';
+						}
+				}
+				echo $output;
+			?>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Casella degli avvisi</h4>
+			</div>
+			<div class="modal-body" id="dettagli_messaggi"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

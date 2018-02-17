@@ -1,0 +1,138 @@
+#generale {
+  background-color: #00004d;
+  width: 100%;
+  color: white;
+}
+
+#generale h1 {
+  text-align: center;
+  padding-top: 3%;
+}
+
+#generale p {
+  text-align: right;
+  padding-right: 11%;
+  padding-bottom: 3%;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+ul {
+  list-style-type: none;
+  width: 80%;
+  margin: auto;
+  padding: 0;
+  background-color: #00004d;
+}
+
+li a {
+  display: block;
+  font-size: 18px;
+  color: white;
+  font-family: sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+li a:hover {
+  background-color: #3366ff;
+}
+
+#finale {
+  background-color: #00004d;
+  width: 100%;
+  color: white;
+}
+
+#finale h3 {
+  text-align: left;
+  padding-left: 10%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+/**/
+#staff, #chiosco {
+  width: 80%;
+  margin-left: 10%;
+  background-color: white;
+}
+
+#staff, #chiosco {
+  margin-top: 1.5%;
+}
+
+#staff header, #chiosco header {
+  width: 100%;
+  padding-top: 2%;
+}
+
+#staff h2, #chiosco h2 {
+  text-align: left;
+  padding-left: 10%;
+}
+
+#staff header p {
+  padding-left: 10%;
+}
+
+#chiosco p {
+  text-align: left;
+  padding-left: 10%;
+  padding-top: 35px;
+  font-style: italic;
+}
+
+#staff section, #chiosco section {
+  width: 100%;
+  margin-left: 10%;
+  padding-top: 30px;
+  padding-bottom: 5px;
+}
+
+table {
+  width: 80%;
+}
+
+caption {
+  font-family: sans-serif;
+}
+
+table, th, td {
+  border: 2px solid #dddddd;
+  border-collapse: collapse;
+}
+
+th, td {
+  height: 40px;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#staff footer, #chiosco footer {
+  width: 100%;
+  height: 50px;
+  background-color: #c6c6c6;
+}
+
+#staff footer p, #chiosco footer p {
+  text-align: left;
+  padding-left: 10%;
+  padding-top: 15px;
+}
+
+#staff footer p a, #chiosco footer p a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-style: normal;
+}

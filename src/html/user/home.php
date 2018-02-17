@@ -49,6 +49,20 @@
 				}
 			});
 		});
+		
+		$('.bottone_dettagli').click(function(){
+			var codice_ordine = $(this).attr("value");
+			$.ajax({
+				url:"../admin/modal/dettagli.php",
+				method:"post",
+				data:{codice_ordine:codice_ordine},
+				success:function(data){
+					console.log(codice_ordine);
+					$('#dettagli_ordine').html(data);
+					$('#data_modal_dettagli').modal("show");
+				}
+			});
+		});
 
 		$('.bottone_elimina').click(function(){
 			var id_messaggio = $(this).attr("id");
@@ -71,17 +85,17 @@
 
 	<?php
 		include 'navbar/home.html';
-		$username=$_SESSION['username'];
+		$user = $_SESSION['username'];
 		$sql = "SELECT punti
 			FROM utente
-			WHERE username = '$username'";
+			WHERE username = '$user'";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		$row = $result->fetch_assoc();
 		$punti = $row["punti"];
 	?>
 
   <header>
-    <h1>Benvenuto/a, <?php echo $username; ?></h1>
+    <h1>Benvenuto/a, <?php echo $user; ?></h1>
     <h3>Hai accumulato: <?php echo $punti; ?> punti</h3>
   </header>
 
@@ -95,6 +109,53 @@
 		</div>
     </div>
   </article>
+  
+  <body>
+  <br>
+    <div class="container">
+      <legend>Storico ordini</legend>
+      <div class="row col-titles">
+        <div class="col-sm-2 field-title"></div>
+        <div class="col-sm-2 field-title">data e ora creazione</div>
+        <div class="col-sm-3 field-title">indirizzo e campanello</div>
+        <div class="col-sm-2 field-title">data e ora consegna</div>
+        <div class="col-sm-1 field-title">pezzi</div>
+        <div class="col-sm-2 field-title">stato</div>
+      </div>
+	  <div class="ord-body">
+
+	  <?php
+
+		$sql0 = " SELECT *
+				FROM ordine
+				WHERE stato <> 'in creazione'
+				AND username = '$user'
+				ORDER BY data DESC";
+		$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
+		if ($result->num_rows>0) {
+			while ($row = $result->fetch_assoc()) {
+				include 'storico.php';
+			}
+		}
+
+	  ?>
+	  </div>
+	</div>
+  
+  <div class="modal fade" id="data_modal_dettagli" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Dettagli ordine</h4>
+				</div>
+				<div class="modal-body" id="dettagli_ordine"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Esci</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
