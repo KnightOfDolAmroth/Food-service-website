@@ -44,7 +44,7 @@ if ($result->num_rows < 1) {
 </head>
 
 <script>
-	$(document).ready(function(){		
+	$(document).ready(function(){
 		$('.glyphicon-trash').click(function(){
 			var id_dettaglio = $(this).attr("value");
 			$.ajax({
@@ -61,10 +61,10 @@ if ($result->num_rows < 1) {
 </script>
 
 <body>
-  
+
 	<?php include '../navbar/carrello.html'; ?>
 
-	<div class="container wrapper">
+	<div class="container-fluid wrapper">
 		<div class="row cart-head">
 			<div class="container step-container">
 				<div class="row steps">
@@ -88,14 +88,14 @@ if ($result->num_rows < 1) {
 					<div class="panel-body">
 						<div class="" id="cart-body">
 							<div class="cart">
-								<div class="row titles">
-									<div class="col-sm-2"></div>
-									<div class="col-sm-2">Ingredienti</div>
-									<div class="col-sm-2">Aggiunte</div>
-									<div class="col-sm-1">Quantità</div>
-									<div class="col-sm-2">Impasto</div>
-									<div class="col-sm-2">Importo</div>
-									<div class="col-sm-1"></div>
+								<div class="row titles hidden">
+									<div class="col-sm-3 col-lg-2"></div>
+									<div class="col-sm-hidden col-lg-4">Ingredienti</div>
+									<div class="col-sm-3 col-lg-2">Aggiunte</div>
+									<div class="col-sm-3 col-lg-1">Quantità</div>
+									<div class="col-sm-3 col-lg-1">Impasto</div>
+									<div class="col-sm-3 col-lg-1">Importo</div>
+									<div class="col-sm-3 col-lg-1"></div>
 								</div>
 
 								<?php

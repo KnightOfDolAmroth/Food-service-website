@@ -11,10 +11,10 @@ body{
 }
 
 .cart-item{
-  display: flex;
+/*  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: white;*/
 }
 
 .titles{
@@ -140,4 +140,11 @@ body{
 #cart-tot{
 display: flex;
 justify-content: flex-end;
+}
+
+
+@media screen and (max-width:1199px) {
+  .panel-info{
+    width: 100%;
+  }
 }

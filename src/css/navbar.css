@@ -1,0 +1,27 @@
+#img-load{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data{
+  font-size: 160%;
+  display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+.user-img{
+ width: 30%;
+ height: 30%;
+ margin-bottom: 5px;
+}
+
+@media screen and (max-width:767px) {
+  #img-loading-area{
+    color: #9d9d9d;
+  }
+  .user-data{
+    color: #9d9d9d;
+  }
+}

@@ -43,7 +43,7 @@ session_start();
 					}
 				});
 			});
-			
+
 			$('.glyphicon-pencil').click(function(){
 				var id_prodotto = $(this).attr("name");
 				$.ajax({
@@ -57,7 +57,7 @@ session_start();
 					}
 				});
 			});
-			
+
 			$('.glyphicon-shopping-cart').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
@@ -118,8 +118,8 @@ session_start();
 		});
 
 	</script>
-	
-	<?php include 'navbar/generica.html'; ?>
+
+	<?php include 'navbar/generica.php'; ?>
 
 	<div class="bkg">
 		<img class="img-responsive" src="../../../img/piadona.jpeg" alt="background piada">
@@ -357,7 +357,7 @@ session_start();
 			</div>
 		</div>
     </div>
-	
+
 	<div id="modal-recensione" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-dialog modal-lg">

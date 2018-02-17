@@ -91,6 +91,7 @@ body{
   border-radius: 15px;
   background-color:#182944;
   border-style: hidden;
+  margin-right: 2px;
 }
 
 .btn-circle:hover{
@@ -229,8 +230,8 @@ justify-content: space-between;
 .btn-container{
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-start;
   width: 40%;
-  justify-content: space-around;
 }
 
 .btn-circle {
@@ -269,7 +270,7 @@ justify-content: space-between;
 
 .price{
   color: red;
-  font-size: 150%;
+  font-size: 200%;
 }
 
 .supp-label{
