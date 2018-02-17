@@ -78,6 +78,8 @@ li a:hover {
 
 #staff header p {
   padding-left: 10%;
+  padding-right: 10%;
+  text-align: justify;
 }
 
 #chiosco p {
