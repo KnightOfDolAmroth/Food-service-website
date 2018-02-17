@@ -116,7 +116,7 @@
 		$sql0 = " SELECT *
 				FROM ordine
 				WHERE stato <> 'in creazione'
-				ORDER BY data";
+				ORDER BY data DESC";
 		$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
 		if ($result->num_rows>0) {
 			while ($row = $result->fetch_assoc()) {
