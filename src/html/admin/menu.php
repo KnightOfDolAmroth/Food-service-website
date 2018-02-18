@@ -82,7 +82,7 @@ session_start();
 		});
 	</script>
 
-	<?php include '../user/navbar/home.html'; ?>
+	<?php include 'navbar/menu.html'; ?>
 
 	<div class="bkg">
 		<img class="img-responsive" src="../../../img/piadona.jpeg" alt="background piada">
@@ -126,12 +126,6 @@ session_start();
           <img class="img-responsive img-circle tab-img" src="../../../img/bibite.jpg" alt="bibite">
         </a>
       </li>
-
-	  <li role="presentation" <?php if(isset($_SESSION['menu']) && $_SESSION['menu'] === 'preferiti') {echo 'class="active"';}?>>
-		<a href="#preferiti" aria-controls="preferiti" role="tab" data-toggle="tab" name="preferiti" class="selector">
-			<img class="img-responsive img-circle tab-img" src="../../../img/preferiti.png" alt="preferiti">
-		</a>
-	  </li>
     </ul>
 
     <div class="tab-content">
@@ -164,6 +158,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 					<h1>Le nostre piadine</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id="prod-container">
 					<div class="row">
@@ -187,6 +182,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 					<h1>I nostri crescioni</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id="prod-container">
 					<div class="row">
@@ -210,6 +206,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 					<h1>I nostri rotoli</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id="prod-container">
 					<div class="row">
@@ -233,6 +230,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 					<h1>Altre specialità</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id="prod-container">
 					<div class="row">
@@ -256,6 +254,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 					<h1>Le nostre bibite</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id="prod-container">
 					<div class="row">
@@ -264,34 +263,6 @@ session_start();
 							FROM prodotto
 							WHERE tipo='Bibite'";
 					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()) {
-							include '../user/prodotti.php';
-						}
-					}
-					?>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div role="tabpanel" class="tab-pane <?php if($_SESSION['menu'] === 'preferiti') {echo 'active';}?>" id="preferiti">
-			<div class="tab-elements">
-				<div class="title-element">
-					<h1>I tuoi preferiti</h1>
-				</div>
-				<div class="container" id="prod-container">
-                <div class="row">
-					<?php
-					$user= $_SESSION['username'];
-					$sql6 = "SELECT *
-							FROM prodotto
-							WHERE id_prodotto IN (
-								SELECT id_prodotto
-								FROM preferisce
-								WHERE username='$user'
-							)";
-					$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
 							include '../user/prodotti.php';
