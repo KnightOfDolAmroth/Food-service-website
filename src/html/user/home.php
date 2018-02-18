@@ -119,8 +119,7 @@
         <div class="col-sm-2 field-title">data e ora creazione</div>
         <div class="col-sm-3 field-title">indirizzo e campanello</div>
         <div class="col-sm-2 field-title">data e ora consegna</div>
-        <div class="col-sm-1 field-title">pezzi</div>
-        <div class="col-sm-2 field-title">stato</div>
+        <div class="col-sm-3 field-title">stato</div>
       </div>
 	  <div class="ord-body">
 

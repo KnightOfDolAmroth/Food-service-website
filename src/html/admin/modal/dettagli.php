@@ -33,10 +33,9 @@
 	$output .= '
 				<legend>Gestione ordini</legend>
 				<div class="row col-titles">
-					<div class="col-sm-1 field-title"></div>
-					<div class="col-sm-2 field-title">identificativo dettaglio</div>
+					<div class="col-sm-2 field-title"></div>
 					<div class="col-sm-2 field-title">quantità</div>
-					<div class="col-sm-2 field-title">nome prodotto</div>
+					<div class="col-sm-3 field-title">nome prodotto</div>
 					<div class="col-sm-2 field-title">impasto</div>
 					<div class="col-sm-3 field-title">aggiunte</div>
 				</div>
@@ -58,17 +57,14 @@
 																	
 							$output .= '
 								<div class="row order">
-									<div class="col-sm-1 image">
+									<div class="col-sm-2 image">
 										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
 										<span class="text-center"><img class="media-object" src="'.$img.'"alt="immagine prodotto" style="width: 72px; height: 72px;"></span></a>
-									</div>
-									<div class="col-sm-2 id-dettaglio">
-										<span class="ord-id text-center"><p>'.$row["id_dettaglio"].'</p></span>
 									</div>
 									<div class="col-sm-2 quantità">
 										<span class="quantità text-center"><p>'.$row["qta"].'</p></span>
 									</div>
-									<div class="col-sm-2 nome-prodotto">
+									<div class="col-sm-3 nome-prodotto">
 										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
 										<span class="nome-prodotto text-center"><p>'.$row1["nome_prodotto"].'</p></span></a>
 									</div>

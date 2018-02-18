@@ -27,16 +27,7 @@
 					<span class="consegna">
 					<p>'.$row["consegna"].'</p></span>
 				</div>
-				<div class="col-sm-1 ord-info">';
-					$sql2 = "SELECT SUM(qta) AS sum_qta
-						FROM dettaglio_ordine
-						WHERE codice_ordine = '$id_ordine'";
-
-					$result1 = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
-					$qta = $result1->fetch_assoc();
-					$output .= '<p>'.$qta["sum_qta"].'</p>
-				</div>
-				<div class="col-sm-2 ord-info">
+				<div class="col-sm-3 ord-info">
 					<div class="form-inline" id="dropdowns">
 						<div class="form-group">
 							<p>'.$row["stato"].'</p>

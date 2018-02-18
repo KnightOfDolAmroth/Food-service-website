@@ -12,34 +12,26 @@
 	$output = '';
 	$output .= '
 			<div class="row order">
-				<div class="col-sm-1 user">
-					<img class="media-object" src="../../../img/logo.jpg" style="width: 72px; height: 72px;">
+				<div class="col-sm-2 col-md-1 user">
 					<span id="username">'.$row["username"].'</span>
 				</div>
-				<div class="col-sm-2 ord-info">
+				<div class="hidden-sm col-md-1 ord-info">
 					<span class="ord-det"><p>'.$row["codice_ordine"].'</p></span>
-					<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">Dettagli</button>
 				</div>
-				<div class="col-sm-2 ord-info">
+				<div class="hidden-sm col-md-2 ord-info">
 					<span class="d-h">'.$row["data"].'</span>
 				</div>
-				<div class="col-sm-2 ord-info">
+				<div class="col-sm-3 col-md-2 ord-info">
 					<span class="address">
 					<p>'.$row["indirizzo_recapito"].'</p>
 					<p>'.$row["nome_campanello"].'</p></span>
 				</div>
-				<div class="col-sm-2 ord-info">
+				<div class="col-sm-3 col-md-2 ord-info">
 					<span class="consegna">
 					<p>'.$row["consegna"].'</p></span>
 				</div>
-				<div class="col-sm-1 ord-info">';
-					$sql2 = "SELECT SUM(qta) AS sum_qta
-						FROM dettaglio_ordine
-						WHERE codice_ordine = '$id_ordine'";
-
-					$result1 = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
-					$qta = $result1->fetch_assoc();
-					$output .= '<p>'.$qta["sum_qta"].'</p>
+				<div class="col-sm-2 ord-info">
+					<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">Dettagli</button>
 				</div>
 				<div class="col-sm-2 ord-info">
 					<div class="form-inline" id="dropdowns">
