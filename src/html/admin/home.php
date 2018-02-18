@@ -19,7 +19,7 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " .$conn->connect_error);
 	}
-	
+
 	if (isset($_SESSION["avvisi"])) {
 		echo "<script>$('#data_modal').modal('show');</script>";
 		unset($_SESSION["avvisi"]);
@@ -98,16 +98,15 @@
     </header>
 
   <body>
-    <div class="container">
+    <div class="container-fluid" id="cont">
       <legend>Gestione ordini</legend>
       <div class="row col-titles">
-        <div class="col-sm-2 col-md-1 field-title">utente</div>
-        <div class="hidden-sm col-md-1 field-title">codice ordine</div>
-        <div class="hidden-sm col-md-2 field-title">data e ora creazione</div>
-        <div class="col-sm-3 col-md-2 field-title">indirizzo e campanello</div>
-        <div class="col-sm-3 col-md-2 field-title">data e ora consegna</div>
-        <div class="col-sm-2 field-title"></div>
-        <div class="col-sm-2 field-title">stato</div>
+        <div class="col-sm-2 col-md-2 field-title">utente</div>
+        <div class="col-sm-2 col-md-2 field-title">codice</div>
+        <div class="col-sm-2 col-md-2 field-title">data</div>
+        <div class="col-sm-2 col-md-2 field-title">recapito</div>
+        <div class="col-sm-2 col-md-2 field-title">consegna</div>
+        <div class="col-sm-2 col-md-2 field-title">stato</div>
       </div>
 	  <div class="ord-body">
 

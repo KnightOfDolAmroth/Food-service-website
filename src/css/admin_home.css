@@ -70,6 +70,9 @@ legend {
   font-weight: bold;
 }
 
+label{
+  display: none;
+}
 .order{
   padding-bottom: 1%;
   padding-top: 1%;
@@ -102,8 +105,98 @@ legend {
   color: #333;
 }
 
-@media only screen and (max-width: 768px) {
+
+.btn.btn-info.bottone_dettagli {
+  width: 70%;
+}
+
+#cont{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#usr-img{
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#utente{
+  text-align: center;
+}
+
+.order{
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 767px) {
   .col-titles {
     display: none;
+  }
+  label{
+    display: block;
+  }
+
+  .order{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+
+    justify-content: space-around;
+  }
+
+  #utente{
+    width: 33%;
+    margin-bottom: 10px;
+  }
+  #codice{
+    width: 33%;
+    margin-bottom: 10px;
+  }
+
+  #data{
+    width: 34%;
+    margin-bottom: 10px;
+  }
+  #recapito{
+    width: 33%;
+  }
+
+  #consegna{
+    width: 33%;
+
+  }
+
+  #stato{
+    width: 34%;
+  }
+
+  .btn.btn-info.bottone_dettagli {
+    width: 50%;
+  }
+
+  #status{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 430px){
+  #recapito{
+    width: 50%;
+  }
+
+  #consegna{
+    width: 50%;
+
+  }
+
+  #stato{
+    width: 100%;
+  }
+
+  .btn.btn-info.bottone_stato {
+      width: 80%;
   }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$servername="localhost";
 	$username ="root";
 	$password ="";
@@ -8,32 +8,45 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " .$conn->connect_error);
 	}
+
+	/*prendo l'immagine utente*/
+	$uname=$row["username"];
+	$query0 = " SELECT immagine
+			FROM utente
+			WHERE username = '$uname'";
+	$risultato = $conn->query($query0) or trigger_error($conn->error."[$query0]");
+	if ($risultato->num_rows>0) {
+		$riga=$risultato->fetch_assoc();
+	}
 	$id_ordine = $row["codice_ordine"];
 	$output = '';
 	$output .= '
 			<div class="row order">
-				<div class="col-sm-2 col-md-1 user">
+				<div class="col-sm-2 col-md-2 user ord-info" id="utente">
+					<span><img id="usr-img" class="img img-responsive img-circle" src="'.$riga["immagine"].'" alt="user img"></span>
 					<span id="username">'.$row["username"].'</span>
 				</div>
-				<div class="hidden-sm col-md-1 ord-info">
-					<span class="ord-det"><p>'.$row["codice_ordine"].'</p></span>
+				<div class="col-sm-2 col-md-2 ord-info" id="codice">
+				<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">'.$row["codice_ordine"].'</button>
+
 				</div>
-				<div class="hidden-sm col-md-2 ord-info">
-					<span class="d-h">'.$row["data"].'</span>
+				<div class=" col-sm-2 col-md-2 ord-info" id="data">
+					<label for="info-data">data ordine:</label>
+					<span id="info-data" class="d-h">'.$row["data"].'</span>
 				</div>
-				<div class="col-sm-3 col-md-2 ord-info">
-					<span class="address">
-					<p>'.$row["indirizzo_recapito"].'</p>
+				<div class="col-sm-2 col-md-2 ord-info" id="recapito">
+					<label for="info-recapito">recapito:</label>
+					<span class="address" id="info-recapito">
+					<span>'.$row["indirizzo_recapito"].'</span>
 					<p>'.$row["nome_campanello"].'</p></span>
 				</div>
-				<div class="col-sm-3 col-md-2 ord-info">
-					<span class="consegna">
+				<div class="col-sm-2 col-md-2 ord-info" id="consegna">
+					<label for="info-consegna">consegna:</label>
+					<span id="info-consegna" class="consegna">
 					<p>'.$row["consegna"].'</p></span>
 				</div>
-				<div class="col-sm-2 ord-info">
-					<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">Dettagli</button>
-				</div>
-				<div class="col-sm-2 ord-info">
+
+				<div class="col-sm-2 col-md-2 ord-info" id="stato">
 					<div class="form-inline" id="dropdowns">
 						<div class="form-group">
 							<label hidden for="status">Stato:</label>
