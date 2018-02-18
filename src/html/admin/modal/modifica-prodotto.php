@@ -34,7 +34,7 @@
 				<div class="mod-card">
 					<img class="mod-card-img img-rounded" src="'.$_REQUEST["id_prodotto"].'" alt="immagine prodotto">
 					<div class="mod-card-body">
-						<h2 contenteditable="true" class="mod-card-title">'.$dati_prodotto["nome_prodotto"].'</h2>';
+						<h2 contenteditable="true" class="mod-card-title" id="name">'.$dati_prodotto["nome_prodotto"].'</h2>';
 						if ($dati_prodotto["tipo"]!=="Bibite") {
 							$output .= '
 							<p class="card-text">Ingredienti: ';

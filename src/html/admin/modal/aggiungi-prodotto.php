@@ -16,9 +16,9 @@
 			<input type="hidden" id="id_prodotto" value=""/>
 			<div class="mod-card-container container">
 				<div class="mod-card">
-					<img class="mod-card-img img-rounded" src="../../../placeholder.jpg" alt="immagine prodotto">
+					<img class="mod-card-img img-rounded" src="../../../img/placeholder.jpg" alt="immagine prodotto">
 					<div class="mod-card-body">
-						<h2 contenteditable="true" class="mod-card-title">Nome prodotto</h2>';
+						<input class="mod-card-title" id="name" type="text"/>';
 
 					$output .= '
 

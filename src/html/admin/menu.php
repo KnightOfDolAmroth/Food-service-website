@@ -68,20 +68,23 @@ session_start();
 							});
 						});
 
-			$('#submit_form').click(function(event){
-				var id = $('#id_prodotto').val();
+			$('#submit_form2').click(function(event){
+/*				var id = $('#id_prodotto').val();*/
+				var id = "../../../img/placeholder.jpg";
+				var nome_prodotto = $('#name').val();
 				var tipo = $('.selectpicker').val();
 				var ing = new Array();
+				var prz = $('#prz').val();
+
 				$('.check:checked').each(function(){
 					ing.push($(this).val());
 				});
 				$.ajax({
-					url:"ordini.php",
+					url:"nuovo-prodotto.php",
 					method:"post",
-					data:{id_prodotto:id,prz:prz,imp:imp,ing:ing},
+					data:{id_prodotto:id,prz:prz,tipo:tipo,ing:ing, nome_prodotto:nome_prodotto},
 					success:function(data){
-						console.log(`${imp}`);
-						$('#data_modal_prodotti').modal("hide");
+						$('#data_modal_aggiungi_prodotti').modal("hide");
 					}
 				});
 			});
@@ -368,7 +371,7 @@ session_start();
 						<button type="button" class="btn btn-default " data-dismiss="modal">Annulla
 
 					</button>
-						<button type="button" class="btn btn-default" id="submit_form">Salva
+						<button type="button" class="btn btn-default" id="submit_form2">Salva
 						  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						</button>
 					</div>
