@@ -103,8 +103,8 @@
 				while ($row = $result->fetch_assoc()) {
 					$output .= '
 						<tr>
-						<th>'.$row["giorno"].'</th>
-						<th>';
+						<th class="add-visibility">'.$row["giorno"].'</th>
+						<th class="add-visibility">';
 						if (strtotime($row["apertura_mattina"]) === strtotime("00:00") && strtotime($row["apertura_mattina"]) === strtotime("00:00")) {
 							$output .= '--- chiuso --- | ';
 						} else {
