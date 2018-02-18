@@ -15,7 +15,7 @@
 				<div class="col-sm-2 col-md-1 user">
 					<span id="username">'.$row["username"].'</span>
 				</div>
-				<div class="hidden-sm col-md-1 ord-info">
+				<div class="hidden-xs hidden-sm col-md-1 ord-info">
 					<span class="ord-det"><p>'.$row["codice_ordine"].'</p></span>
 				</div>
 				<div class="hidden-sm col-md-2 ord-info">

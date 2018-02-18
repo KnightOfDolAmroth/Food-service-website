@@ -101,13 +101,13 @@
     <div class="container">
       <legend>Gestione ordini</legend>
       <div class="row col-titles">
-        <div class="col-sm-2 col-md-1 field-title">utente</div>
-        <div class="hidden-sm col-md-1 field-title">codice ordine</div>
-        <div class="hidden-sm col-md-2 field-title">data e ora creazione</div>
-        <div class="col-sm-3 col-md-2 field-title">indirizzo e campanello</div>
-        <div class="col-sm-3 col-md-2 field-title">data e ora consegna</div>
-        <div class="col-sm-2 field-title"></div>
-        <div class="col-sm-2 field-title">stato</div>
+        <div class="col-xs-2 col-sm-2 col-md-1 field-title">utente</div>
+        <div class="hidden-xs hidden-sm col-md-1 field-title">codice ordine</div>
+        <div class="hidden-xs hidden-sm col-md-2 field-title">data e ora creazione</div>
+        <div class="col-xs-2 col-sm-3 col-md-2 field-title">indirizzo e campanello</div>
+        <div class="col-xs-2 col-sm-3 col-md-2 field-title">data e ora consegna</div>
+        <div class="col-xs-2 col-sm-2 field-title"></div>
+        <div class="col-xs-2 col-sm-2 field-title">stato</div>
       </div>
 	  <div class="ord-body">
 

@@ -17,8 +17,8 @@ session_start();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<link href="../../css/menu.css" rel="stylesheet" type="text/css"/>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link href="../../css/menu.css" rel="stylesheet" type="text/css"/>
 	<link href="../../css/mix.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -57,20 +57,22 @@ session_start();
 			});
 
 
-						$('.add-prd').click(function(){
-							$.ajax({
-								url:"modal/aggiungi-prodotto.php",
-								method:"post",
-								success:function(data){
-									$('#dettagli_nuovo_prodotto').html(data);
-									$('#data_modal_aggiungi_prodotti').modal("show");
-								}
-							});
-						});
+			$('.add-prd').click(function(){
+				$.ajax({
+					url:"modal/aggiungi-prodotto.php",
+					method:"post",
+					success:function(data){
+						$('#dettagli_nuovo_prodotto').html(data);
+						$('#data_modal_aggiungi_prodotti').modal("show");
+					}
+				});
+			});
 
-			$('#submit_form2').click(function(event){
-/*				var id = $('#id_prodotto').val();*/
-				var id = "../../../img/placeholder.jpg";
+			/*$('#bottone-aggiungi').click(function(event){
+				//var img = $('#img-load').val();
+				var img = new FormData();
+				img.append('file', $('#img-load')[0].files[0]);
+				//var id_prodotto = "../../../img/placeholder.jpg";
 				var nome_prodotto = $('#name').val();
 				var tipo = $('.selectpicker').val();
 				var ing = new Array();
@@ -79,15 +81,21 @@ session_start();
 				$('.check:checked').each(function(){
 					ing.push($(this).val());
 				});
+				
 				$.ajax({
-					url:"nuovo-prodotto.php",
+					url:"modal/nuovo.php",
 					method:"post",
-					data:{id_prodotto:id,prz:prz,tipo:tipo,ing:ing, nome_prodotto:nome_prodotto},
+					data:{img:img, prz:prz, tipo:tipo, ing:ing, nome_prodotto:nome_prodotto},
 					success:function(data){
+						console.log(img);
+						console.log(prz);
+						console.log(tipo);
+						console.log(ing);
+						console.log(nome_prodotto);
 						$('#data_modal_aggiungi_prodotti').modal("hide");
 					}
 				});
-			});
+			});*/
 
 			$('.glyphicon-trash').click(function(){
 				var id_prodotto = $(this).attr("id");
@@ -116,7 +124,7 @@ session_start();
 		});
 	</script>
 
-	<?php include 'navbar/home.html'; ?>
+	<?php include '../user/navbar/home.html'; ?>
 
 	<div class="bkg">
 		<img class="img-responsive" src="../../../img/piadona.jpeg" alt="background piada">
@@ -176,7 +184,7 @@ session_start();
 				  <h1>Tutti i nostri prodotti</h1>
 					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 						<?php
 						$sql0 = " SELECT *
@@ -185,7 +193,7 @@ session_start();
 
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'prodotti.php';
+								include '../user/prodotti.php';
 							}
 						}
 						?>
@@ -199,7 +207,7 @@ session_start();
 				<div class="title-element">
 					<h1>Le nostre piadine</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 						<?php
 						$sql1 = " SELECT *
@@ -208,7 +216,7 @@ session_start();
 						$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'prodotti.php';
+								include '../user/prodotti.php';
 							}
 						}
 						?>
@@ -222,7 +230,7 @@ session_start();
 				<div class="title-element">
 					<h1>I nostri crescioni</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 						<?php
 						$sql2 = " SELECT *
@@ -231,7 +239,7 @@ session_start();
 						$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'prodotti.php';
+								include '../user/prodotti.php';
 							}
 						}
 						?>
@@ -245,7 +253,7 @@ session_start();
 				<div class="title-element">
 					<h1>I nostri rotoli</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 					<?php
 					$sql3 = " SELECT *
@@ -254,7 +262,7 @@ session_start();
 					$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'prodotti.php';
+							include '../user/prodotti.php';
 						}
 					}
 					?>
@@ -268,7 +276,7 @@ session_start();
 				<div class="title-element">
 					<h1>Altre specialità</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 						<?php
 						$sql4 = " SELECT *
@@ -277,7 +285,7 @@ session_start();
 						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
-								include 'prodotti.php';
+								include '../user/prodotti.php';
 							}
 						}
 						?>
@@ -291,7 +299,7 @@ session_start();
 				<div class="title-element">
 					<h1>Le nostre bibite</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
 					<div class="row">
 					<?php
 					$sql5 = " SELECT *
@@ -300,7 +308,7 @@ session_start();
 					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'prodotti.php';
+							include '../user/prodotti.php';
 						}
 					}
 					?>
@@ -314,7 +322,7 @@ session_start();
 				<div class="title-element">
 					<h1>I tuoi preferiti</h1>
 				</div>
-				<div class="container" id=prod-container>
+				<div class="container" id="prod-container">
                 <div class="row">
 					<?php
 					$user= $_SESSION['username'];
@@ -328,7 +336,7 @@ session_start();
 					$result = $conn->query($sql6) or trigger_error($conn->error."[$sql6]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							include 'prodotti.php';
+							include '../user/prodotti.php';
 						}
 					}
 					?>
@@ -338,46 +346,26 @@ session_start();
 		</div>
 	</div>
 
-	<div class="modal fade" id="data_modal_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="data_modal_aggiungi_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modifica</h4>
+					<h4 class="modal-title" id="myModalLabel">Nuovo prodotto</h4>
 				</div>
-				<div class="modal-body" id="dettagli_prodotto"></div>
+				<form class="inserimento" name="inserimento" action="modal/nuovo.php" method="post" enctype="multipart/form-data">
+				<div class="modal-body" id="dettagli_nuovo_prodotto"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default " data-dismiss="modal">Annulla
-
 				</button>
-					<button type="button" class="btn btn-default" id="submit_form">Salva
+					<button type="submit" class="btn btn-default" id="bottone-aggiungi">Salva
 					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					</button>
 				</div>
+				</form>
 			</div>
 		</div>
-    </div>
-
-
-		<div class="modal fade" id="data_modal_aggiungi_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Nuovo prodotto</h4>
-					</div>
-					<div class="modal-body" id="dettagli_nuovo_prodotto"></div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default " data-dismiss="modal">Annulla
-
-					</button>
-						<button type="button" class="btn btn-default" id="submit_form2">Salva
-						  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						</button>
-					</div>
-				</div>
-			</div>
-	    </div>
+	</div>
 
 </body>
 </html>
