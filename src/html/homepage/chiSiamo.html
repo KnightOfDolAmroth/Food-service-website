@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" title="Complete stylesheet" href="../../css/chiSiamo.css">
   <meta charset="utf-8">
   <title>Chi siamo - Presentazione</title>
 </head>
 <body>
+  <nav class="navbar fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#staff" class="avvisi"><span class="glyphicon glyphicon-tags"></span> Quelli della MalaGhiotta</a></li>
+          <li><a href="#chiosco"><span class="glyphicon glyphicon-map-marker"></span> Il nostro chiosco</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./home.php"><span class="glyphicon glyphicon-home"></span> Torna alla homepage</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <header id="generale">
     <h1>La MalaGhiotta</h1>
     <p>La piada davanti alla Biblioteca Malatestiana</p>
   </header>
-  <nav id="nav-pagina">
-    <ul>
-      <li><a href="#staff">Il personale</a></li>
-      <li><a href="#chiosco">Il posto</a></li>
-      <li><a href="./home.php">Torna alla homepage</a></li>
-    </ul>
-  </nav>
 
   <article id="staff">
     <header>
@@ -61,7 +76,7 @@
       </table>
     </section>
     <footer>
-      <p><a href="#generale">Torna su</a></p>
+      <p><a href="#myNavbar">Torna su</a></p>
     </footer>
   </article>
 
@@ -84,7 +99,7 @@
       </p>
     </section>
     <footer>
-      <p><a href="#generale">Torna su</a></p>
+      <p><a href="#myNavbar">Torna su</a></p>
     </footer>
   </article>
 

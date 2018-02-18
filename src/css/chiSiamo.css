@@ -1,3 +1,12 @@
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0px;
+}
+
+.navbar-right {
+  padding-right: 10px;
+}
+
 #generale {
   background-color: #00004d;
   width: 100%;
@@ -17,29 +26,6 @@
 
 body {
   background-color: #f1f1f1;
-}
-
-ul {
-  list-style-type: none;
-  width: 80%;
-  margin: auto;
-  padding: 0;
-  background-color: #00004d;
-}
-
-li a {
-  display: block;
-  font-size: 18px;
-  color: white;
-  font-family: sans-serif;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-decoration: none;
-  text-align: center;
-}
-
-li a:hover {
-  background-color: #3366ff;
 }
 
 #finale {
@@ -98,6 +84,7 @@ li a:hover {
 
 table {
   width: 80%;
+  margin-bottom: 15px;
 }
 
 caption {
