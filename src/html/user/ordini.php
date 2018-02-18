@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	echo "passo 0";
+	var_dump($_REQUEST["qta"]);
 	if(isset($_SESSION["username"]) && isset($_REQUEST["id_prodotto"]) /*&& isset($_REQUEST["imp"])*/ && isset($_REQUEST["qta"])) {
 		$servername="localhost";
 		$username ="root";
