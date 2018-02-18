@@ -30,19 +30,6 @@ session_start();
 
   <script>
 		$(document).ready(function(){
-			/*$('.messaggi').click(function(){
-				var username = $(this).attr("id");
-				$.ajax({
-					url:"modal/messaggi.php",
-					method:"post",
-					data:{username:username},
-					success:function(data){
-						console.log(username);
-						$('#dettagli_messaggi').html(data);
-						$('#data_modal').modal("show");
-					}
-				});
-			});*/
 
 			$('.glyphicon-edit').click(function(){
 				var id_prodotto = $(this).attr("id");
@@ -67,35 +54,6 @@ session_start();
 					}
 				});
 			});
-
-			/*$('#bottone-aggiungi').click(function(event){
-				//var img = $('#img-load').val();
-				var img = new FormData();
-				img.append('file', $('#img-load')[0].files[0]);
-				//var id_prodotto = "../../../img/placeholder.jpg";
-				var nome_prodotto = $('#name').val();
-				var tipo = $('.selectpicker').val();
-				var ing = new Array();
-				var prz = $('#prz').val();
-
-				$('.check:checked').each(function(){
-					ing.push($(this).val());
-				});
-				
-				$.ajax({
-					url:"modal/nuovo.php",
-					method:"post",
-					data:{img:img, prz:prz, tipo:tipo, ing:ing, nome_prodotto:nome_prodotto},
-					success:function(data){
-						console.log(img);
-						console.log(prz);
-						console.log(tipo);
-						console.log(ing);
-						console.log(nome_prodotto);
-						$('#data_modal_aggiungi_prodotti').modal("hide");
-					}
-				});
-			});*/
 
 			$('.glyphicon-trash').click(function(){
 				var id_prodotto = $(this).attr("id");

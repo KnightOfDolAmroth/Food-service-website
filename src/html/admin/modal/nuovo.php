@@ -16,16 +16,32 @@
 		$tipo = $_REQUEST["tipo"];
 		$prz = $_REQUEST["prz"];
 		
-		//INSERIMENTO DEL PRODOTTO
+		
 		if (move_uploaded_file($_FILES["userfile"]["tmp_name"], "../".$id)) {
-			echo "passo1";
+			//INSERIMENTO DEL PRODOTTO
 			$sql = "INSERT INTO prodotto(id_prodotto,nome_prodotto,prezzo_base,tipo)
 				VALUES ('$id', '$nome_prodotto', '$prz', '$tipo')";
 			$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+			
+			var_dump($_REQUEST["ing"]);
+			
+			//INSERIMENTO DEGLI EVENTUALI INGREDIENTI
+			if (isset($_REQUEST["ing"])) {
+				foreach ($_REQUEST["ing"] as $value) {
+					var_dump($value);
+					$sql = "SELECT *
+						FROM ingrediente
+						WHERE nome_ingrediente = '$value'";
+					$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+					$row=$result->fetch_assoc();
+					$id_ingrediente = $row["id_ingrediente"];
+					$sql = "INSERT INTO ingredienti_pietanza(id_ingrediente, id_prodotto)
+						VALUES ('$id_ingrediente', '$id')";
+					$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+				}
+			}
 		}
-		
-		//INSERIMENTO DEGLI EVENTUALI INGREDIENTI
-		header("Location: ../menu");
+		header("Location: ../menu.php");
 		exit;
 	}
  ?>

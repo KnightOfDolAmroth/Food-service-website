@@ -60,7 +60,7 @@
 													<div class="col-sm-4">
 														<div class="form-check">
 															<label class="supp-label">
-															<input type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
+															<input type="checkbox" name="ing[]" class="check" value='.$row["nome_ingrediente"].'>
 															<span class="label-text">'.$row["nome_ingrediente"].'</span></label>
 														</div>
 													</div>';
