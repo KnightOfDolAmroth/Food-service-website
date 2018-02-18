@@ -31,7 +31,7 @@ session_start();
   <script>
 		$(document).ready(function(){
 
-			$('.glyphicon-edit').click(function(){
+			/*$('.glyphicon-edit').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
 					url:"modal/modifica-prodotto.php",
@@ -41,7 +41,7 @@ session_start();
 						$('#data_modal_prodotti').modal("show");
 					}
 				});
-			});
+			});*/
 
 
 			$('.add-prd').click(function(){
@@ -54,8 +54,20 @@ session_start();
 					}
 				});
 			});
+			
+			/*document.getElementById('.img-load').addEventListener("change", function(){
+				$('#immagine-caricata').setAttribute('src', this);
+				$.ajax({
+					url:"modal/aggiungi-prodotto.php",
+					method:"post",
+					success:function(data){
+						$('#dettagli_nuovo_prodotto').html(data);
+						$('#data_modal_aggiungi_prodotti').modal("show");
+					}
+				});
+			});*/
 
-			$('.glyphicon-trash').click(function(){
+			/*$('.glyphicon-trash').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
 					url:"elimina-prodotto.php",
@@ -66,7 +78,7 @@ session_start();
 					}
 				});
 				setTimeout(function () { location.reload(true); }, 100);
-			});
+			});*/
 
 			$('.selector').click(function(){
 				var id_selezione = $(this).attr("name");

@@ -14,7 +14,7 @@
 			<input type="hidden" id="id_prodotto" value=""/>
 			<div class="mod-card-container container">
 				<div class="mod-card">
-					<img class="mod-card-img img-rounded" src="../../../img/placeholder.jpg" alt="immagine prodotto">
+					<img class="mod-card-img img-rounded" id="immagine-caricata" src="../../../img/placeholder.jpg" alt="immagine prodotto">
 					<div class="mod-card-body">
 						<input required class="mod-card-title" id="name" name="nome_prodotto" type="text"/>
 					</div> <!--end product-->
@@ -72,7 +72,16 @@
 
 						$output .= '
 				</div>
-			</div>';
+			</div>
+			<script>
+				$(document).ready(function(){
+					document.getElementById(".img-load")".img-load").addEventListener("change", function(){
+						$("#immagine-caricata").setAttribute("src", this);
+						});
+					});
+				});
+			</script>
+			';
 		echo $output;
 
 ?>

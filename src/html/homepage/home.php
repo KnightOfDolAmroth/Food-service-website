@@ -79,7 +79,7 @@
     <div class="col-sm-8">
   		<h2>Dove Siamo</h2>
   		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.263526976612!2d12.24132431551359!3d44.13838607910776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ca4c89d21b735%3A0x3d6c5c21ea807c37!2s%22La+Malaghiotta%22!5e1!3m2!1sen!2sit!4v1514203490102"
-  		width=100% height=300px frameborder="0" allowfullscreen></iframe>
+  		width="100%" height="300px" frameborder="0" allowfullscreen></iframe>
 	  </div>
 
     <div class="col-sm-4">
