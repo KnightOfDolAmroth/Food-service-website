@@ -26,9 +26,9 @@
 					<span><img id="usr-img" class="img img-responsive img-circle" src="'.$riga["immagine"].'" alt="user img"></span>
 					<span id="username">'.$row["username"].'</span>
 				</div>
-<<<<<<< HEAD
 				<div class="col-sm-2 col-md-2 ord-info" id="codice">
-				<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">'.$row["codice_ordine"].'</but
+				<button class="btn btn-info bottone_dettagli" type="button" name="button" value="'.$row["codice_ordine"].'">'.$row["codice_ordine"].'</button>
+
 				</div>
 				<div class=" col-sm-2 col-md-2 ord-info" id="data">
 					<label for="info-data">data ordine:</label>

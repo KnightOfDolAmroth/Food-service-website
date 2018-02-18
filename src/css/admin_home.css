@@ -131,6 +131,12 @@ label{
   align-items: center;
 }
 
+#status{
+  width: 100%;
+}
+.btn.btn-info.bottone_stato {
+    width: 100%;
+}
 
 @media only screen and (max-width: 767px) {
   .col-titles {
@@ -181,8 +187,11 @@ label{
   #status{
     width: 80%;
   }
+  .btn.btn-info.bottone_stato {
+      width: 80%;
+  }
 }
-@media only screen and (max-width: 430px){
+@media only screen and (max-width: 490px){
   #recapito{
     width: 50%;
   }
@@ -195,8 +204,55 @@ label{
   #stato{
     width: 100%;
   }
+  #utente{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #codice{
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  #data{
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  #usr-img{
+    width: 20%
+  }
 
   .btn.btn-info.bottone_stato {
-      width: 80%;
+      width: 100%;
   }
+
+  #status{
+    width: 100%;
+  }
+
+}
+@media only screen and (max-width: 360px){
+
+  #codice{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #data{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #recapito{
+    width: 100%;
+  }
+
+  #consegna{
+    width: 100%;
+
+  }
+
+  #stato{
+    width: 100%;
+  }
+
 }
