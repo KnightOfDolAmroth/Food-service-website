@@ -31,7 +31,7 @@ session_start();
   <script>
 		$(document).ready(function(){
 
-			/*$('.glyphicon-edit').click(function(){
+			/*$('.glyphicon-pencil').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
 					url:"modal/modifica-prodotto.php",
@@ -287,6 +287,24 @@ session_start();
 		</div>
 	</div>
 
+	<div class="modal fade" id="data_modal_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Aggiungi al carrello</h4>
+				</div>
+				<div class="modal-body" id="dettagli_prodotto"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+					<button type="button" class="btn btn-primary" id="submit_form">Aggiungi
+					  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+    </div>
+	
 	<div class="modal fade" id="data_modal_aggiungi_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
