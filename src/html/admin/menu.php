@@ -47,16 +47,26 @@ session_start();
 			$('.glyphicon-edit').click(function(){
 				var id_prodotto = $(this).attr("id");
 				$.ajax({
-					url:"modal/aggiungi-prodotto.php",
+					url:"modal/modifica-prodotto.php",
 					method:"post",
-					data:{id_prodotto:id_prodotto},
 					success:function(data){
-						console.log(id_prodotto);
 						$('#dettagli_prodotto').html(data);
 						$('#data_modal_prodotti').modal("show");
 					}
 				});
 			});
+
+
+						$('.add-prd').click(function(){
+							$.ajax({
+								url:"modal/aggiungi-prodotto.php",
+								method:"post",
+								success:function(data){
+									$('#dettagli_nuovo_prodotto').html(data);
+									$('#data_modal_aggiungi_prodotti').modal("show");
+								}
+							});
+						});
 
 			$('#submit_form').click(function(event){
 				var id = $('#id_prodotto').val();
@@ -161,6 +171,7 @@ session_start();
 			<div class="tab-elements">
 				<div class="title-element">
 				  <h1>Tutti i nostri prodotti</h1>
+					<button class="btn btn-default add-prd glyphicon glyphicon-plus-sign" type="button" name="button"> Aggiungi prodotto </button>
 				</div>
 				<div class="container" id=prod-container>
 					<div class="row">
@@ -343,6 +354,27 @@ session_start();
 			</div>
 		</div>
     </div>
+
+
+		<div class="modal fade" id="data_modal_aggiungi_prodotti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Nuovo prodotto</h4>
+					</div>
+					<div class="modal-body" id="dettagli_nuovo_prodotto"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default " data-dismiss="modal">Annulla
+
+					</button>
+						<button type="button" class="btn btn-default" id="submit_form">Salva
+						  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+	    </div>
 
 </body>
 </html>

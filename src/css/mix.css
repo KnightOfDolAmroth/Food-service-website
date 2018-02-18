@@ -115,6 +115,9 @@ justify-content: space-between;
   padding-bottom: 3%;
 }
 
+.add-prd:hover{
+  color: #333;
+}
 .price{
   color: red;
   font-size: 150%;
@@ -389,7 +392,6 @@ input[type="checkbox"]:disabled + .label-text:before{
   border-color: #ccc;
   color: #333;
 }
-
 
 @media screen and (max-width:520px) {
   .mod-card{
