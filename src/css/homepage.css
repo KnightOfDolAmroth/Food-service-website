@@ -1,5 +1,5 @@
 body {
-	background-image: url("../../img/Background.jpg");
+	background-image: url("Background.jpg");
 	background-size: cover;
 	background-position: top center;
 	background-repeat: no-repeat;
@@ -12,7 +12,41 @@ body {
 	border-radius: 0px;
 }
 
-nav + div {
+.navbar-nav li a {
+	display: inline-block;
+}
+
+.fa-facebook {
+	padding: 4px 7px 4px 7px;
+	background: #3B5998;
+  color: white;
+}
+
+.fa-whatsapp {
+	padding: 4px;
+	background: #25d366;
+  color: white;
+}
+
+.navbar-nav > li > .dropdown-menu {
+	background-color: #b4eeb4;
+	border-radius: 0px;
+}
+
+.navbar-nav > li > .dropdown-menu:hover {
+	background-color: #00ee00;
+}
+
+.dropdown-menu li {
+	height: 25px;
+	width: 200px;
+}
+
+#social a:hover, #tel a:hover {
+	background-color: #00ee00;
+}
+
+.text-center {
 	margin-top: 325px;
 }
 
