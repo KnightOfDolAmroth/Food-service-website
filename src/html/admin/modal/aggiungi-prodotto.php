@@ -1,5 +1,4 @@
 <?php
-
 		$servername="localhost";
 		$username ="root";
 		$password ="";
@@ -10,7 +9,6 @@
 			die("Connection failed: " .$conn->connect_error);
 		}
 
-
 		$output = '';
 		$output .= '
 			<input type="hidden" id="id_prodotto" value=""/>
@@ -18,42 +16,29 @@
 				<div class="mod-card">
 					<img class="mod-card-img img-rounded" src="../../../img/placeholder.jpg" alt="immagine prodotto">
 					<div class="mod-card-body">
-						<input class="mod-card-title" id="name" type="text"/>';
-
-					$output .= '
-
+						<input required class="mod-card-title" id="name" name="nome_prodotto" type="text"/>
 					</div> <!--end product-->
 				</div>
 				<div id="img-loading-area">
 					<label for="img-load">Carica immagine </label>
-					<input id="img-load" type="file" accept="image/*">
+					<input required id="img-load" name="userfile" type="file" accept="image/*">
 				</div>
 				<legend class="details">Dettagli</legend>
 				<div class="supplements">
 					<div class="row" id="dropdowns">
-						<div class="form-group col-sm-6">';
-
-								$output .= '
-									<label for="tipo">Tipologia:</label>
-									<select class="selectpicker" name="tipologia" id="tipologia">';
-									$sql1 = "SELECT tipo
-										FROM tipologia";
-										$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
-										while ($row = $result->fetch_assoc()) {
-
-												$output .= '<option>'.$row["tipo"].'</option>';
-											}
-
-
-								$output .= '
-									</select>';
-
-							$output .= '
+						<div class="form-group col-sm-6">
+							<label for="tipo">Tipologia:</label>
+							<select class="selectpicker" name="tipo" id="tipologia">';
+							$output .= '<option>Piadina</option>';
+							$output .= '<option>Crescione</option>';
+							$output .= '<option>Rotolo</option>';
+							$output .= '<option>Altro</option>';
+							$output .= '<option>Bibite</option>
+							</select>
 						</div>
 						<div class="form-group col-sm-6">
 							<label for="prz">Prezzo </label>
-							<input id="prz" type="number" min="1" max="30" step=".01" value="0">
-
+							<input required id="prz" name="prz" type="number" min="1" max="30" step=".01" value="0">
 						</div>
 					</div>';
 
@@ -75,14 +60,11 @@
 													<div class="col-sm-4">
 														<div class="form-check">
 															<label class="supp-label">
-															<input type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
+															<input type="checkbox" name="ing[]" class="check" value='.$row["nome_ingrediente"].'>
 															<span class="label-text">'.$row["nome_ingrediente"].'</span></label>
 														</div>
 													</div>';
 											}
-
-
-
 									$output .= '
 									</div>
 								</div>

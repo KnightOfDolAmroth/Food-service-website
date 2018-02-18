@@ -102,7 +102,7 @@ legend {
   color: #333;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 691px) {
   .col-titles {
     display: none;
   }
