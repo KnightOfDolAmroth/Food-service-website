@@ -16,7 +16,7 @@ body {
 	display: inline-block;
 }
 
-.fa-facebook {
+/*.fa-facebook {
 	padding: 4px 7px 4px 7px;
 	background: #3B5998;
   color: white;
@@ -44,7 +44,7 @@ body {
 
 #social a:hover, #tel a:hover {
 	background-color: #00ee00;
-}
+}*/
 
 .text-center {
 	margin-top: 325px;
@@ -59,7 +59,7 @@ h2 {
 	color: white;
 }
 
-.add-visibility {
+/*.add-visibility {
 	color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
+}*/
