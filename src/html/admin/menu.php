@@ -45,7 +45,7 @@ session_start();
 			});
 
 
-			/*$('.add-prd').click(function(){
+			$('.add-prd').click(function(){
 				$.ajax({
 					url:"modal/aggiungi-prodotto.php",
 					method:"post",
@@ -56,7 +56,7 @@ session_start();
 				});
 			});
 			
-			document.getElementById('.img-load').addEventListener("change", function(){
+			/*document.getElementById('.img-load').addEventListener("change", function(){
 				$('#immagine-caricata').setAttribute('src', this);
 				$.ajax({
 					url:"modal/aggiungi-prodotto.php",
