@@ -47,6 +47,26 @@ h2 {
 	color: white;
 }
 
+footer {
+	display: block;
+  background-color: #ff9f00;
+  width: 100%;
+  color: white;
+  bottom: 0px;
+}
+
+footer h5 {
+	text-align: center;
+  padding-left: 10%;
+  padding-bottom: 1%;
+  padding-top: 2%;
+}
+
+footer small {
+	text-align: center;
+  padding-bottom: 2%;
+}
+
 /*.add-visibility {
 	color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;

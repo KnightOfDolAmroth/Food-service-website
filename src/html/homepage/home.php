@@ -136,5 +136,11 @@
 		</div>
 	</div>
 </div>
+
+<footer id="finale">
+  <h5>La MalaGhiotta Piazza Fabbri 5, 47521 Cesena FC</h5>
+  <small>&copy; 2018 Sara Kiade Matteo Magnini Filippo Savini</small>
+</footer>
+
 </body>
 </html>
