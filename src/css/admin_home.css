@@ -1,3 +1,10 @@
+.oggetto{
+  margin-top: 10px;
+}
+.testo{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .navbar {
   margin-bottom: 0;
   border-radius: 0px;
@@ -138,6 +145,11 @@ label{
   align-items: center;
 }
 
+.new-avviso{
+  display: flex;
+  flex-direction: column;
+}
+
 #status{
   width: 100%;
 }
@@ -161,9 +173,29 @@ label{
   width: 20%;
 }
 
+.new-avviso{
+  display: flex;
+  flex-direction: column;
+}
 
+.avvisi-lab{
+  display: block;
+}
 
 @media only screen and (max-width: 767px) {
+  .mex-tit{
+    display: none;
+  }
+  .grass{
+    font-weight: bold;
+  }
+
+  .oggetto{
+    width: 100%;
+  }
+  .testo{
+    width: 100%;
+  }
   #usr-ord-titles{
     display: flex;
     flex-direction: row;
@@ -203,6 +235,12 @@ label{
     flex-flow: wrap;
 
     justify-content: space-around;
+  }
+
+  .new-avviso{
+    display: flex;
+    flex-direction: column;
+
   }
 
   #utente{
@@ -256,6 +294,10 @@ label{
   }
   .aggiunte{
     width: 25%;
+  }
+
+  .elimina{
+    width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
