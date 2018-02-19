@@ -94,7 +94,7 @@
 										$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 										while ($row = $result->fetch_assoc()) {
 												$output .= '
-													<div class="col-sm-4 col-md-3">
+													<div class="col-sm-4 col-md-4">
 														<div class="form-check">
 															<label class="supp-label">
 															<input type="checkbox" class="check" value='.$row["nome_ingrediente"].'>
