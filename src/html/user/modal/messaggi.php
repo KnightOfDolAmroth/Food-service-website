@@ -20,7 +20,7 @@
 				$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 				if ($result->num_rows>0) {
 					$output .= '
-						<div class="row col-titles">
+						<div class="row col-titles mex-tit">
 							<div class="col-sm-2 field-title">Oggetto</div>
 							<div class="col-sm-8 field-title">Testo del messaggio</div>
 							<div class="col-sm-2 field-title"></div>
@@ -29,14 +29,14 @@
 					while ($row = $result->fetch_assoc()) {
 						$output .= '
 							<div class="row order">
-								<div class="col-sm-2 oggetto">
+								<div class="col-sm-2 oggetto grass">
 									<span class="text-center"><p>'.$row["oggetto"].'</p></span>
 								</div>
 								<div class="col-sm-8 testo">
 									<span class="ord-id text-center"><p>'.$row["testo"].'</p></span>
 								</div>
 								<div class="col-sm-2 elimina">
-									<button class="btn btn-info btn-delete bottone_elimina" type="button" name="button" id="'.$row["id_messaggio"].'" value="'.$usr.'">Elimina</button>
+									<button class="btn btn-info btn-delete bottone_elimina el-mex" type="button" name="button" id="'.$row["id_messaggio"].'" value="'.$usr.'">Elimina</button>
 								</div>
 							</div>';
 					}
