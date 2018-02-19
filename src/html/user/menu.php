@@ -182,7 +182,8 @@ session_start();
 					<div class="row">
 						<?php
 						$sql0 = " SELECT *
-								FROM prodotto";
+								FROM prodotto
+								WHERE visibile = '1'";
 						$result = $conn->query($sql0) or trigger_error($conn->error."[$sql0]");
 
 						if ($result->num_rows > 0) {
@@ -206,7 +207,8 @@ session_start();
 						<?php
 						$sql1 = " SELECT *
 								FROM prodotto
-								WHERE tipo='Piadina'";
+								WHERE tipo='Piadina'
+								AND visibile = '1'";
 						$result = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
@@ -229,7 +231,8 @@ session_start();
 						<?php
 						$sql2 = " SELECT *
 								FROM prodotto
-								WHERE tipo='Crescione'";
+								WHERE tipo='Crescione'
+								AND visibile = '1'";
 						$result = $conn->query($sql2) or trigger_error($conn->error."[$sql2]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
@@ -252,7 +255,8 @@ session_start();
 					<?php
 					$sql3 = " SELECT *
 							FROM prodotto
-							WHERE tipo='Rotolo'";
+							WHERE tipo='Rotolo'
+							AND visibile = '1'";
 					$result = $conn->query($sql3) or trigger_error($conn->error."[$sql3]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
@@ -275,7 +279,8 @@ session_start();
 						<?php
 						$sql4 = " SELECT *
 								FROM prodotto
-								WHERE tipo='Altro'";
+								WHERE tipo='Altro'
+								AND visibile = '1'";
 						$result = $conn->query($sql4) or trigger_error($conn->error."[$sql4]");
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
@@ -298,7 +303,8 @@ session_start();
 					<?php
 					$sql5 = " SELECT *
 							FROM prodotto
-							WHERE tipo='Bibite'";
+							WHERE tipo='Bibite'
+							AND visibile = '1'";
 					$result = $conn->query($sql5) or trigger_error($conn->error."[$sql5]");
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
@@ -322,7 +328,8 @@ session_start();
 					$user= $_SESSION['username'];
 					$sql6 = "SELECT *
 							FROM prodotto
-							WHERE id_prodotto IN (
+							WHERE visibile = '1'
+							AND id_prodotto IN (
 								SELECT id_prodotto
 								FROM preferisce
 								WHERE username='$user'

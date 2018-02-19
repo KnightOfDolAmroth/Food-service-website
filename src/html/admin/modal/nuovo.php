@@ -15,12 +15,13 @@
 		$id = "../../../img/".$nome_prodotto.".jpg";
 		$tipo = $_REQUEST["tipo"];
 		$prz = $_REQUEST["prz"];
+		$visibile = '1';
 		
 		
 		if (move_uploaded_file($_FILES["userfile"]["tmp_name"], "../".$id)) {
 			//INSERIMENTO DEL PRODOTTO
-			$sql = "INSERT INTO prodotto(id_prodotto,nome_prodotto,prezzo_base,tipo)
-				VALUES ('$id', '$nome_prodotto', '$prz', '$tipo')";
+			$sql = "INSERT INTO prodotto(id_prodotto,nome_prodotto,prezzo_base,tipo, visibile)
+				VALUES ('$id', '$nome_prodotto', '$prz', '$tipo', '$visibile')";
 			$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 			
 			var_dump($_REQUEST["ing"]);

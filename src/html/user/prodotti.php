@@ -19,7 +19,22 @@
 				<div class="checkout-details">
 					<div class="price">€ '.number_format((float)$row['prezzo_base'], 2, ',', '').'</div>';
 					if ($_SESSION["username"] === "admin"){
-						
+						$id_prodotto = $row["id_prodotto"];
+						$output .= '
+						<div class="btn-container">
+						<button ';
+						$sql = "SELECT *
+									FROM prodotto
+									WHERE visibile = '0'
+									AND id_prodotto = '$id_prodotto'";
+							$result1 = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+							if ($result1->num_rows > 0) {
+								$output .= 'style="background-color: orange" ';
+							}
+						$output .= '
+						type="button" name="'.$row['id_prodotto'].'"
+						class="btn btn-default btn-circle glyphicon glyphicon-eye-close hide-button"></button>
+						</div>';
 					} else {
 						$output .= '
 						<div class="btn-container">
