@@ -386,6 +386,9 @@ text-align: center;
   margin-top: 2%;
 }
 
+.rev-star{
+  font-size: 100%;
+}
 @media (max-width: 314px) {
   #product-schedule .schedule-section .review-graph .single-ranks .rank-results li .progress-bar{
     width: 140px;
