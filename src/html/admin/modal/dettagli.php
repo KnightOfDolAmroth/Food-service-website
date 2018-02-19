@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$servername="localhost";
 	$username ="root";
 	$password ="";
@@ -14,13 +14,13 @@
 			WHERE codice_ordine = '$cod_ordine'";
 	$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 	$row = $result->fetch_assoc();
-	$id_pr = $row["id_prodotto"]; 
+	$id_pr = $row["id_prodotto"];
 	$sql = "SELECT *
 			FROM prodotto
 			WHERE id_prodotto = '$id_pr'";
 	$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 	$dati_prodotto = $result->fetch_assoc();
-	
+
 	$sql = "SELECT *
 			FROM ingrediente
 			WHERE id_ingrediente IN (SELECT id_ingrediente
@@ -28,18 +28,18 @@
 				WHERE id_prodotto = '$id_pr'
 				ORDER BY id_ingrediente)";
 	$dati_ingredienti = $conn->query($sql) or trigger_error($conn->error."[$sql]");
-	
+
 	$output = '';
 	$output .= '
-				<legend>Gestione ordini</legend>
-				<div class="row col-titles">
-					<div class="col-sm-2 field-title"></div>
-					<div class="col-sm-2 field-title">quantità</div>
-					<div class="col-sm-3 field-title">nome prodotto</div>
-					<div class="col-sm-2 field-title">impasto</div>
-					<div class="col-sm-3 field-title">aggiunte</div>
+				<legend>Dettagli ordine</legend>
+				<div id="det-titles" class="row col-titles">
+					<div class="col-sm-2 field-title image"></div>
+					<div class="col-sm-2 field-title nome-prodotto">prodotto</div>
+					<div class="col-sm-2 field-title quantità">quantità</div>
+					<div class="col-sm-2 field-title impasto">impasto</div>
+					<div class="col-sm-3 field-title aggiunte">aggiunte</div>
 				</div>
-				<div class="ord-body">.';
+				<div class="ord-body">';
 					$sql = "SELECT *
 							FROM dettaglio_ordine
 							WHERE codice_ordine = '$cod_ordine'";
@@ -48,28 +48,29 @@
 						while ($row = $result->fetch_assoc()) {
 							$img = $row["id_prodotto"];
 							$id_dettaglio = $row["id_dettaglio"];
-							
+
 							$sql1 = "SELECT nome_prodotto
 									FROM prodotto
 									WHERE id_prodotto = '$img'";
 							$result1 = $conn->query($sql1) or trigger_error($conn->error."[$sql1]");
 							$row1 = $result1->fetch_assoc();
-																	
+
 							$output .= '
-								<div class="row order">
-									<div class="col-sm-2 image">
-										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
-										<span class="text-center"><img class="media-object" src="'.$img.'"alt="immagine prodotto" style="width: 72px; height: 72px;"></span></a>
+								<div class="row order det-order">
+									<div class="col-sm-2  image">
+										<span class="text-center"><img class="media-object img-responsive" src="'.$img.'"alt="immagine prodotto" style="width: 72px; height: 72px;"></span></a>
 									</div>
-									<div class="col-sm-2 quantità">
-										<span class="quantità text-center"><p>'.$row["qta"].'</p></span>
-									</div>
-									<div class="col-sm-3 nome-prodotto">
+
+									<div class="col-sm-2 nome-prodotto">
 										<a href="../user/recensioni.php?id_prodotto='.$row["id_prodotto"].'">
 										<span class="nome-prodotto text-center"><p>'.$row1["nome_prodotto"].'</p></span></a>
 									</div>
+
+									<div class="col-sm-2 quantità">
+										<span class="quantità text-center"><p>'.$row["qta"].'</p></span>
+									</div>
 									<div class="col-sm-2 impasto">';
-										
+
 										$id_impasto = $row["id_impasto"];
 										$sql3 = " SELECT nome_impasto
 												FROM impasto
@@ -80,8 +81,9 @@
 										<span class="consegna text-center"><p>'.$row3["nome_impasto"].'</p></span>
 									</div>
 									<div class="col-sm-3 aggiunte">
-									<span class="aggiunte text-center">';
-									
+									<label class="det-label" for="sup">aggiunte:</label>
+									<span id="sup" class="aggiunte text-center">';
+
 										$sql2 = "SELECT nome_ingrediente
 												FROM ingrediente
 												WHERE id_ingrediente IN (SELECT id_ingrediente
@@ -94,8 +96,10 @@
 												$output .= '
 													<p>'.$row2["nome_ingrediente"].'</p>';
 											}
+										} else {
+											$output .= "nessuna";
 										}
-										
+
 										$output .= '
 										</span>
 									</div>

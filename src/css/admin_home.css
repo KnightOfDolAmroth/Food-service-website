@@ -3,6 +3,11 @@
   border-radius: 0px;
 }
 
+#dettagli_ordine{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 header {
   background-color: #00004d;
   text-align: center;
@@ -47,6 +52,7 @@ legend {
 .det{
   margin-bottom: 2%;
 }
+
 
 .det{
   background-color: white;
@@ -138,11 +144,34 @@ label{
     width: 100%;
 }
 
+.image{
+  width: 20%;
+}
+.nome-prodotto{
+  width: 20%;
+}
+.quantità{
+  width: 20%;
+}
+.impasto{
+  width: 20%;
+}
+.aggiunte{
+  width: 20%;
+}
+
 @media only screen and (max-width: 767px) {
-  .col-titles {
+  #det-titles{
+    display: flex;
+    flex-direction: row;
+  }
+  .image{
     display: none;
   }
-  label{
+  #ord-titles {
+    display: none;
+  }
+  .ord-label{
     display: block;
   }
 
@@ -190,8 +219,44 @@ label{
   .btn.btn-info.bottone_stato {
       width: 80%;
   }
+
+  .image{
+    width: 0%;
+  }
+  .nome-prodotto{
+    width: 25%;
+  }
+  .quantità{
+    width: 25%;
+  }
+  .impasto{
+    width: 25%;
+  }
+  .aggiunte{
+    width: 25%;
+  }
 }
 @media only screen and (max-width: 490px){
+  .det-label{
+    display: block;
+  }
+  .col-sm-3.field-title.aggiunte {
+    display: none;
+  }
+  .nome-prodotto{
+    width: 33%;
+  }
+  .quantità{
+    width: 33%;
+  }
+  .impasto{
+    width: 34%;
+  }
+
+  .aggiunte{
+    width: 100%;
+    text-align: center;
+  }
   #recapito{
     width: 50%;
   }

@@ -100,7 +100,7 @@
   <body>
     <div class="container-fluid" id="cont">
       <legend>Gestione ordini</legend>
-      <div class="row col-titles">
+      <div class="row col-titles" id="ord-titles">
         <div class="col-sm-2 col-md-2 field-title">utente</div>
         <div class="col-sm-2 col-md-2 field-title">codice</div>
         <div class="col-sm-2 col-md-2 field-title">data</div>
@@ -132,7 +132,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Dettagli ordine</h4>
+					<h4 class="modal-title" id="myModalLabel">Gestione ordini</h4>
 				</div>
 				<div class="modal-body" id="dettagli_ordine"></div>
 				<div class="modal-footer">
