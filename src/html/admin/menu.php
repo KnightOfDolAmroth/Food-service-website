@@ -31,20 +31,21 @@ session_start();
   <script>
 		$(document).ready(function(){
 
-			/*$('.glyphicon-pencil').click(function(){
-				var id_prodotto = $(this).attr("id");
+			$('.hide-button').click(function(){
+				var id_prodotto = $(this).attr("name");
 				$.ajax({
-					url:"modal/modifica-prodotto.php",
+					url:"modal/nascondi.php",
 					method:"post",
+					data:{id_prodotto:id_prodotto},
 					success:function(data){
-						$('#dettagli_prodotto').html(data);
-						$('#data_modal_prodotti').modal("show");
+						console.log("id_prodotto");
 					}
 				});
-			});*/
+				setTimeout(function () { location.reload(true); }, 100);
+			});
 
 
-			$('.add-prd').click(function(){
+			/*$('.add-prd').click(function(){
 				$.ajax({
 					url:"modal/aggiungi-prodotto.php",
 					method:"post",
@@ -55,7 +56,7 @@ session_start();
 				});
 			});
 			
-			/*document.getElementById('.img-load').addEventListener("change", function(){
+			document.getElementById('.img-load').addEventListener("change", function(){
 				$('#immagine-caricata').setAttribute('src', this);
 				$.ajax({
 					url:"modal/aggiungi-prodotto.php",

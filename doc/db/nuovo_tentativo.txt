@@ -84,7 +84,21 @@ VALUES ('0', 'lunedì', '12:00', '14:00', '17:00', '19:30'),
 ('4','venerdì', '12:00', '14:00', '17:00', '19:30'),
 ('5','sabato', '12:00', '14:00', '17:00', '19:30'),
 ('6','domenica', '12:00', '14:00', '17:00', '19:30');
-	
+
+INSERT INTO ingrediente (id_ingrediente, nome_ingrediente, note_ingrediente, prezzo_aggiunta)
+VALUES ('6','mozzarella','formaggio','0.5'),
+('7','erbe','verdura','0.5'),
+('8','zucca','verdura','0.5'),
+('9','bresaola','affettato','0.5'),
+('10','cotto','affettato','0.5'),
+('11','pancetta','affettato','0.5'),
+('12','gorgonzola','formaggio','0.5'),
+('13','melanzane','verdura','0.5'),
+('14','zucchine','verdura','0.5'),
+('15','radicchio','verdura','0.5'),
+('16','noci','frutta','0.5'),
+('17','rucola','verdura','0.5');
+
 create table preferisce (
 	id_prodotto char(5) not null,
 	username char(20) not null,

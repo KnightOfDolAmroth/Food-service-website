@@ -43,7 +43,7 @@ $usr_img_path = $res->fetch_assoc();*/
              </div>
            </div>
         </li>-->
-        <li><a href="../homepage/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
   		</ul>
       </div>
     </div>
