@@ -31,8 +31,8 @@
 
 				</div>
 				<div class=" col-sm-2 col-md-2 ord-info" id="data">
-					<label class="ord-label"; for="info-data">data ordine:</label>
-					<span id="info-data" class="d-h">'.$row["data"].'</span>
+					<label class="ord-label"; for="info-data">totale:</label>
+					<span id="info-data" class="d-h">'.$row["totale"].' €</span>
 				</div>
 				<div class="col-sm-2 col-md-2 ord-info" id="recapito">
 					<label class="ord-label" for="info-recapito">recapito:</label>

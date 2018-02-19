@@ -103,7 +103,7 @@
       <div class="row col-titles" id="ord-titles">
         <div class="col-sm-2 col-md-2 field-title">utente</div>
         <div class="col-sm-2 col-md-2 field-title">codice</div>
-        <div class="col-sm-2 col-md-2 field-title">data</div>
+        <div class="col-sm-2 col-md-2 field-title">costo</div>
         <div class="col-sm-2 col-md-2 field-title">recapito</div>
         <div class="col-sm-2 col-md-2 field-title">consegna</div>
         <div class="col-sm-2 col-md-2 field-title">stato</div>

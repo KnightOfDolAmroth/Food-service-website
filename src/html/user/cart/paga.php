@@ -19,13 +19,14 @@
 			exit;
 		}
 		
-		//CAMBIO STATO
+		//CAMBIO STATO E COSTO
+		$totale = $_SESSION["totale"];
 		$codice_ordine = $_REQUEST["codice_ordine"];
 		$indirizzo = $_REQUEST["indirizzo"];
 		$campanello = $_REQUEST["campanello"];
 		$consegna = $_REQUEST["consegna"];
 		$sql = "UPDATE ordine
-				SET stato = 'inattivo', indirizzo_recapito = '$indirizzo', nome_campanello = '$campanello', consegna = '$consegna'
+				SET stato = 'inattivo', indirizzo_recapito = '$indirizzo', nome_campanello = '$campanello', consegna = '$consegna', totale = '$totale'
 				WHERE codice_ordine = '$codice_ordine'";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		$_SESSION["codice_ordine"] = $_REQUEST["codice_ordine"];
