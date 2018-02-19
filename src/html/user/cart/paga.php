@@ -69,7 +69,7 @@
 				VALUES ('$id_messaggio', '$user', '$oggetto', '$testo')";
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		
-		//INVIO EMAIL DI NOTIFICA
+		//INVIO EMAIL DI NOTIFICA USER
 		$headers = "From: prova@unibo.it";
 		$sql = "SELECT email
 				FROM utente
@@ -77,6 +77,17 @@
 		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 		$row = $result->fetch_assoc();
 		$email = $row["email"];
+		mail($email, $oggetto, $testo, $headers);
+		
+		//INVIO EMAIL DI NOTIFICA ADMIN
+		$headers = "From: prova@unibo.it";
+		$sql = "SELECT email
+				FROM utente
+				WHERE username = 'admin'";
+		$result = $conn->query($sql) or trigger_error($conn->error."[$sql]");
+		$row = $result->fetch_assoc();
+		$email = $row["email"];
+		$testo = "In arrivo un nuvo ordine (cod:".$codice_ordine.") da parte di ".$user.".";
 		mail($email, $oggetto, $testo, $headers);
 		header('Location: grazie.php');
 		exit;

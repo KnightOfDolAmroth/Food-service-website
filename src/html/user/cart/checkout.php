@@ -134,7 +134,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-md-12"><strong>Data e ora consegna:</strong></div>
-							<div class="col-md-12"><input required type="datetime-local" class="form-control" name="consegna" value=""/></div>
+							<div class="col-md-12"><input required type="datetime-local" class="form-control" name="consegna" value="anno-mese-giorno ora:minuti:secondi"/></div>
 						</div>
 						<div class="form-group">
 							<div class="col-md-12"><strong>Punti bonus:</strong></div>
