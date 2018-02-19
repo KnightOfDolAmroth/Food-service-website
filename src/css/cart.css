@@ -197,7 +197,7 @@ justify-content: flex-end;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
   }
 
@@ -205,8 +205,9 @@ justify-content: flex-end;
     padding: 0px;
   }
 
-  .c1, .c3, .c4, .c5, .c6, .c7{
+  .c1, .c3, .c4, .c5, .c6, .c7, .cart-footer{
     width: 100%;
   }
+
 
 }

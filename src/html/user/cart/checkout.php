@@ -54,11 +54,11 @@
 			});
 			setTimeout(function () { location.reload(true); }, 100);
 		});
-	});		
+	});
 </script>
 
 <body>
-	
+
 	<?php include '../navbar/carrello.html'; ?>
 
 	<div class="container wrapper">
@@ -102,7 +102,7 @@
 										$row = $result->fetch_assoc();
 										$codice_ordine = $row["codice_ordine"];
 									}
-									
+
 									//GESTIONE PUNTI
 									$sql = "SELECT punti
 										FROM utente
@@ -114,14 +114,14 @@
 									} else {
 										$punti_massimi = $row["punti"];
 									}
-									
+
 								?>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 total-row">
 								<strong class="totale">Totale</strong>
-								<div class="pull-right"><span class="euro">€</span><span><?php echo $_SESSION["totale"]; ?></span></div>
+								<div class="pull-right"><span class="euro">€</span><span><?php echo number_format((float)$_SESSION["totale"], 2, ',', ''); ?></span></div>
 							</div>
 						</div>
 						<div class="form-group">

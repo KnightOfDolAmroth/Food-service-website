@@ -109,10 +109,10 @@ if ($result->num_rows < 1) {
 									$_SESSION["totale_iniziale"] = $_SESSION["totale"];
 								?>
 								<div class="row" id="cart-tot">
-									<div class="cart-footer col-sm-push-4">
+									<div class="cart-footer">
 										<div class="part1">
 											<div id="tot-label">Totale</div>
-											<div id="tot">€ <?php echo $totale; ?></div>
+											<div id="tot">€ <?php echo number_format((float)$totale, 2, ',', ''); ?></div>
 										</div>
 
 										<div class="part2">

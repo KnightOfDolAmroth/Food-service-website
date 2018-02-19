@@ -6,7 +6,7 @@
 				<img class="img-responsive img-thumbnail" src="../'.$row["id_prodotto"].'" alt="immagine prodotto">
 			</div>
 			<div class="col-sm-6 col-xs-6">';
-			
+
 				/*INZIO QUERY*/
 				$id_prod = $row["id_prodotto"];
 				$sql = "SELECT *
@@ -14,7 +14,7 @@
 					WHERE id_prodotto = '$id_prod'";
 				$prodotto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 				$row1 = $prodotto->fetch_assoc();
-				
+
 				$id_dettaglio = $row['id_dettaglio'];
 				$sql = "SELECT *
 					FROM ingrediente
@@ -25,21 +25,21 @@
 					)";
 
 				$costo_aggiunte = 0;
-					
+
 				$aggiunte = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 				if ($aggiunte->num_rows>0) {
 					while ($row2 = $aggiunte->fetch_assoc()) {
 						$costo_aggiunte += $row2["prezzo_aggiunta"];
 					}
 				}
-					
+
 				$id_imp = $row['id_impasto'];
 				$sql = "SELECT *
 					FROM impasto
 					WHERE id_impasto = '$id_imp'";
 				$impasto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 				$row3 = $impasto->fetch_assoc();
-					
+
 				/*
 				* SPESA DEL SINGOLO DETTAGLIO ORDINE = q(b+I+A) = q(b+I+Σ(aj)) j:1->m
 				* q = QUANTITÀ
@@ -48,27 +48,27 @@
 				* A = PREZZO AGGIUNTE
 				*/
 				$quantità = $row['qta'];
-				
+
 				$sql = "SELECT *
 						FROM prodotto
 						WHERE id_prodotto = '$id_prod'";
 					$prodotto = $conn->query($sql) or trigger_error($conn->error."[$sql]");
 					$row4 = $prodotto->fetch_assoc();
-				
+
 				$base = $row4['prezzo_base'];
 				$impasto = $row3['prezzo'];
-				
+
 				$spesa = $quantità*($base + $impasto + $costo_aggiunte);
-				
+
 				/*FINE QUERY*/
 				$output .= '
 				<div class="col-xs-12 prod-name">'.$row1["nome_prodotto"].'</div>
 				<div class="col-xs-12 qta-cont"><small>Quantità:<span class="qta">'.$row["qta"].'</span></small></div>
 			</div>
 			<div class="col-sm-3 col-xs-3 text-right">
-				<h3><span class="euro">€</span>'.$spesa.'</h3>
+				<h3><span class="euro">€</span>'.number_format((float)$spesa, 2, ',', '').'</h3>
 			</div>
 		</div>';
-			
+
 	echo $output;
 ?>
