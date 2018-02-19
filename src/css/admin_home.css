@@ -160,7 +160,28 @@ label{
   width: 20%;
 }
 
+
+
 @media only screen and (max-width: 767px) {
+  #usr-ord-titles{
+    display: flex;
+    flex-direction: row;
+  }
+  .c1{
+    width: 20%;
+  }
+  .c2{
+    width: 20%;
+  }
+  .c3{
+    width: 20%;
+  }
+  .c4{
+    width: 20%;
+  }
+  .c5{
+    width: 20%;
+  }
   #det-titles{
     display: flex;
     flex-direction: row;
@@ -236,6 +257,25 @@ label{
     width: 25%;
   }
 }
+@media only screen and (max-width: 600px){
+
+      .c5{
+        width: 100%;
+      }
+    .col-sm-2.field-title.c5{
+      display: none;
+      width: 0%;
+    }
+
+    .c1, .c2, .c3, .c4{
+      width: 25%;
+    }
+
+    .btn_dettagli{
+      width: 80%;
+    }
+
+}
 @media only screen and (max-width: 490px){
   .det-label{
     display: block;
@@ -298,6 +338,17 @@ label{
 }
 @media only screen and (max-width: 360px){
 
+  .c1{
+    display: none;
+    width: 0%;
+  }
+
+  .c2{
+    width: 34%;
+  }
+  .c3, .c4{
+    width: 33%;
+  }
   #codice{
     width: 100%;
     margin-bottom: 10px;

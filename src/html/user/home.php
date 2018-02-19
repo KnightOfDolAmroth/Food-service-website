@@ -49,8 +49,8 @@
 				}
 			});
 		});
-		
-		$('.bottone_dettagli').click(function(){
+
+		$('.btn_dettagli').click(function(){
 			var codice_ordine = $(this).attr("value");
 			$.ajax({
 				url:"../admin/modal/dettagli.php",
@@ -109,17 +109,17 @@
 		</div>
     </div>
   </article>
-  
+
   <body>
   <br>
-    <div class="container">
+    <div id="cont" class="container-fluid">
       <legend>Storico ordini</legend>
-      <div class="row col-titles">
-        <div class="col-sm-2 field-title"></div>
-        <div class="col-sm-2 field-title">data e ora creazione</div>
-        <div class="col-sm-3 field-title">indirizzo e campanello</div>
-        <div class="col-sm-2 field-title">data e ora consegna</div>
-        <div class="col-sm-3 field-title">stato</div>
+      <div class="row col-titles" id="usr-ord-titles">
+        <div class="col-sm-2 field-title c1">data</div>
+        <div class="col-sm-3 field-title c2">recapito</div>
+        <div class="col-sm-2 field-title c3">consegna</div>
+        <div class="col-sm-3 field-title c4">stato</div>
+				        <div class="col-sm-2 field-title c5"></div>
       </div>
 	  <div class="ord-body">
 
@@ -140,7 +140,7 @@
 	  ?>
 	  </div>
 	</div>
-  
+
   <div class="modal fade" id="data_modal_dettagli" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
