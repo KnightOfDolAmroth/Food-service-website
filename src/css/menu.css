@@ -13,6 +13,7 @@
 .bkg img{
   width: 100%;
 }
+
 .navbar{
   margin-bottom: 0;
   border-radius: 0px;
@@ -21,9 +22,11 @@
 .tab-elements{
   text-align: center;
 }
+
 #tablist{
   background-color: #101010;
 }
+
 @media screen and (min-width:650px) {
   #tablist{
     display: flex;
@@ -52,7 +55,6 @@ body{
 .card-img{
   width: 100%;
 }
-
 
 .card-container{
   margin-top:10%;
