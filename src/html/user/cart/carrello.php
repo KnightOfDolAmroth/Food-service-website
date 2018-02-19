@@ -36,7 +36,7 @@ if ($result->num_rows < 1) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="../../../css/checkout.css" rel="stylesheet" type="text/css"/>
-  <link href="../../../css/empty-cart.css" rel="stylesheet" type="text/css"/>
+<!--  <link href="../../../css/empty-cart.css" rel="stylesheet" type="text/css"/>-->
   <link href="../../../css/cart.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -88,14 +88,14 @@ if ($result->num_rows < 1) {
 					<div class="panel-body">
 						<div class="" id="cart-body">
 							<div class="cart">
-								<div class="row titles hidden">
-									<div class="col-sm-3 col-lg-2"></div>
-									<div class="col-sm-hidden col-lg-4">Ingredienti</div>
-									<div class="col-sm-3 col-lg-2">Aggiunte</div>
-									<div class="col-sm-3 col-lg-1">Quantità</div>
-									<div class="col-sm-3 col-lg-1">Impasto</div>
-									<div class="col-sm-3 col-lg-1">Importo</div>
-									<div class="col-sm-3 col-lg-1"></div>
+								<div id="ttl" class="row titles ">
+									<div class="col-sm-3 col-lg-2 cl1"></div>
+									<div class="col-sm-3 col-lg-4 cl2">Ingredienti</div>
+									<div class="col-sm-3 col-lg-2 cl3">Aggiunte</div>
+									<div class="col-sm-3 col-lg-1 cl4">Quantità</div>
+									<div class="col-sm-3 col-lg-1 cl5">Impasto</div>
+									<div class="col-sm-3 col-lg-1 cl6">Importo</div>
+									<div class="col-sm-3 col-lg-1 cl7"></div>
 								</div>
 
 								<?php

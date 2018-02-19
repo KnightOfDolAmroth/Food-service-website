@@ -2,7 +2,7 @@
 	$output = '';
 	$output .= '
 		<div class="row cart-item">
-			<div class=" col-sm-3 col-lg-2 item-detail">
+			<div class=" col-sm-3 col-lg-2 item-detail cl1">
 				<img class="card-img img-rounded" src="../'.$row["id_prodotto"].'" alt="immagine prodotto">';
 
 				$id_prod = $row["id_prodotto"];
@@ -15,7 +15,7 @@
 				$output .= '
 				<p class="card-title">'.$row1["nome_prodotto"].'</p>
 			</div>
-			<div class=" col-sm-hidden col-lg-4  item-detail">
+			<div class=" col-sm-hidden col-lg-4  item-detail cl2">
 				<div class="card-body">
 					<p class="card-text">';
 
@@ -44,7 +44,7 @@
 					</p>
 				</div>
 			</div>
-			<div class=" col-sm-3 col-lg-2  item-detail">
+			<div class=" col-sm-3 col-lg-2  item-detail cl3">
 				<p>';
 
 				$id_dettaglio = $row['id_dettaglio'];
@@ -73,10 +73,10 @@
 				$output .= '
 				</p>
 			</div>
-			<div class=" col-sm-3 col-lg-1 item-detail">
+			<div class=" col-sm-3 col-lg-1 item-detail cl4">
 				<p>'.$row["qta"].'</p>
 			</div>
-			<div class=" col-sm-3 col-lg-1  item-detail">
+			<div class=" col-sm-3 col-lg-1  item-detail cl5">
 				<p>';
 
 				$id_imp = $row['id_impasto'];
@@ -93,7 +93,7 @@
 				$output .= '
 				</p>
 			</div>
-			<div class=" col-sm-3 col-lg-1  item-detail">
+			<div class=" col-sm-3 col-lg-1  item-detail cl6">
 				<p>€ ';
 
 				/*
@@ -121,7 +121,7 @@
 				$spesa
 				.'</p>
 			</div>
-			<div class="col-sm-3 col-lg-1 item-detail">
+			<div class="col-sm-3 col-lg-1 item-detail cl7">
 				<button type="button" class="btn btn-link btn-lg">
 				<span class="glyphicon glyphicon-trash" aria-hidden="true" value="'.$id_dettaglio.'"></span>
 				</button>
